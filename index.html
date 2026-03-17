@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Vinicius – Data Science & AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --purple-100:#CECBF6;--purple-200:#AFA9EC;--purple-400:#7F77DD;--purple-600:#534AB7;--purple-800:#3C3489;
+      --bg:#0f0e1a;--bg2:#16142b;--bg3:#1e1b36;--card:#1a1730;
+      --border:rgba(127,119,221,0.18);--text:#f0eeff;--text2:#a89fd8;--accent:#7F77DD;
+    }
+    html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);}
+    body{display:flex;min-height:100vh;}
+
+    /* SIDEBAR */
+    .sidebar{
+      width:240px;min-width:240px;background:var(--bg2);border-right:1px solid var(--border);
+      display:flex;flex-direction:column;align-items:center;padding:2rem 1.4rem;gap:1.2rem;
+      position:sticky;top:0;height:100vh;overflow-y:auto;
+    }
+    .avatar{
+      width:82px;height:82px;border-radius:18px;
+      background:linear-gradient(135deg,var(--purple-600),var(--purple-400));
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:#fff;
+      border:2px solid var(--purple-400);letter-spacing:1px;
+    }
+    .name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;text-align:center;color:var(--text);line-height:1.4;}
+    .role-badge{
+      background:rgba(127,119,221,0.15);border:1px solid var(--purple-400);
+      border-radius:20px;padding:4px 14px;font-size:11px;color:var(--purple-200);text-align:center;
+    }
+    .divider{width:100%;height:1px;background:var(--border);}
+    .contact-list{width:100%;display:flex;flex-direction:column;gap:10px;}
+    .contact-item{display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--text2);word-break:break-all;}
+    .contact-icon{
+      width:28px;height:28px;border-radius:7px;background:rgba(127,119,221,0.12);
+      border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    }
+    .contact-icon svg{width:13px;height:13px;fill:var(--purple-400);}
+    .contact-item a{color:var(--text2);text-decoration:none;}
+    .contact-item a:hover{color:var(--purple-200);}
+
+    /* MAIN */
+    .main{flex:1;overflow-y:auto;padding:2.5rem 3rem;}
+    .nav{display:flex;gap:6px;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
+    .nav-btn{
+      background:none;border:none;color:var(--text2);
+      font-family:'DM Sans',sans-serif;font-size:13.5px;padding:6px 15px;
+      border-radius:8px;cursor:pointer;transition:all 0.2s;
+    }
+    .nav-btn.active{background:rgba(127,119,221,0.2);color:var(--purple-200);border:1px solid var(--purple-400);}
+    .nav-btn:hover:not(.active){color:var(--text);background:rgba(255,255,255,0.04);}
+
+    .section{display:none;animation:fadeIn 0.25s ease;}
+    .section.active{display:block;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+    h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:var(--text);margin-bottom:6px;}
+    .underline{width:42px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:1.5rem;}
+    .about-text{font-size:14px;line-height:1.9;color:var(--text2);margin-bottom:1.8rem;max-width:680px;}
+    .skills-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:.9rem;}
+    .skills-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem;}
+    .skill-tag{
+      background:rgba(127,119,221,0.1);border:1px solid rgba(127,119,221,0.3);
+      border-radius:20px;padding:5px 14px;font-size:12px;color:var(--purple-200);
+    }
+    .studying-note{font-size:12.5px;color:var(--text2);margin-top:0.4rem;}
+
+    /* PROJECTS GRID */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:1.2rem;}
+    .project-card{
+      background:var(--card);border:1px solid var(--border);border-radius:14px;
+      padding:1.3rem;padding-bottom:3.2rem;cursor:pointer;
+      transition:all 0.25s;position:relative;overflow:hidden;
+    }
+    .project-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--purple-600),var(--purple-400));
+      border-radius:14px 14px 0 0;opacity:0;transition:opacity 0.25s;
+    }
+    .project-card:hover{border-color:var(--purple-400);transform:translateY(-4px);box-shadow:0 8px 32px rgba(83,74,183,0.18);}
+    .project-card:hover::before{opacity:1;}
+    .project-icon{
+      width:42px;height:42px;border-radius:10px;
+      background:rgba(127,119,221,0.15);border:1px solid rgba(127,119,221,0.3);
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:11px;font-size:18px;
+    }
+    .project-name{font-family:'Syne',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:6px;}
+    .project-desc{font-size:12px;color:var(--text2);line-height:1.55;}
+    .tags-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+    .tag{
+      background:rgba(127,119,221,0.1);border:1px solid rgba(127,119,221,0.2);
+      border-radius:12px;padding:3px 9px;font-size:10.5px;color:var(--purple-200);
+    }
+    .arrow-btn{
+      position:absolute;bottom:1.2rem;right:1.2rem;width:28px;height:28px;
+      border-radius:8px;background:rgba(127,119,221,0.15);border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;color:var(--purple-400);font-size:14px;
+    }
+
+    /* DETAIL */
+    .back-btn{
+      background:none;border:1px solid var(--border);border-radius:8px;
+      color:var(--text2);font-family:'DM Sans',sans-serif;font-size:12.5px;
+      padding:6px 14px;cursor:pointer;margin-bottom:1.5rem;
+      display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;
+    }
+    .back-btn:hover{color:var(--text);border-color:var(--purple-400);}
+    .detail-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.3rem;}
+    .detail-icon{
+      width:52px;height:52px;border-radius:13px;
+      background:rgba(127,119,221,0.15);border:1px solid rgba(127,119,221,0.3);
+      display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;
+    }
+    .detail-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--text);}
+    .detail-subtitle{font-size:13px;color:var(--text2);margin-top:4px;}
+    .detail-body{font-size:14px;line-height:1.9;color:var(--text2);margin-bottom:1.5rem;max-width:700px;}
+    .detail-body p{margin-bottom:1rem;}
+    .detail-body strong{color:var(--purple-200);font-weight:500;}
+    .section-label{
+      font-size:10px;text-transform:uppercase;letter-spacing:1.5px;
+      color:var(--purple-400);font-weight:500;margin-bottom:8px;margin-top:1.8rem;
+    }
+    .detail-actions{display:flex;gap:10px;flex-wrap:wrap;}
+    .btn-primary{
+      background:var(--purple-600);border:none;border-radius:10px;color:#fff;
+      font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:500;
+      padding:10px 20px;cursor:pointer;transition:all 0.2s;
+      text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+    }
+    .btn-primary:hover{background:var(--purple-400);}
+    .btn-outline{
+      background:none;border:1px solid var(--border);border-radius:10px;color:var(--text2);
+      font-family:'DM Sans',sans-serif;font-size:13.5px;padding:10px 20px;cursor:pointer;
+      transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+    }
+    .btn-outline:hover{border-color:var(--purple-400);color:var(--text);}
+
+    /* NLP Example */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:700px;}
+    .example-box{
+      background:var(--bg3);border:1px solid var(--border);
+      border-radius:10px;padding:1.2rem;font-size:12px;color:var(--text2);line-height:1.75;
+    }
+    .ex-title{font-family:'Syne',sans-serif;font-size:13px;color:var(--purple-200);font-weight:600;margin-bottom:9px;}
+    .metric-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding:4px 0;font-size:11.5px;}
+    .metric-row span:last-child{color:var(--purple-200);font-weight:500;}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      body{flex-direction:column;}
+      .sidebar{width:100%;height:auto;position:relative;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:1.2rem;}
+      .main{padding:1.5rem 1.2rem;}
+      .two-col{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="avatar">LV</div>
+  <div class="name">Lucas Vinicius<br>Oliveira Silva</div>
+  <div class="role-badge">Data Science &amp; AI</div>
+  <div class="divider"></div>
+  <div class="contact-list">
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
+      <a href="mailto:lucassvinicius937@gmail.com">lucassvinicius937@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.6-4.04-1.6-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.47.99.1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </div>
+      <a href="https://github.com/LucasDS9" target="_blank">github.com/LucasDS9</a>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+      </div>
+      <a href="https://linkedin.com/in/lucas-vinicius-a4054b2a9/" target="_blank">linkedin.com/in/lucas-vinicius</a>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <nav class="nav">
+    <button class="nav-btn active" onclick="showSection('about')">About</button>
+    <button class="nav-btn" onclick="showSection('projects')">Projects</button>
+  </nav>
+
+  <!-- ABOUT -->
+  <div class="section active" id="sec-about">
+    <h2>About Me</h2>
+    <div class="underline"></div>
+    <p class="about-text">
+      Sou estudante de Física com foco em Data Science e IA aplicada, interessado em construir sistemas completos — indo desde insights e modelagem até o deploy. Tenho interesse especial em sistemas reais de ML, NLP e aplicações com LLMs, sempre buscando construir soluções completas, reprodutíveis e próximas do ambiente de produção.
+    </p>
+    <div class="skills-title">Habilidades</div>
+    <div class="skills-wrap">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">PostgreSQL</span>
+      <span class="skill-tag">Machine Learning</span>
+      <span class="skill-tag">NLP</span>
+      <span class="skill-tag">RAG</span>
+      <span class="skill-tag">LLMs</span>
+      <span class="skill-tag">Inglês (avançado)</span>
+      <span class="skill-tag">Agentes de IA</span>
+      <span class="skill-tag">MCP</span>
+    </div>
+    <p class="studying-note">Atualmente estudando agentes de IA, MCP e integrando PostgreSQL nos projetos.</p>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section" id="sec-projects">
+    <h2>Projects</h2>
+    <div class="underline"></div>
+    <div class="projects-grid">
+
+      <div class="project-card" onclick="showDetail('rag')">
+        <div class="project-icon">📄</div>
+        <div class="project-name">Sistema RAG Q&amp;A (PT)</div>
+        <div class="project-desc">Q&amp;A sobre PDFs com LLMs e avaliação automática</div>
+        <div class="tags-wrap">
+          <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">ChromaDB</span><span class="tag">LangChain</span><span class="tag">Qwen2.5-1.5B</span>
+        </div>
+        <div class="arrow-btn">→</div>
+      </div>
+
+      <div class="project-card" onclick="showDetail('credit')">
+        <div class="project-icon">💳</div>
+        <div class="project-name">Aprovação de Crédito</div>
+        <div class="project-desc">Classificação, regressão e EDA para decisões bancárias</div>
+        <div class="tags-wrap">
+          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+        </div>
+        <div class="arrow-btn">→</div>
+      </div>
+
+      <div class="project-card" onclick="showDetail('nlp')">
+        <div class="project-icon">🛒</div>
+        <div class="project-name">Análise de Produtos Amazon (NLP)</div>
+        <div class="project-desc">Pipeline NLP + LLM para insights de reviews de clientes</div>
+        <div class="tags-wrap">
+          <span class="tag">spaCy</span><span class="tag">TF-IDF</span><span class="tag">Word2Vec</span><span class="tag">Qwen 0.5B</span><span class="tag">Prompt Eng.</span>
+        </div>
+        <div class="arrow-btn">→</div>
+      </div>
+
+      <div class="project-card" onclick="showDetail('churn')">
+        <div class="project-icon">📉</div>
+        <div class="project-name">Classificador de Churn Bancário</div>
+        <div class="project-desc">Predição de cancelamento com MLflow tracking e SMOTE</div>
+        <div class="tags-wrap">
+          <span class="tag">Sklearn</span><span class="tag">MLflow</span><span class="tag">SMOTE</span><span class="tag">GradientBoosting</span><span class="tag">Pandas</span>
+        </div>
+        <div class="arrow-btn">→</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DETAIL RAG -->
+  <div class="section" id="sec-rag">
+    <button class="back-btn" onclick="showSection('projects')">← Voltar aos projetos</button>
+    <div class="detail-header">
+      <div class="detail-icon">📄</div>
+      <div>
+        <div class="detail-title">Sistema RAG Q&amp;A (PT)</div>
+        <div class="detail-subtitle">Mini RAG PRO – Perguntas e Respostas com RAG em português</div>
+      </div>
+    </div>
+    <div class="tags-wrap" style="margin-bottom:1.4rem;">
+      <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">ChromaDB</span><span class="tag">LangChain</span><span class="tag">Qwen2.5-1.5B</span><span class="tag">Gradio</span>
+    </div>
+    <div class="detail-body">
+      <p>Sistema completo de <strong>Retrieval-Augmented Generation (RAG)</strong> desenvolvido em Python que permite realizar perguntas sobre documentos PDF utilizando embeddings semânticos, banco vetorial persistente, re-ranking neural e LLMs para geração de respostas contextualizadas em português.</p>
+      <p>O projeto implementa uma arquitetura moderna de IA generativa semelhante às utilizadas em aplicações reais como <strong>assistentes corporativos, sistemas jurídicos e chatbots especializados</strong>. Cobre todo o ciclo de vida RAG: ingestão de documentos, chunking adaptativo, geração de embeddings, indexação vetorial, recuperação semântica, re-ranking e avaliação quantitativa.</p>
+      <p>A arquitetura integra <strong>ChromaDB</strong> como banco vetorial persistente, <strong>LangChain Text Splitters</strong> para chunking adaptativo com granularidade variável, e <strong>Transformers</strong> para execução do modelo generativo Qwen2.5-1.5B. O sistema inclui ainda um módulo de <strong>avaliação automática LLM-as-Judge</strong> com métricas de relevância, coerência, correção e completude, complementado por similaridade de embeddings para fidelidade e concisão.</p>
+    </div>
+    <div class="section-label">Testar o modelo</div>
+    <div class="detail-actions">
+      <a class="btn-primary" href="https://huggingface.co/spaces/LucasDS9/MiniRAG-PT" target="_blank">🚀 Abrir no Hugging Face</a>
+    </div>
+  </div>
+
+  <!-- DETAIL CREDIT -->
+  <div class="section" id="sec-credit">
+    <button class="back-btn" onclick="showSection('projects')">← Voltar aos projetos</button>
+    <div class="detail-header">
+      <div class="detail-icon">💳</div>
+      <div>
+        <div class="detail-title">Sistema de Aprovação de Crédito</div>
+        <div class="detail-subtitle">ML end-to-end para decisões bancárias de empréstimo</div>
+      </div>
+    </div>
+    <div class="tags-wrap" style="margin-bottom:1.4rem;">
+      <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Regressão Linear</span><span class="tag">Pandas</span><span class="tag">Numpy</span><span class="tag">Matplotlib</span>
+    </div>
+    <div class="detail-body">
+      <p>Projeto completo de <strong>Machine Learning</strong> focado em prever aprovação de empréstimos bancários. Além da <strong>classificação binária</strong>, o projeto realiza regressão para estimar a taxa de juros ideal para cada cliente aprovado — uma solução end-to-end para decisões de crédito.</p>
+      <p>Combina <strong>EDA aprofundada com insights estratégicos</strong>, regras de negócio customizadas, <strong>RandomForestClassifier</strong> para aprovação e regressão linear para precificação de taxas. O notebook inclui análise detalhada dos fatores que mais impactam a concessão de crédito.</p>
+      <p>A solução auxilia instituições financeiras a <strong>reduzir riscos, automatizar processos e otimizar taxas oferecidas</strong>, sendo facilmente expansível para cenários reais de produção.</p>
+    </div>
+    <div class="section-label">Testar &amp; Explorar</div>
+    <div class="detail-actions">
+      <a class="btn-primary" href="https://loan-approval-project-yyfi.onrender.com" target="_blank">🚀 Testar o modelo</a>
+      <a class="btn-outline" href="https://github.com/LucasDS9/Loan_approval-project/blob/main/notebooks/loan_full_project.ipynb" target="_blank">📓 Notebook (EDA + implementação)</a>
+    </div>
+  </div>
+
+  <!-- DETAIL NLP -->
+  <div class="section" id="sec-nlp">
+    <button class="back-btn" onclick="showSection('projects')">← Voltar aos projetos</button>
+    <div class="detail-header">
+      <div class="detail-icon">🛒</div>
+      <div>
+        <div class="detail-title">Análise de Produtos Amazon (NLP)</div>
+        <div class="detail-subtitle">Pipeline NLP + LLM sobre o dataset Amazon Fine Foods</div>
+      </div>
+    </div>
+    <div class="tags-wrap" style="margin-bottom:1.4rem;">
+      <span class="tag">spaCy</span><span class="tag">TF-IDF</span><span class="tag">Word2Vec</span><span class="tag">Qwen 0.5B</span><span class="tag">Prompt Engineering</span><span class="tag">Python</span>
+    </div>
+    <div class="detail-body">
+      <p>Pipeline completo de <strong>Processamento de Linguagem Natural (NLP)</strong> voltado à extração de insights estruturados a partir de avaliações textuais do <strong>Amazon Fine Foods dataset</strong>. O objetivo é transformar reviews não estruturadas em informações estratégicas por produto, combinando técnicas clássicas de NLP com análise via LLMs.</p>
+      <p>O pipeline cobre todas as etapas: ingestão dos dados, limpeza textual e feature engineering, <strong>vetorização via TF-IDF e Word2Vec</strong>, agregação de sentimento por produto e geração de métricas estruturadas. O modelo <strong>Qwen 0.5B</strong> é utilizado com prompt engineering para gerar insights executivos, analisar críticas e recomendar melhorias por produto.</p>
+      <p>Em ambiente corporativo, pode ser aplicado para <strong>monitoramento de produtos, análise da experiência do cliente, apoio à tomada de decisão e escalabilidade analítica</strong> — substituindo análises manuais por um pipeline automatizado de NLP + LLM.</p>
+    </div>
+    <div class="section-label">Exemplo de output do modelo</div>
+    <div class="two-col">
+      <div class="example-box">
+        <div class="ex-title">🇧🇷 Português</div>
+        <div class="metric-row"><span>Sentimento geral</span><span>Neutro</span></div>
+        <div class="metric-row"><span>Reviews negativas</span><span>19,5%</span></div>
+        <div class="metric-row"><span>Reviews neutras</span><span>47,2%</span></div>
+        <div class="metric-row"><span>Reviews positivas</span><span>33,3%</span></div>
+        <div class="metric-row"><span>Score médio</span><span>3,69 / 5</span></div>
+        <div style="margin-top:9px;font-size:11.5px;">Palavras-chave TF-IDF: <strong style="color:var(--purple-200);">chocolate, amêndoa, cacau, sabor, nozes</strong></div>
+        <div style="margin-top:7px;font-size:11.5px;">Visão executiva: produto com qualidade satisfatória, com margem de melhoria em consistência de sabor e ingredientes.</div>
+      </div>
+      <div class="example-box">
+        <div class="ex-title">🇺🇸 English</div>
+        <div class="metric-row"><span>Overall sentiment</span><span>Neutral</span></div>
+        <div class="metric-row"><span>Negative reviews</span><span>19.5%</span></div>
+        <div class="metric-row"><span>Neutral reviews</span><span>47.2%</span></div>
+        <div class="metric-row"><span>Positive reviews</span><span>33.3%</span></div>
+        <div class="metric-row"><span>Average score</span><span>3.69 / 5</span></div>
+        <div style="margin-top:9px;font-size:11.5px;">TF-IDF keywords: <strong style="color:var(--purple-200);">chocolate, almond, cocoa, taste, nut</strong></div>
+        <div style="margin-top:7px;font-size:11.5px;">Executive overview: decent overall quality, room for improvement in taste consistency and ingredient standards.</div>
+      </div>
+    </div>
+    <div class="section-label">Testar o modelo</div>
+    <div class="detail-actions">
+      <a class="btn-primary" href="https://huggingface.co/spaces/LucasDS9/nlp-product-review-analysis" target="_blank">🚀 Abrir no Hugging Face</a>
+    </div>
+  </div>
+
+  <!-- DETAIL CHURN -->
+  <div class="section" id="sec-churn">
+    <button class="back-btn" onclick="showSection('projects')">← Voltar aos projetos</button>
+    <div class="detail-header">
+      <div class="detail-icon">📉</div>
+      <div>
+        <div class="detail-title">Classificador de Churn Bancário</div>
+        <div class="detail-subtitle">Predição de cancelamento com MLflow tracking e SMOTE</div>
+      </div>
+    </div>
+    <div class="tags-wrap" style="margin-bottom:1.4rem;">
+      <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">MLflow</span><span class="tag">SMOTE</span><span class="tag">GradientBoosting</span><span class="tag">RandomForest</span><span class="tag">Pandas</span><span class="tag">Seaborn</span>
+    </div>
+    <div class="detail-body">
+      <p>Projeto completo de <strong>Machine Learning</strong> focado em prever quais clientes bancários têm maior probabilidade de cancelar seus serviços (churn). Além da predição binária, o projeto identifica os <strong>principais fatores que influenciam o cancelamento</strong>, entregando insights estratégicos para retenção de clientes.</p>
+      <p>O pipeline utiliza <strong>SMOTE para balanceamento de classes</strong>, encapsulado em um pipeline scikit-learn com pré-processamento via ColumnTransformer e OrdinalEncoder. Três modelos foram avaliados — <strong>Logistic Regression, Random Forest e Gradient Boosting</strong> — todos rastreados com <strong>MLflow autolog</strong>, incluindo métricas ROC-AUC, relatórios de classificação e confusion matrix. O modelo campeão é registrado no MLflow Model Registry com alias <em>champion</em>.</p>
+      <p>O <strong>notebook inclui EDA completa, insights sobre perfil de churn e implementação detalhada</strong> de todas as etapas do pipeline. Um threshold customizado de 0.35 foi definido para maximizar recall, priorizando a identificação correta de clientes em risco.</p>
+    </div>
+    <div class="section-label">Testar &amp; Explorar</div>
+    <div class="detail-actions">
+      <a class="btn-primary" href="https://customer-churn-project-d7xs.onrender.com" target="_blank">🚀 Testar o modelo</a>
+      <a class="btn-outline" href="https://github.com/LucasDS9/Customer-churn-project-/blob/main/notebook/Customer_churn.ipynb" target="_blank">📓 Notebook (EDA + implementação)</a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  function showSection(name) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    if (name === 'about') {
+      document.getElementById('sec-about').classList.add('active');
+      document.querySelectorAll('.nav-btn')[0].classList.add('active');
+    } else if (name === 'projects') {
+      document.getElementById('sec-projects').classList.add('active');
+      document.querySelectorAll('.nav-btn')[1].classList.add('active');
+    }
+  }
+  function showDetail(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('sec-' + id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
