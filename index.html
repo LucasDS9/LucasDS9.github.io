@@ -556,8 +556,8 @@
 
 </main>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function showSection(name) {
+<script>
+  window.showSection = function(name) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     if (name === 'about') {
@@ -566,3 +566,13 @@
     } else if (name === 'projects') {
       document.getElementById('sec-projects').classList.add('active');
       document.querySelectorAll('.nav-btn')[1].classList.add('active');
+    }
+  };
+  window.showDetail = function(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('sec-' + id).classList.add('active');
+    window.scrollTo(0, 0);
+  };
+</script>
+</body>
+</html>
