@@ -11,8 +11,12 @@
     *{box-sizing:border-box;margin:0;padding:0;}
     :root{
       --purple-100:#CECBF6;--purple-200:#AFA9EC;--purple-400:#7F77DD;--purple-600:#534AB7;--purple-800:#3C3489;
-      --bg:#0f0e1a;--bg2:#16142b;--bg3:#1e1b36;--card:#1a1730;
-      --border:rgba(127,119,221,0.18);--text:#f0eeff;--text2:#a89fd8;--accent:#7F77DD;
+      --bg:#080810;--bg2:#0d0d18;--bg3:#0e0e1c;--bg4:#111120;--card:#0e0e1c;
+      --border:rgba(123,111,232,0.12);--border-glow:rgba(123,111,232,0.35);
+      --text:#e8e6ff;--text2:#8884aa;--text3:#55527a;--accent:#7B6FE8;
+      --amber:#EF9F27;--amber-dim:rgba(239,159,39,0.07);--amber-border:rgba(239,159,39,0.22);
+      --green:#1D9E75;--green-dim:rgba(29,158,117,0.1);--green-border:rgba(29,158,117,0.25);
+      --red:#E24B4A;--red-dim:rgba(226,75,74,0.1);--red-border:rgba(226,75,74,0.25);
     }
     html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);}
     body{display:flex;min-height:100vh;}
@@ -24,53 +28,56 @@
       position:sticky;top:0;height:100vh;overflow-y:auto;
     }
     .avatar{
-      width:82px;height:82px;border-radius:18px;
-      background:linear-gradient(135deg,var(--purple-600),var(--purple-400));
+      width:82px;height:82px;border-radius:16px;
+      background:var(--bg3);
       display:flex;align-items:center;justify-content:center;
-      font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:#fff;
-      border:2px solid var(--purple-400);letter-spacing:1px;
+      font-family:'Syne',sans-serif;font-size:28px;font-weight:700;
+      color:var(--accent);border:1px solid var(--border-glow);
+      outline:1px solid rgba(123,111,232,0.08);outline-offset:4px;
     }
     .name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;text-align:center;color:var(--text);line-height:1.4;}
     .role-badge{
-      background:rgba(127,119,221,0.15);border:1px solid var(--purple-400);
-      border-radius:20px;padding:4px 14px;font-size:11px;color:var(--purple-200);text-align:center;
+      background:rgba(123,111,232,0.08);border:1px solid rgba(123,111,232,0.25);
+      border-radius:20px;padding:4px 14px;font-size:11px;color:var(--accent);
+      text-align:center;letter-spacing:0.5px;
     }
     .divider{width:100%;height:1px;background:var(--border);}
     .contact-list{width:100%;display:flex;flex-direction:column;gap:10px;}
     .contact-item{display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--text2);word-break:break-all;}
     .contact-icon{
-      width:28px;height:28px;border-radius:7px;background:rgba(127,119,221,0.12);
+      width:28px;height:28px;border-radius:7px;background:rgba(123,111,232,0.07);
       border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;
     }
-    .contact-icon svg{width:13px;height:13px;fill:var(--purple-400);}
-    .contact-item a{color:var(--text2);text-decoration:none;}
-    .contact-item a:hover{color:var(--purple-200);}
+    .contact-icon svg{width:13px;height:13px;fill:var(--accent);}
+    .contact-item a{color:var(--text2);text-decoration:none;transition:color 0.2s;}
+    .contact-item a:hover{color:var(--accent);}
 
     /* MAIN */
     .main{flex:1;overflow-y:auto;padding:2.5rem 3rem;}
-    .nav{display:flex;gap:6px;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
+    .nav{display:flex;gap:4px;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
     .nav-btn{
-      background:none;border:none;color:var(--text2);
+      background:none;border:none;color:var(--text3);
       font-family:'DM Sans',sans-serif;font-size:13.5px;padding:6px 15px;
-      border-radius:8px;cursor:pointer;transition:all 0.2s;
+      border-radius:8px;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;
     }
-    .nav-btn.active{background:rgba(127,119,221,0.2);color:var(--purple-200);border:1px solid var(--purple-400);}
-    .nav-btn:hover:not(.active){color:var(--text);background:rgba(255,255,255,0.04);}
+    .nav-btn.active{background:rgba(123,111,232,0.1);color:var(--accent);border:1px solid rgba(123,111,232,0.3);}
+    .nav-btn:hover:not(.active){color:var(--text);background:rgba(255,255,255,0.03);}
 
     .section{display:none;animation:fadeIn 0.25s ease;}
     .section.active{display:block;}
     @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 
     h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:var(--text);margin-bottom:6px;}
-    .underline{width:42px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:1.5rem;}
+    .underline{width:32px;height:2px;background:var(--accent);border-radius:2px;margin-bottom:1.5rem;opacity:0.7;}
     .about-text{font-size:14px;line-height:1.9;color:var(--text2);margin-bottom:1.8rem;max-width:680px;}
-    .skills-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:.9rem;}
+    .skills-title{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--text3);font-weight:500;margin-bottom:.9rem;}
     .skills-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem;}
     .skill-tag{
-      background:rgba(127,119,221,0.1);border:1px solid rgba(127,119,221,0.3);
-      border-radius:20px;padding:5px 14px;font-size:12px;color:var(--purple-200);
+      background:rgba(123,111,232,0.06);border:1px solid rgba(123,111,232,0.18);
+      border-radius:6px;padding:5px 14px;font-size:12px;color:var(--text2);
+      transition:all 0.2s;cursor:default;
     }
-    .studying-note{font-size:12.5px;color:var(--text2);margin-top:0.4rem;}
+    .skill-tag:hover{border-color:rgba(123,111,232,0.5);color:var(--accent);background:rgba(123,111,232,0.1);}
 
     /* PROJECTS GRID */
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:1.2rem;}
@@ -80,15 +87,15 @@
       transition:all 0.25s;position:relative;overflow:hidden;
     }
     .project-card::before{
-      content:'';position:absolute;top:0;left:0;right:0;height:3px;
-      background:linear-gradient(90deg,var(--purple-600),var(--purple-400));
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--purple-600),var(--accent));
       border-radius:14px 14px 0 0;opacity:0;transition:opacity 0.25s;
     }
-    .project-card:hover{border-color:var(--purple-400);transform:translateY(-4px);box-shadow:0 8px 32px rgba(83,74,183,0.18);}
+    .project-card:hover{border-color:rgba(123,111,232,0.4);transform:translateY(-4px);}
     .project-card:hover::before{opacity:1;}
     .project-icon{
       width:42px;height:42px;border-radius:10px;
-      background:rgba(127,119,221,0.15);border:1px solid rgba(127,119,221,0.3);
+      background:rgba(123,111,232,0.08);border:1px solid rgba(123,111,232,0.2);
       display:flex;align-items:center;justify-content:center;
       margin-bottom:11px;font-size:18px;
     }
@@ -96,14 +103,40 @@
     .project-desc{font-size:12px;color:var(--text2);line-height:1.55;}
     .tags-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
     .tag{
-      background:rgba(127,119,221,0.1);border:1px solid rgba(127,119,221,0.2);
-      border-radius:12px;padding:3px 9px;font-size:10.5px;color:var(--purple-200);
+      background:rgba(123,111,232,0.07);border:1px solid rgba(123,111,232,0.18);
+      border-radius:12px;padding:3px 9px;font-size:10.5px;color:var(--text2);
     }
     .arrow-btn{
       position:absolute;bottom:1.2rem;right:1.2rem;width:28px;height:28px;
-      border-radius:8px;background:rgba(127,119,221,0.15);border:1px solid var(--border);
-      display:flex;align-items:center;justify-content:center;color:var(--purple-400);font-size:14px;
+      border-radius:8px;background:rgba(123,111,232,0.08);border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:14px;
     }
+
+    /* WIP CARD */
+    .wip-card{
+      background:var(--amber-dim);border:1px dashed var(--amber-border);
+      border-radius:14px;padding:1.3rem;position:relative;overflow:hidden;
+    }
+    .wip-badge{
+      display:inline-flex;align-items:center;gap:5px;
+      background:rgba(239,159,39,0.1);border:1px solid var(--amber-border);
+      border-radius:6px;padding:3px 9px;font-size:10px;font-weight:500;
+      color:var(--amber);letter-spacing:0.5px;margin-bottom:10px;
+    }
+    .wip-icon{
+      width:42px;height:42px;border-radius:10px;
+      background:rgba(239,159,39,0.06);border:1px solid var(--amber-border);
+      display:flex;align-items:center;justify-content:center;margin-bottom:11px;font-size:18px;
+    }
+    .wip-name{font-family:'Syne',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:6px;opacity:0.85;}
+    .wip-desc{font-size:12px;color:var(--text2);line-height:1.55;opacity:0.75;}
+    .wip-tag{
+      background:rgba(239,159,39,0.07);border:1px solid rgba(239,159,39,0.18);
+      border-radius:12px;padding:3px 9px;font-size:10.5px;color:var(--amber);opacity:0.85;
+    }
+    .wip-progress{margin-top:14px;height:2px;background:rgba(239,159,39,0.1);border-radius:2px;overflow:hidden;}
+    .wip-progress-fill{height:100%;width:25%;background:var(--amber);border-radius:2px;opacity:0.5;}
+    .wip-progress-label{font-size:10px;color:var(--amber);opacity:0.5;margin-top:4px;letter-spacing:0.5px;}
 
     /* DETAIL */
     .back-btn{
@@ -112,11 +145,11 @@
       padding:6px 14px;cursor:pointer;margin-bottom:1.5rem;
       display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;
     }
-    .back-btn:hover{color:var(--text);border-color:var(--purple-400);}
+    .back-btn:hover{color:var(--text);border-color:var(--accent);}
     .detail-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.3rem;}
     .detail-icon{
       width:52px;height:52px;border-radius:13px;
-      background:rgba(127,119,221,0.15);border:1px solid rgba(127,119,221,0.3);
+      background:rgba(123,111,232,0.08);border:1px solid rgba(123,111,232,0.2);
       display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;
     }
     .detail-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--text);}
@@ -126,7 +159,7 @@
     .detail-body strong{color:var(--purple-200);font-weight:500;}
     .section-label{
       font-size:10px;text-transform:uppercase;letter-spacing:1.5px;
-      color:var(--purple-400);font-weight:500;margin-bottom:8px;margin-top:1.8rem;
+      color:var(--accent);font-weight:500;margin-bottom:8px;margin-top:1.8rem;
     }
     .detail-actions{display:flex;gap:10px;flex-wrap:wrap;}
     .btn-primary{
@@ -135,30 +168,70 @@
       padding:10px 20px;cursor:pointer;transition:all 0.2s;
       text-decoration:none;display:inline-flex;align-items:center;gap:8px;
     }
-    .btn-primary:hover{background:var(--purple-400);}
+    .btn-primary:hover{background:var(--accent);}
     .btn-outline{
       background:none;border:1px solid var(--border);border-radius:10px;color:var(--text2);
       font-family:'DM Sans',sans-serif;font-size:13.5px;padding:10px 20px;cursor:pointer;
       transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
     }
-    .btn-outline:hover{border-color:var(--purple-400);color:var(--text);}
+    .btn-outline:hover{border-color:var(--accent);color:var(--text);}
 
-    /* NLP Example */
+    /* EXAMPLE BOXES */
     .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:700px;}
     .example-box{
-      background:var(--bg3);border:1px solid var(--border);
+      background:var(--bg4);border:1px solid var(--border);
       border-radius:10px;padding:1.2rem;font-size:12px;color:var(--text2);line-height:1.75;
     }
-    .ex-title{font-family:'Syne',sans-serif;font-size:13px;color:var(--purple-200);font-weight:600;margin-bottom:9px;}
-    .metric-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding:4px 0;font-size:11.5px;}
-    .metric-row span:last-child{color:var(--purple-200);font-weight:500;}
+    .ex-title{font-family:'Syne',sans-serif;font-size:13px;color:var(--text);font-weight:600;margin-bottom:9px;}
+    .metric-row{display:flex;justify-content:space-between;border-bottom:1px solid rgba(123,111,232,0.07);padding:4px 0;font-size:11.5px;}
+    .metric-row:last-child{border-bottom:none;}
+    .metric-row span:last-child{color:var(--accent);font-weight:500;}
+
+    /* RAG EXAMPLE */
+    .rag-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:700px;margin-bottom:12px;}
+    .rag-card{background:var(--bg4);border:1px solid var(--border);border-radius:10px;padding:1rem;}
+    .rag-card-title{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:10px;}
+    .judge-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+    .judge-label{font-size:11px;color:var(--text2);width:85px;flex-shrink:0;}
+    .bar-track{flex:1;height:4px;background:rgba(123,111,232,0.1);border-radius:2px;overflow:hidden;}
+    .bar-fill{height:100%;border-radius:2px;background:var(--accent);opacity:0.7;}
+    .judge-score{font-size:11px;color:var(--accent);width:28px;text-align:right;}
+    .rag-note{font-size:11.5px;color:var(--text3);line-height:1.65;padding:10px 12px;background:var(--bg4);border-radius:8px;border-left:2px solid rgba(123,111,232,0.25);max-width:700px;}
+
+    /* LOAN EXAMPLE */
+    .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:700px;margin-bottom:14px;}
+    .case-card{background:var(--bg4);border-radius:10px;padding:1rem;border:1px solid var(--border);}
+    .case-card.denied{border-color:var(--red-border);}
+    .case-card.approved{border-color:var(--green-border);}
+    .case-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:3px 9px;border-radius:5px;margin-bottom:10px;}
+    .case-badge.denied{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border);}
+    .case-badge.approved{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
+    .case-info-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(123,111,232,0.06);font-size:12px;}
+    .case-info-row:last-child{border-bottom:none;}
+    .case-info-row span:first-child{color:var(--text3);}
+    .case-info-row span:last-child{color:var(--text2);font-weight:500;}
+    .feat-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+    .feat-name{font-size:11px;color:var(--text2);width:130px;flex-shrink:0;}
+    .feat-track{flex:1;height:3px;background:rgba(123,111,232,0.1);border-radius:2px;overflow:hidden;max-width:560px;}
+    .feat-fill{height:100%;border-radius:2px;background:var(--accent);opacity:0.6;}
+    .feat-pct{font-size:11px;color:var(--text3);width:38px;text-align:right;}
+    .denial-box{background:var(--red-dim);border:1px solid var(--red-border);border-radius:8px;padding:10px 14px;margin-bottom:12px;max-width:700px;}
+    .denial-box-title{font-size:11px;font-weight:500;color:var(--red);margin-bottom:5px;}
+    .denial-box p{font-size:12px;color:var(--text2);line-height:1.7;}
+    .approval-box{background:var(--green-dim);border:1px solid var(--green-border);border-radius:8px;padding:12px 14px;max-width:700px;}
+    .approval-box-title{font-size:11px;font-weight:500;color:var(--green);margin-bottom:10px;}
+    .approval-values{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .approval-val{text-align:center;}
+    .approval-val .val{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--green);}
+    .approval-val .lbl{font-size:10px;color:var(--text3);margin-top:2px;}
 
     /* RESPONSIVE */
     @media(max-width:768px){
       body{flex-direction:column;}
       .sidebar{width:100%;height:auto;position:relative;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:1.2rem;}
       .main{padding:1.5rem 1.2rem;}
-      .two-col{grid-template-columns:1fr;}
+      .two-col,.rag-grid,.cases-grid{grid-template-columns:1fr;}
+      .approval-values{grid-template-columns:1fr 1fr;}
     }
   </style>
 </head>
@@ -175,7 +248,7 @@
       <div class="contact-icon">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       </div>
-      <a href="mailto:lucassvinicius937@gmail.com">lucassvinicius937@gmail.com</a>
+      <a href="mailto:lucasvinids@gmail.com">lucasvinids@gmail.com</a>
     </div>
     <div class="contact-item">
       <div class="contact-icon">
@@ -201,7 +274,7 @@
 
   <!-- ABOUT -->
   <div class="section active" id="sec-about">
-    <h2>Sobre mim : </h2>
+    <h2>About Me</h2>
     <div class="underline"></div>
     <p class="about-text">
       Sou estudante de Física com foco em Data Science e IA aplicada, interessado em construir sistemas completos — indo desde insights e modelagem até o deploy. Tenho interesse especial em sistemas reais de ML, NLP e aplicações com LLMs, sempre buscando construir soluções completas, reprodutíveis e próximas do ambiente de produção.
@@ -215,15 +288,13 @@
       <span class="skill-tag">RAG</span>
       <span class="skill-tag">LLMs</span>
       <span class="skill-tag">Inglês (avançado)</span>
-      <span class="skill-tag">Agentes de IA</span>
-      <span class="skill-tag">MCP</span>
+      <span class="skill-tag">Docker</span>
     </div>
-    <p class="studying-note">Atualmente estudando agentes de IA, MCP e integrando PostgreSQL nos projetos.</p>
   </div>
 
   <!-- PROJECTS -->
   <div class="section" id="sec-projects">
-    <h2>Projetos</h2>
+    <h2>Projects</h2>
     <div class="underline"></div>
     <div class="projects-grid">
 
@@ -267,6 +338,21 @@
         <div class="arrow-btn">→</div>
       </div>
 
+      <div class="wip-card">
+        <div class="wip-badge">⚙ Em construção</div>
+        <div class="wip-icon">🤖</div>
+        <div class="wip-name">Agentes de IA com MCP e PostgreSQL</div>
+        <div class="wip-desc">Sistema de agentes autônomos integrando MCP para orquestração e PostgreSQL como camada de persistência.</div>
+        <div class="tags-wrap" style="margin-top:10px;">
+          <span class="wip-tag">Agentes de IA</span>
+          <span class="wip-tag">MCP</span>
+          <span class="wip-tag">PostgreSQL</span>
+          <span class="wip-tag">Python</span>
+        </div>
+        <div class="wip-progress"><div class="wip-progress-fill"></div></div>
+        <div class="wip-progress-label">Em desenvolvimento</div>
+      </div>
+
     </div>
   </div>
 
@@ -286,11 +372,37 @@
     <div class="detail-body">
       <p>Sistema completo de <strong>Retrieval-Augmented Generation (RAG)</strong> desenvolvido em Python que permite realizar perguntas sobre documentos PDF utilizando embeddings semânticos, banco vetorial persistente, re-ranking neural e LLMs para geração de respostas contextualizadas em português.</p>
       <p>O projeto implementa uma arquitetura moderna de IA generativa semelhante às utilizadas em aplicações reais como <strong>assistentes corporativos, sistemas jurídicos e chatbots especializados</strong>. Cobre todo o ciclo de vida RAG: ingestão de documentos, chunking adaptativo, geração de embeddings, indexação vetorial, recuperação semântica, re-ranking e avaliação quantitativa.</p>
-      <p>A arquitetura integra <strong>ChromaDB</strong> como banco vetorial persistente, <strong>LangChain Text Splitters</strong> para chunking adaptativo com granularidade variável, e <strong>Transformers</strong> para execução do modelo generativo Qwen2.5-1.5B. O sistema inclui ainda um módulo de <strong>avaliação automática LLM-as-Judge</strong> com métricas de relevância, coerência, correção e completude, complementado por similaridade de embeddings para fidelidade e concisão.</p>
+      <p>A arquitetura integra <strong>ChromaDB</strong> como banco vetorial persistente, <strong>LangChain Text Splitters</strong> para chunking adaptativo, e <strong>Transformers</strong> para execução do modelo generativo Qwen2.5-1.5B. O sistema inclui um módulo de <strong>avaliação automática LLM-as-Judge</strong> com métricas de relevância, coerência, correção e completude, complementado por BLEU, ROUGE e métricas de Information Retrieval.</p>
+    </div>
+    <div class="section-label">Exemplo de avaliação — evaluation.ipynb</div>
+    <div class="rag-grid">
+      <div class="rag-card">
+        <div class="rag-card-title">Métricas de Retrieval (IR) — Qwen 0.5B</div>
+        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">Mean F1@3</span><span style="font-size:12px;color:var(--accent);font-weight:500;">0.5111</span></div>
+        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">Mean MRR</span><span style="font-size:12px;color:#1D9E75;font-weight:500;">1.0000</span></div>
+        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">Mean nDCG@3</span><span style="font-size:12px;color:var(--accent);font-weight:500;">0.6941</span></div>
+        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">Latência média</span><span style="font-size:12px;color:var(--text2);font-weight:500;">4.33s</span></div>
+        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">BLEU médio</span><span style="font-size:12px;color:var(--text2);font-weight:500;">0.2255</span></div>
+        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">ROUGE-L médio</span><span style="font-size:12px;color:var(--accent);font-weight:500;">0.5270</span></div>
+        <div style="margin-top:8px;font-size:10.5px;color:var(--text3);line-height:1.5;">Queries: "Explique como a IA usa matemática…" · "Como redes neurais se inspiram no cérebro?" · "Quais tarefas as máquinas realizam melhor?"</div>
+      </div>
+      <div class="rag-card">
+        <div class="rag-card-title">LLM-as-Judge — "3 diferenças entre cérebro humano e máquinas"</div>
+        <div class="judge-row"><span class="judge-label">Relevância</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="judge-score">8.0</span></div>
+        <div class="judge-row"><span class="judge-label">Fidelidade</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="judge-score">8.0</span></div>
+        <div class="judge-row"><span class="judge-label">Correção</span><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="judge-score">9.0</span></div>
+        <div class="judge-row"><span class="judge-label">Completude</span><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div><span class="judge-score">8.5</span></div>
+        <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(123,111,232,0.1);font-size:10.5px;color:var(--text3);line-height:1.5;">BLEU/ROUGE calculados com TinyLlama-1.1B · Queries: "Diferencie como humanos e máquinas processam informação" e "A máquina tem metacognição?"</div>
+        <div style="margin-top:6px;font-size:10.5px;color:var(--text3);">⚠ Avaliador: Qwen 0.5B — modelo mais robusto produziria scores mais altos.</div>
+      </div>
+    </div>
+    <div class="rag-note">
+      Notebook <strong style="color:var(--accent);">evaluation.ipynb</strong> — pipeline completo: chunking strategies, embeddings, ChromaDB, retrieval, reranking MMR, prompt engineering e métricas BLEU/ROUGE/IR.
     </div>
     <div class="section-label">Testar o modelo</div>
     <div class="detail-actions">
       <a class="btn-primary" href="https://huggingface.co/spaces/LucasDS9/MiniRAG-PT" target="_blank">🚀 Abrir no Hugging Face</a>
+      <a class="btn-outline" href="https://github.com/LucasDS9/MiniRAG-PT/blob/main/evaluation.ipynb" target="_blank">📓 Notebook de avaliação</a>
     </div>
   </div>
 
@@ -311,6 +423,52 @@
       <p>Projeto completo de <strong>Machine Learning</strong> focado em prever aprovação de empréstimos bancários. Além da <strong>classificação binária</strong>, o projeto realiza regressão para estimar a taxa de juros ideal para cada cliente aprovado — uma solução end-to-end para decisões de crédito.</p>
       <p>Combina <strong>EDA aprofundada com insights estratégicos</strong>, regras de negócio customizadas, <strong>RandomForestClassifier</strong> para aprovação e regressão linear para precificação de taxas. O notebook inclui análise detalhada dos fatores que mais impactam a concessão de crédito.</p>
       <p>A solução auxilia instituições financeiras a <strong>reduzir riscos, automatizar processos e otimizar taxas oferecidas</strong>, sendo facilmente expansível para cenários reais de produção.</p>
+    </div>
+    <div class="section-label">Simulação de casos reais</div>
+    <div class="cases-grid">
+      <div class="case-card denied">
+        <div class="case-badge denied">✕ Negado</div>
+        <div class="case-info-row"><span>Idade</span><span>30 anos</span></div>
+        <div class="case-info-row"><span>Emprego</span><span>Autônomo</span></div>
+        <div class="case-info-row"><span>Salário</span><span>R$ 3.000</span></div>
+        <div class="case-info-row"><span>Gastos mensais</span><span>R$ 1.800</span></div>
+        <div class="case-info-row"><span>Empréstimos ativos</span><span>1</span></div>
+        <div class="case-info-row"><span>Score de crédito</span><span>650</span></div>
+        <div class="case-info-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
+        <div class="case-info-row"><span>Prazo</span><span>8 meses</span></div>
+      </div>
+      <div class="case-card approved">
+        <div class="case-badge approved">✓ Aprovado</div>
+        <div class="case-info-row"><span>Idade</span><span>30 anos</span></div>
+        <div class="case-info-row"><span>Emprego</span><span>Autônomo</span></div>
+        <div class="case-info-row"><span>Salário</span><span>R$ 4.000</span></div>
+        <div class="case-info-row"><span>Gastos mensais</span><span>R$ 2.200</span></div>
+        <div class="case-info-row"><span>Empréstimos ativos</span><span>0</span></div>
+        <div class="case-info-row"><span>Score de crédito</span><span>650</span></div>
+        <div class="case-info-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
+        <div class="case-info-row"><span>Prazo</span><span>8 meses</span></div>
+      </div>
+    </div>
+    <div class="section-label" style="margin-top:0;">Feature importance — aprovação</div>
+    <div style="max-width:500px;margin-bottom:14px;">
+      <div class="feat-row"><span class="feat-name">credit_score</span><div class="feat-track"><div class="feat-fill" style="width:70.6%"></div></div><span class="feat-pct">35.3%</span></div>
+      <div class="feat-row"><span class="feat-name">debt_to_income</span><div class="feat-track"><div class="feat-fill" style="width:45.6%"></div></div><span class="feat-pct">22.8%</span></div>
+      <div class="feat-row"><span class="feat-name">employment_status</span><div class="feat-track"><div class="feat-fill" style="width:41.2%"></div></div><span class="feat-pct">20.6%</span></div>
+      <div class="feat-row"><span class="feat-name">salary</span><div class="feat-track"><div class="feat-fill" style="width:21.4%"></div></div><span class="feat-pct">10.7%</span></div>
+      <div class="feat-row"><span class="feat-name">age</span><div class="feat-track"><div class="feat-fill" style="width:21.2%"></div></div><span class="feat-pct">10.6%</span></div>
+    </div>
+    <div class="denial-box">
+      <div class="denial-box-title">Por que foi negado?</div>
+      <p>O principal fator foi o <strong style="color:var(--red);">debt-to-income elevado</strong> — R$ 1.800 de gastos sobre R$ 3.000 de renda representa 60% de comprometimento, acima do limite de risco. Somado a isso, a presença de <strong style="color:var(--red);">delinquências anteriores</strong> (correlação −0.330 com aprovação) combinada com score 650 aciona o padrão de risco aprendido pelo modelo — o efeito combinado dos dois fatores é forte mesmo sem causalidade direta.</p>
+    </div>
+    <div class="approval-box">
+      <div class="approval-box-title">Resultado do caso aprovado — taxa prevista pelo modelo</div>
+      <div class="approval-values">
+        <div class="approval-val"><div class="val">11,02%</div><div class="lbl">Taxa total</div></div>
+        <div class="approval-val"><div class="val">1,38%</div><div class="lbl">Taxa mensal</div></div>
+        <div class="approval-val"><div class="val">R$ 1.387,75</div><div class="lbl">Parcela / mês</div></div>
+      </div>
+      <div style="text-align:center;margin-top:10px;font-size:11.5px;color:var(--text3);">Total a pagar: <strong style="color:var(--green);">R$ 11.102,00</strong> em 8 parcelas</div>
     </div>
     <div class="section-label">Testar &amp; Explorar</div>
     <div class="detail-actions">
@@ -346,8 +504,8 @@
         <div class="metric-row"><span>Reviews neutras</span><span>47,2%</span></div>
         <div class="metric-row"><span>Reviews positivas</span><span>33,3%</span></div>
         <div class="metric-row"><span>Score médio</span><span>3,69 / 5</span></div>
-        <div style="margin-top:9px;font-size:11.5px;">Palavras-chave TF-IDF: <strong style="color:var(--purple-200);">chocolate, amêndoa, cacau, sabor, nozes</strong></div>
-        <div style="margin-top:7px;font-size:11.5px;">Visão executiva: produto com qualidade satisfatória, com margem de melhoria em consistência de sabor e ingredientes.</div>
+        <div style="margin-top:9px;font-size:11.5px;">Palavras-chave TF-IDF: <strong style="color:var(--accent);">chocolate, amêndoa, cacau, sabor, nozes</strong></div>
+        <div style="margin-top:7px;font-size:11.5px;color:var(--text3);font-style:italic;">Produto com qualidade satisfatória, com margem de melhoria em consistência de sabor e ingredientes.</div>
       </div>
       <div class="example-box">
         <div class="ex-title">🇺🇸 English</div>
@@ -356,8 +514,8 @@
         <div class="metric-row"><span>Neutral reviews</span><span>47.2%</span></div>
         <div class="metric-row"><span>Positive reviews</span><span>33.3%</span></div>
         <div class="metric-row"><span>Average score</span><span>3.69 / 5</span></div>
-        <div style="margin-top:9px;font-size:11.5px;">TF-IDF keywords: <strong style="color:var(--purple-200);">chocolate, almond, cocoa, taste, nut</strong></div>
-        <div style="margin-top:7px;font-size:11.5px;">Executive overview: decent overall quality, room for improvement in taste consistency and ingredient standards.</div>
+        <div style="margin-top:9px;font-size:11.5px;">TF-IDF keywords: <strong style="color:var(--accent);">chocolate, almond, cocoa, taste, nut</strong></div>
+        <div style="margin-top:7px;font-size:11.5px;color:var(--text3);font-style:italic;">Decent overall quality, room for improvement in taste consistency and ingredient standards.</div>
       </div>
     </div>
     <div class="section-label">Testar o modelo</div>
