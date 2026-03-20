@@ -6,573 +6,524 @@
   <title>Lucas Vinicius – Data Science & AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
     :root{
-      --purple-100:#CECBF6;--purple-200:#AFA9EC;--purple-400:#7F77DD;--purple-600:#534AB7;--purple-800:#3C3489;
-      --bg:#080810;--bg2:#0d0d18;--bg3:#0e0e1c;--bg4:#111120;--card:#0e0e1c;
+      --purple-600:#534AB7;--purple-800:#3C3489;
+      --bg:#080810;--bg2:#0d0d18;--bg4:#111120;--card:#0e0e1c;
       --border:rgba(123,111,232,0.12);--border-glow:rgba(123,111,232,0.35);
       --text:#e8e6ff;--text2:#8884aa;--text3:#55527a;--accent:#7B6FE8;
-      --amber:#EF9F27;--amber-dim:rgba(239,159,39,0.07);--amber-border:rgba(239,159,39,0.22);
       --green:#1D9E75;--green-dim:rgba(29,158,117,0.1);--green-border:rgba(29,158,117,0.25);
       --red:#E24B4A;--red-dim:rgba(226,75,74,0.1);--red-border:rgba(226,75,74,0.25);
-      --pink:#D4537E;--pink-dim:rgba(212,83,126,0.07);--pink-border:rgba(212,83,126,0.28);
     }
     html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);}
     body{display:flex;min-height:100vh;}
 
-    /* SIDEBAR */
-    .sidebar{
-      width:240px;min-width:240px;background:var(--bg2);border-right:1px solid var(--border);
-      display:flex;flex-direction:column;align-items:center;padding:2rem 1.4rem;gap:1.2rem;
-      position:sticky;top:0;height:100vh;overflow-y:auto;
-    }
-    .avatar{
-      width:82px;height:82px;border-radius:16px;
-      background:var(--bg3);
-      display:flex;align-items:center;justify-content:center;
-      font-family:'Syne',sans-serif;font-size:28px;font-weight:700;
-      color:var(--accent);border:1px solid var(--border-glow);
-      outline:1px solid rgba(123,111,232,0.08);outline-offset:4px;
-    }
-    .name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;text-align:center;color:var(--text);line-height:1.4;}
-    .role-badge{
-      background:rgba(123,111,232,0.08);border:1px solid rgba(123,111,232,0.25);
-      border-radius:20px;padding:4px 14px;font-size:11px;color:var(--accent);
-      text-align:center;letter-spacing:0.5px;
-    }
+    .sidebar{width:230px;min-width:230px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;padding:2rem 1.2rem;gap:1.1rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
+    .avatar{width:76px;height:76px;border-radius:14px;background:linear-gradient(135deg,rgba(83,74,183,0.3),rgba(123,111,232,0.1));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--accent);border:1px solid var(--border-glow);}
+    .name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;text-align:center;color:var(--text);line-height:1.4;}
+    .role-badge{background:rgba(123,111,232,0.08);border:1px solid rgba(123,111,232,0.25);border-radius:20px;padding:4px 14px;font-size:11px;color:var(--accent);text-align:center;letter-spacing:0.4px;}
     .divider{width:100%;height:1px;background:var(--border);}
-    .contact-list{width:100%;display:flex;flex-direction:column;gap:10px;}
-    .contact-item{display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--text2);word-break:break-all;}
-    .contact-icon{
-      width:28px;height:28px;border-radius:7px;background:rgba(123,111,232,0.07);
-      border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;
-    }
-    .contact-icon svg{width:13px;height:13px;fill:var(--accent);}
-    .contact-item a{color:var(--text2);text-decoration:none;transition:color 0.2s;}
+    .skills-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;color:var(--text3);font-weight:500;margin-bottom:8px;width:100%;}
+    .skills-wrap{display:flex;flex-wrap:wrap;gap:5px;width:100%;}
+    .skill-tag{background:rgba(123,111,232,0.06);border:1px solid rgba(123,111,232,0.15);border-radius:5px;padding:3px 9px;font-size:11px;color:var(--text2);}
+    .contact-list{width:100%;display:flex;flex-direction:column;gap:9px;}
+    .contact-item{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--text2);}
+    .contact-icon{width:26px;height:26px;border-radius:6px;background:rgba(123,111,232,0.07);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .contact-icon svg{width:12px;height:12px;fill:var(--accent);}
+    .contact-item a{color:var(--text2);text-decoration:none;transition:color 0.2s;word-break:break-all;}
     .contact-item a:hover{color:var(--accent);}
 
-    /* MAIN */
-    .main{flex:1;overflow-y:auto;padding:2.5rem 3rem;}
-    .nav{display:flex;gap:4px;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
-    .nav-btn{
-      background:none;border:none;color:var(--text3);
-      font-family:'DM Sans',sans-serif;font-size:13.5px;padding:6px 15px;
-      border-radius:8px;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;
-    }
-    .nav-btn.active{background:rgba(123,111,232,0.1);color:var(--accent);border:1px solid rgba(123,111,232,0.3);}
-    .nav-btn:hover:not(.active){color:var(--text);background:rgba(255,255,255,0.03);}
+    .main{flex:1;overflow-y:auto;padding:2.5rem 2.5rem;}
+    .hero{margin-bottom:2.8rem;}
+    .hero-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .hero-eyebrow::after{content:'';flex:1;height:1px;background:rgba(123,111,232,0.2);}
+    .hero-headline{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#ffffff;line-height:1.38;margin-bottom:14px;}
+    .hero-sub{font-size:14px;color:var(--text2);line-height:1.85;max-width:580px;border-left:2px solid rgba(123,111,232,0.3);padding-left:14px;}
 
-    .section{display:none;animation:fadeIn 0.25s ease;}
-    .section.active{display:block;}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+    .section-header{display:flex;align-items:center;gap:12px;margin-bottom:1.4rem;}
+    .section-header h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--text);}
+    .section-header-line{flex:1;height:1px;background:var(--border);}
 
-    h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:var(--text);margin-bottom:6px;}
-    .underline{width:32px;height:2px;background:var(--accent);border-radius:2px;margin-bottom:1.5rem;opacity:0.7;}
-    .about-text{font-size:14px;line-height:1.9;color:var(--text2);margin-bottom:1.8rem;max-width:680px;}
-    .skills-title{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--text3);font-weight:500;margin-bottom:.9rem;}
-    .skills-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem;}
-    .skill-tag{
-      background:rgba(123,111,232,0.06);border:1px solid rgba(123,111,232,0.18);
-      border-radius:6px;padding:5px 14px;font-size:12px;color:var(--text2);
-      transition:all 0.2s;cursor:default;
-    }
-    .skill-tag:hover{border-color:rgba(123,111,232,0.5);color:var(--accent);background:rgba(123,111,232,0.1);}
-
-    /* PROJECTS GRID */
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:1.2rem;}
-    .project-card{
-      background:var(--card);border:1px solid var(--border);border-radius:14px;
-      padding:1.3rem;padding-bottom:3.2rem;cursor:pointer;
-      transition:all 0.25s;position:relative;overflow:hidden;
-    }
-    .project-card::before{
-      content:'';position:absolute;top:0;left:0;right:0;height:2px;
-      background:linear-gradient(90deg,var(--purple-600),var(--accent));
-      border-radius:14px 14px 0 0;opacity:0;transition:opacity 0.25s;
-    }
-    .project-card:hover{border-color:rgba(123,111,232,0.4);transform:translateY(-4px);}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;}
+    .project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.4rem;display:flex;flex-direction:column;transition:all 0.25s;position:relative;overflow:hidden;}
+    .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple-600),var(--accent));border-radius:16px 16px 0 0;opacity:0;transition:opacity 0.25s;}
+    .project-card:hover{border-color:rgba(123,111,232,0.4);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
     .project-card:hover::before{opacity:1;}
-    .project-icon{
-      width:42px;height:42px;border-radius:10px;
-      background:rgba(123,111,232,0.08);border:1px solid rgba(123,111,232,0.2);
-      display:flex;align-items:center;justify-content:center;
-      margin-bottom:11px;font-size:18px;
-    }
-    .project-name{font-family:'Syne',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:6px;}
-    .project-desc{font-size:12px;color:var(--text2);line-height:1.55;}
-    .tags-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
-    .tag{
-      background:rgba(123,111,232,0.07);border:1px solid rgba(123,111,232,0.18);
-      border-radius:12px;padding:3px 9px;font-size:10.5px;color:var(--text2);
-    }
-    .arrow-btn{
-      position:absolute;bottom:1.2rem;right:1.2rem;width:28px;height:28px;
-      border-radius:8px;background:rgba(123,111,232,0.08);border:1px solid var(--border);
-      display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:14px;
-    }
+    .project-card.wip{background:rgba(255,255,255,0.025);border:1px dashed rgba(255,255,255,0.15);}
+    .project-card.wip:hover{transform:none;box-shadow:none;border-color:rgba(255,255,255,0.2);}
+    .project-card.wip::before{display:none;}
 
-    /* WIP CARD */
-    .wip-card{
-      background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.18);
-      border-radius:14px;padding:1.3rem;position:relative;overflow:hidden;
-    }
-    .wip-badge{
-      display:inline-flex;align-items:center;gap:5px;
-      background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.18);
-      border-radius:6px;padding:3px 9px;font-size:10px;font-weight:500;
-      color:rgba(255,255,255,0.55);letter-spacing:0.5px;margin-bottom:10px;
-    }
-    .wip-icon{
-      width:42px;height:42px;border-radius:10px;
-      background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);
-      display:flex;align-items:center;justify-content:center;margin-bottom:11px;font-size:18px;
-    }
-    .wip-name{font-family:'Syne',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:6px;opacity:0.85;}
-    .wip-desc{font-size:12px;color:var(--text2);line-height:1.55;opacity:0.75;}
-    .wip-tag{
-      background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);
-      border-radius:12px;padding:3px 9px;font-size:10.5px;color:rgba(255,255,255,0.55);opacity:0.85;
-    }
-    .wip-progress{margin-top:14px;height:2px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;}
-    .wip-progress-fill{height:100%;width:25%;background:rgba(255,255,255,0.5);border-radius:2px;opacity:0.5;}
-    .wip-progress-label{font-size:10px;color:rgba(255,255,255,0.4);opacity:0.5;margin-top:4px;letter-spacing:0.5px;}
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;}
+    .card-icon{width:44px;height:44px;border-radius:11px;background:rgba(123,111,232,0.08);border:1px solid rgba(123,111,232,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+    .wip .card-icon{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);}
+    .status-badge{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:3px 10px;font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;}
+    .badge-live{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
+    .badge-wip{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.15);}
+    .project-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:7px;}
+    .wip .project-name{opacity:0.8;}
+    .project-desc{font-size:12.5px;color:var(--text2);line-height:1.7;margin-bottom:12px;}
+    .wip .project-desc{color:rgba(255,255,255,0.45);}
+    .result-box{background:rgba(123,111,232,0.05);border:1px solid rgba(123,111,232,0.15);border-left:2px solid rgba(123,111,232,0.4);border-radius:8px;padding:9px 12px;margin-bottom:14px;}
+    .result-box-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:500;margin-bottom:4px;}
+    .result-box p{font-size:12px;color:var(--text2);line-height:1.6;}
+    .tags-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+    .tag{background:rgba(123,111,232,0.06);border:1px solid rgba(123,111,232,0.15);border-radius:10px;padding:3px 9px;font-size:10.5px;color:var(--text2);}
+    .wip .tag{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);}
 
-    /* DETAIL */
-    .back-btn{
-      background:none;border:1px solid var(--border);border-radius:8px;
-      color:var(--text2);font-family:'DM Sans',sans-serif;font-size:12.5px;
-      padding:6px 14px;cursor:pointer;margin-bottom:1.5rem;
-      display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;
-    }
-    .back-btn:hover{color:var(--text);border-color:var(--accent);}
-    .detail-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.3rem;}
-    .detail-icon{
-      width:52px;height:52px;border-radius:13px;
-      background:rgba(123,111,232,0.08);border:1px solid rgba(123,111,232,0.2);
-      display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;
-    }
-    .detail-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--text);}
-    .detail-subtitle{font-size:13px;color:var(--text2);margin-top:4px;}
-    .detail-body{font-size:14px;line-height:1.9;color:var(--text2);margin-bottom:1.5rem;max-width:700px;}
-    .detail-body p{margin-bottom:1rem;}
-    .detail-body strong{color:var(--purple-200);font-weight:500;}
-    .section-label{
-      font-size:10px;text-transform:uppercase;letter-spacing:1.5px;
-      color:var(--accent);font-weight:500;margin-bottom:8px;margin-top:1.8rem;
-    }
-    .detail-actions{display:flex;gap:10px;flex-wrap:wrap;}
-    .btn-primary{
-      background:var(--purple-600);border:none;border-radius:10px;color:#fff;
-      font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:500;
-      padding:10px 20px;cursor:pointer;transition:all 0.2s;
-      text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-    }
-    .btn-primary:hover{background:var(--accent);}
-    .btn-outline{
-      background:none;border:1px solid var(--border);border-radius:10px;color:var(--text2);
-      font-family:'DM Sans',sans-serif;font-size:13.5px;padding:10px 20px;cursor:pointer;
-      transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-    }
-    .btn-outline:hover{border-color:var(--accent);color:var(--text);}
+    .card-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;}
+    .btn-test{display:inline-flex;align-items:center;gap:6px;background:var(--purple-600);border:none;border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:8px 14px;cursor:pointer;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+    .btn-test:hover{background:var(--accent);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--border);border-radius:8px;color:var(--text2);font-family:'DM Sans',sans-serif;font-size:12px;padding:8px 12px;cursor:pointer;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--text);}
+    .btn-ghost.active{border-color:rgba(123,111,232,0.5);color:var(--accent);background:rgba(123,111,232,0.07);}
 
-    /* EXAMPLE BOXES */
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:700px;}
-    .example-box{
-      background:var(--bg4);border:1px solid var(--border);
-      border-radius:10px;padding:1.2rem;font-size:12px;color:var(--text2);line-height:1.75;
-    }
-    .ex-title{font-family:'Syne',sans-serif;font-size:13px;color:var(--text);font-weight:600;margin-bottom:9px;}
-    .metric-row{display:flex;justify-content:space-between;border-bottom:1px solid rgba(123,111,232,0.07);padding:4px 0;font-size:11.5px;}
-    .metric-row:last-child{border-bottom:none;}
-    .metric-row span:last-child{color:var(--accent);font-weight:500;}
+    .wip-progress{margin-top:12px;}
+    .wip-progress-track{height:2px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;}
+    .wip-progress-fill{height:100%;width:25%;background:rgba(255,255,255,0.3);border-radius:2px;}
+    .wip-progress-label{font-size:10px;color:rgba(255,255,255,0.3);margin-top:5px;letter-spacing:0.4px;}
 
-    /* RAG EXAMPLE */
-    .rag-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:700px;margin-bottom:12px;}
-    .rag-card{background:var(--bg4);border:1px solid var(--border);border-radius:10px;padding:1rem;}
-    .rag-card-title{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:10px;}
-    .judge-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-    .judge-label{font-size:11px;color:var(--text2);width:85px;flex-shrink:0;}
-    .bar-track{flex:1;height:4px;background:rgba(123,111,232,0.1);border-radius:2px;overflow:hidden;}
-    .bar-fill{height:100%;border-radius:2px;background:var(--accent);opacity:0.7;}
-    .judge-score{font-size:11px;color:var(--accent);width:28px;text-align:right;}
-    .rag-note{font-size:11.5px;color:var(--text3);line-height:1.65;padding:10px 12px;background:var(--bg4);border-radius:8px;border-left:2px solid rgba(123,111,232,0.25);max-width:700px;}
+    /* ── EXPAND PANELS ── */
+    .expand-panel{overflow:hidden;max-height:0;transition:max-height 0.5s ease,opacity 0.3s ease;opacity:0;}
+    .expand-panel.open{max-height:1600px;opacity:1;}
+    .expand-inner{padding-top:16px;border-top:1px solid var(--border);margin-top:14px;}
 
-    /* LOAN EXAMPLE */
-    .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:700px;margin-bottom:14px;}
-    .case-card{background:var(--bg4);border-radius:10px;padding:1rem;border:1px solid var(--border);}
-    .case-card.denied{border-color:var(--red-border);}
-    .case-card.approved{border-color:var(--green-border);}
-    .case-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:3px 9px;border-radius:5px;margin-bottom:10px;}
-    .case-badge.denied{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border);}
-    .case-badge.approved{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
-    .case-info-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(123,111,232,0.06);font-size:12px;}
-    .case-info-row:last-child{border-bottom:none;}
-    .case-info-row span:first-child{color:var(--text3);}
-    .case-info-row span:last-child{color:var(--text2);font-weight:500;}
-    .feat-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
-    .feat-name{font-size:11px;color:var(--text2);width:130px;flex-shrink:0;}
-    .feat-track{flex:1;height:3px;background:rgba(123,111,232,0.1);border-radius:2px;overflow:hidden;max-width:560px;}
-    .feat-fill{height:100%;border-radius:2px;background:var(--accent);opacity:0.6;}
-    .feat-pct{font-size:11px;color:var(--text3);width:38px;text-align:right;}
-    .denial-box{background:var(--red-dim);border:1px solid var(--red-border);border-radius:8px;padding:10px 14px;margin-bottom:12px;max-width:700px;}
-    .denial-box-title{font-size:11px;font-weight:500;color:var(--red);margin-bottom:5px;}
-    .denial-box p{font-size:12px;color:var(--text2);line-height:1.7;}
-    .approval-box{background:var(--green-dim);border:1px solid var(--green-border);border-radius:8px;padding:12px 14px;max-width:700px;}
-    .approval-box-title{font-size:11px;font-weight:500;color:var(--green);margin-bottom:10px;}
-    .approval-values{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-    .approval-val{text-align:center;}
-    .approval-val .val{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--green);}
-    .approval-val .lbl{font-size:10px;color:var(--text3);margin-top:2px;}
+    .sub-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:500;margin-bottom:8px;}
+    .sub-label+.sub-label{margin-top:14px;}
 
-    /* RESPONSIVE */
-    @media(max-width:768px){
+    /* exemplo/metrics */
+    .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+    .m-card{background:var(--bg4);border:1px solid var(--border);border-radius:10px;padding:12px;}
+    .m-card-title{font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:10px;}
+    .m-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(123,111,232,0.06);font-size:11.5px;}
+    .m-row:last-child{border-bottom:none;}
+    .m-row .v{color:var(--accent);font-weight:500;}
+    .m-row .vg{color:var(--green);font-weight:500;}
+    .j-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+    .j-lbl{font-size:11px;color:var(--text2);width:80px;flex-shrink:0;}
+    .bar-t{flex:1;height:4px;background:rgba(123,111,232,0.1);border-radius:2px;overflow:hidden;}
+    .bar-f{height:100%;border-radius:2px;background:var(--accent);opacity:0.75;}
+    .j-sc{font-size:11px;color:var(--accent);width:28px;text-align:right;}
+    .expand-note{font-size:11.5px;color:var(--text3);line-height:1.65;padding:9px 12px;background:var(--bg4);border-radius:8px;border-left:2px solid rgba(123,111,232,0.25);}
+    .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+    .c-card{background:var(--bg4);border-radius:10px;padding:12px;border:1px solid var(--border);}
+    .c-card.denied{border-color:var(--red-border);}
+    .c-card.approved{border-color:var(--green-border);}
+    .c-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:3px 9px;border-radius:5px;margin-bottom:10px;}
+    .c-badge.denied{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border);}
+    .c-badge.approved{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
+    .c-row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(123,111,232,0.06);font-size:11.5px;}
+    .c-row:last-child{border-bottom:none;}
+    .c-row span:first-child{color:var(--text3);}
+    .c-row span:last-child{color:var(--text2);font-weight:500;}
+    .f-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+    .f-name{font-size:11px;color:var(--text2);width:165px;flex-shrink:0;}
+    .f-t{flex:1;height:3px;background:rgba(123,111,232,0.1);border-radius:2px;overflow:hidden;}
+    .f-f{height:100%;border-radius:2px;background:var(--accent);opacity:0.6;}
+    .f-pct{font-size:11px;color:var(--text3);width:38px;text-align:right;}
+    .denial-b{background:var(--red-dim);border:1px solid var(--red-border);border-radius:8px;padding:10px 14px;margin-bottom:10px;}
+    .denial-b-t{font-size:11px;font-weight:500;color:var(--red);margin-bottom:4px;}
+    .denial-b p{font-size:12px;color:var(--text2);line-height:1.7;}
+    .approve-b{background:var(--green-dim);border:1px solid var(--green-border);border-radius:8px;padding:12px 14px;}
+    .approve-b-t{font-size:11px;font-weight:500;color:var(--green);margin-bottom:10px;}
+    .approve-vals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .a-val .n{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--green);}
+    .a-val .l{font-size:10px;color:var(--text3);margin-top:2px;text-align:center;}
+    .nlp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+    .nlp-c{background:var(--bg4);border:1px solid var(--border);border-radius:10px;padding:12px;}
+    .nlp-c-t{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:10px;}
+
+    /* saiba mais */
+    .info-block{margin-bottom:16px;}
+    .info-title{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+    .info-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .info-block p{font-size:12.5px;color:var(--text2);line-height:1.8;}
+    .info-block p+p{margin-top:8px;}
+    .app-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+    .app-list li{font-size:12.5px;color:var(--text2);line-height:1.7;padding-left:16px;position:relative;}
+    .app-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px;}
+    .tool-list{display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+    .tool-item{background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:10px 12px;}
+    .tool-name{font-size:12px;font-weight:500;color:var(--text);margin-bottom:3px;}
+    .tool-desc{font-size:11.5px;color:var(--text3);line-height:1.6;}
+
+    @media(max-width:900px){
       body{flex-direction:column;}
-      .sidebar{width:100%;height:auto;position:relative;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:1.2rem;}
+      .sidebar{width:100%;height:auto;position:relative;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:1.2rem;gap:0.8rem;}
       .main{padding:1.5rem 1.2rem;}
-      .two-col,.rag-grid,.cases-grid{grid-template-columns:1fr;}
-      .approval-values{grid-template-columns:1fr 1fr;}
+      .metric-grid,.cases-grid,.nlp-grid{grid-template-columns:1fr;}
+      .approve-vals{grid-template-columns:1fr 1fr;}
+      .hero-headline{font-size:20px;}
     }
   </style>
 </head>
 <body>
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="avatar">LV</div>
   <div class="name">Lucas Vinicius<br>Oliveira Silva</div>
   <div class="role-badge">Data Science &amp; AI</div>
   <div class="divider"></div>
+  <div class="skills-label">Stack</div>
+  <div class="skills-wrap">
+    <span class="skill-tag">Python</span><span class="skill-tag">PostgreSQL</span>
+    <span class="skill-tag">ML</span><span class="skill-tag">NLP</span>
+    <span class="skill-tag">RAG</span><span class="skill-tag">LLMs</span>
+    <span class="skill-tag">Docker</span><span class="skill-tag">MLflow</span><span class="skill-tag">Git</span>
+  </div>
+  <div class="divider"></div>
   <div class="contact-list">
     <div class="contact-item">
-      <div class="contact-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      </div>
-      <a href="javascript:void(0)" onclick="window.location='mai'+'lto:lucasvinids@gmail.com'" style="color:var(--text2);text-decoration:none;">lucasvinids@gmail.com</a>
+      <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      <a href="javascript:void(0)" onclick="window.location='mai'+'lto:lucasvinids@gmail.com'">lucasvinids@gmail.com</a>
     </div>
     <div class="contact-item">
-      <div class="contact-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.6-4.04-1.6-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.47.99.1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      </div>
+      <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.6-4.04-1.6-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.47.99.1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
       <a href="https://github.com/LucasDS9" target="_blank">github.com/LucasDS9</a>
     </div>
     <div class="contact-item">
-      <div class="contact-icon">
-        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
-      </div>
+      <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg></div>
       <a href="https://linkedin.com/in/lucas-vinicius-a4054b2a9/" target="_blank">linkedin.com/in/lucas-vinicius</a>
     </div>
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
-  <nav class="nav">
-    <button class="nav-btn active" onclick="showSection('about')">About</button>
-    <button class="nav-btn" onclick="showSection('projects')">Projects</button>
-  </nav>
-
-  <!-- ABOUT -->
-  <div class="section active" id="sec-about">
-    <h2>About Me</h2>
-    <div class="underline"></div>
-    <p class="about-text">
-      Sou estudante de Física com foco em Data Science e IA aplicada, interessado em construir sistemas completos — indo desde insights e modelagem até o deploy. Tenho interesse especial em sistemas reais de ML, NLP e aplicações com LLMs, sempre buscando construir soluções completas, reprodutíveis e próximas do ambiente de produção.
-    </p>
-    <div class="skills-title">Habilidades</div>
-    <div class="skills-wrap">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">PostgreSQL</span>
-      <span class="skill-tag">Machine Learning</span>
-      <span class="skill-tag">NLP</span>
-      <span class="skill-tag">RAG</span>
-      <span class="skill-tag">LLMs</span>
-      <span class="skill-tag">Inglês (avançado)</span>
-      <span class="skill-tag">Docker</span>
-    </div>
+  <div class="hero">
+    <div class="hero-eyebrow">Portfólio · Data Science &amp; AI</div>
+    <div class="hero-headline">Cientista de Dados especializado em<br>Machine Learning e aplicações de IA,<br>transformando dados em insights e soluções automatizadas.</div>
+    <div class="hero-sub">Desenvolvo sistemas de Machine Learning de ponta a ponta — da modelagem ao deploy — com foco em aplicações reais e baseadas em dados.</div>
   </div>
 
-  <!-- PROJECTS -->
-  <div class="section" id="sec-projects">
-    <h2>Projects</h2>
-    <div class="underline"></div>
-    <div class="projects-grid">
+  <div class="section-header">
+    <h2>Projetos</h2>
+    <div class="section-header-line"></div>
+    <span style="font-size:11px;color:var(--text3);">3 ativos · 1 em desenvolvimento</span>
+  </div>
 
-      <div class="project-card" onclick="showDetail('rag')">
-        <div class="project-icon">📄</div>
-        <div class="project-name">Sistema RAG Q&amp;A (PT)</div>
-        <div class="project-desc">Q&amp;A sobre PDFs com LLMs e avaliação automática</div>
-        <div class="tags-wrap">
-          <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">ChromaDB</span><span class="tag">LangChain</span><span class="tag">Qwen2.5-1.5B</span>
+  <div class="projects-grid">
+
+    <!-- ══ CARD 1: RAG ══ -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="card-icon">📄</div>
+        <span class="status-badge badge-live">● Live</span>
+      </div>
+      <div class="project-name">Assistente RAG sobre Documentos</div>
+      <div class="project-desc">Faz perguntas em linguagem natural sobre qualquer PDF e obtém respostas precisas e contextualizadas em português. Usa busca semântica para encontrar os trechos mais relevantes antes de gerar a resposta.</div>
+      <div class="result-box">
+        <div class="result-box-label">📌 Resultado prático</div>
+        <p>Substitui a leitura manual de documentos longos. Encontra a informação certa em segundos — aplicável a contextos jurídicos, corporativos e educacionais.</p>
+      </div>
+      <div class="tags-wrap">
+        <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">ChromaDB</span><span class="tag">LangChain</span><span class="tag">Qwen2.5-1.5B</span><span class="tag">Gradio</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-test" href="https://huggingface.co/spaces/LucasDS9/MiniRAG-PT" target="_blank">🚀 Testar o modelo</a>
+        <a class="btn-ghost" href="https://github.com/LucasDS9/MiniRAG-PT/blob/main/evaluation.ipynb" target="_blank">📓 Notebook</a>
+        <button class="btn-ghost" onclick="toggleExpand('rag-ex',this)">Ver exemplo ↓</button>
+        <button class="btn-ghost" onclick="toggleExpand('rag-info',this)">Saiba mais ↓</button>
+      </div>
+
+      <div class="expand-panel" id="expand-rag-ex">
+        <div class="expand-inner">
+          <div class="sub-label">Métricas de avaliação automática</div>
+          <div class="metric-grid">
+            <div class="m-card">
+              <div class="m-card-title">Qualidade da recuperação</div>
+              <div class="m-row"><span>Precisão média (F1@3)</span><span class="v">0.5111</span></div>
+              <div class="m-row"><span>Acerto no topo (MRR)</span><span class="vg">1.0000</span></div>
+              <div class="m-row"><span>Ranking médio (nDCG@3)</span><span class="v">0.6941</span></div>
+              <div class="m-row"><span>Tempo de resposta</span><span style="color:var(--text2)">4.33s</span></div>
+              <div class="m-row"><span>Similaridade (BLEU)</span><span style="color:var(--text2)">0.2255</span></div>
+              <div class="m-row"><span>Cobertura (ROUGE-L)</span><span class="v">0.5270</span></div>
+            </div>
+            <div class="m-card">
+              <div class="m-card-title">Avaliação da resposta — juiz automático</div>
+              <div class="j-row"><span class="j-lbl">Relevância</span><div class="bar-t"><div class="bar-f" style="width:80%"></div></div><span class="j-sc">8.0</span></div>
+              <div class="j-row"><span class="j-lbl">Fidelidade</span><div class="bar-t"><div class="bar-f" style="width:80%"></div></div><span class="j-sc">8.0</span></div>
+              <div class="j-row"><span class="j-lbl">Correção</span><div class="bar-t"><div class="bar-f" style="width:90%"></div></div><span class="j-sc">9.0</span></div>
+              <div class="j-row"><span class="j-lbl">Completude</span><div class="bar-t"><div class="bar-f" style="width:85%"></div></div><span class="j-sc">8.5</span></div>
+              <div style="margin-top:10px;font-size:10.5px;color:var(--text3);line-height:1.5;">Pergunta: "3 diferenças entre cérebro humano e máquinas" · Avaliador: Qwen 0.5B</div>
+            </div>
+          </div>
+          <div class="expand-note">Notebook <strong style="color:var(--accent)">evaluation.ipynb</strong> — análise completa de como o conteúdo foi dividido, buscado e avaliado.</div>
         </div>
-        <div class="arrow-btn">→</div>
       </div>
 
-      <div class="project-card" onclick="showDetail('credit')">
-        <div class="project-icon">💳</div>
-        <div class="project-name">Aprovação de Crédito</div>
-        <div class="project-desc">Classificação, regressão e EDA para decisões bancárias</div>
-        <div class="tags-wrap">
-          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+      <div class="expand-panel" id="expand-rag-info">
+        <div class="expand-inner">
+          <div class="info-block">
+            <div class="info-title">Onde isso é útil na prática</div>
+            <ul class="app-list">
+              <li><strong>Escritórios de advocacia:</strong> buscar cláusulas e precedentes em contratos sem ler centenas de páginas.</li>
+              <li><strong>Empresas e RH:</strong> consultar políticas internas, manuais e documentos institucionais instantaneamente.</li>
+              <li><strong>Educação:</strong> estudantes e professores extraem informações de apostilas e artigos com perguntas diretas.</li>
+              <li><strong>Saúde:</strong> profissionais consultam protocolos clínicos, bulas e laudos de forma rápida e precisa.</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Como foi feito</div>
+            <p>O sistema lê o PDF e o divide em pedaços menores — isso se chama <strong style="color:var(--text)">chunking</strong> (fragmentação de texto). Cada fragmento é transformado em um número que representa seu significado — chamado de <strong style="color:var(--text)">embedding</strong> (representação vetorial). Quando o usuário faz uma pergunta, ela também vira um número e o sistema encontra os fragmentos com significado mais parecido — isso é a <strong style="color:var(--text)">busca semântica</strong> (busca por sentido, não por palavra exata). Por fim, um modelo de linguagem recebe esses fragmentos e gera uma resposta fluente e contextualizada.</p>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Ferramentas utilizadas</div>
+            <div class="tool-list">
+              <div class="tool-item"><div class="tool-name">LangChain</div><div class="tool-desc">Biblioteca que orquestra todo o fluxo — conecta a leitura do PDF, a busca e o modelo de linguagem num único pipeline (cadeia de etapas automatizadas).</div></div>
+              <div class="tool-item"><div class="tool-name">ChromaDB</div><div class="tool-desc">Banco de dados vetorial — armazena as representações numéricas dos textos e permite buscas por similaridade de significado.</div></div>
+              <div class="tool-item"><div class="tool-name">Qwen2.5-1.5B</div><div class="tool-desc">Modelo de linguagem responsável por gerar as respostas finais. Leve o suficiente para rodar sem GPU dedicada.</div></div>
+              <div class="tool-item"><div class="tool-name">Gradio</div><div class="tool-desc">Framework para criação da interface web interativa onde o usuário faz perguntas e visualiza as respostas em tempo real.</div></div>
+            </div>
+          </div>
         </div>
-        <div class="arrow-btn">→</div>
+      </div>
+    </div>
+
+
+    <!-- ══ CARD 2: CRÉDITO ══ -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="card-icon">💳</div>
+        <span class="status-badge badge-live">● Live</span>
+      </div>
+      <div class="project-name">Aprovação de Crédito com ML</div>
+      <div class="project-desc">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</div>
+      <div class="result-box">
+        <div class="result-box-label">📌 Resultado prático</div>
+        <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão.</p>
+      </div>
+      <div class="tags-wrap">
+        <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Regressão Linear</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-test" href="https://loan-approval-project-yyfi.onrender.com" target="_blank">🚀 Testar o modelo</a>
+        <a class="btn-ghost" href="https://github.com/LucasDS9/Loan_approval-project/blob/main/notebooks/loan_full_project.ipynb" target="_blank">📓 Notebook</a>
+        <button class="btn-ghost" onclick="toggleExpand('credit-ex',this)">Ver exemplo ↓</button>
+        <button class="btn-ghost" onclick="toggleExpand('credit-info',this)">Saiba mais ↓</button>
       </div>
 
-      <div class="project-card" onclick="showDetail('nlp')">
-        <div class="project-icon">🛒</div>
-        <div class="project-name">Análise de Produtos Amazon (NLP)</div>
-        <div class="project-desc">Pipeline NLP + LLM para insights de reviews de clientes</div>
-        <div class="tags-wrap">
-          <span class="tag">spaCy</span><span class="tag">TF-IDF</span><span class="tag">Word2Vec</span><span class="tag">Qwen 0.5B</span><span class="tag">Prompt Eng.</span>
+      <div class="expand-panel" id="expand-credit-ex">
+        <div class="expand-inner">
+          <div class="sub-label">Simulação de casos reais</div>
+          <div class="cases-grid">
+            <div class="c-card denied">
+              <div class="c-badge denied">✕ Negado</div>
+              <div class="c-row"><span>Salário</span><span>R$ 3.000</span></div>
+              <div class="c-row"><span>Gastos mensais</span><span>R$ 1.800 (60%)</span></div>
+              <div class="c-row"><span>Empréstimos ativos</span><span>1</span></div>
+              <div class="c-row"><span>Score de crédito</span><span>650</span></div>
+              <div class="c-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
+              <div class="c-row"><span>Prazo</span><span>8 meses</span></div>
+            </div>
+            <div class="c-card approved">
+              <div class="c-badge approved">✓ Aprovado</div>
+              <div class="c-row"><span>Salário</span><span>R$ 4.000</span></div>
+              <div class="c-row"><span>Gastos mensais</span><span>R$ 2.200 (55%)</span></div>
+              <div class="c-row"><span>Empréstimos ativos</span><span>0</span></div>
+              <div class="c-row"><span>Score de crédito</span><span>650</span></div>
+              <div class="c-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
+              <div class="c-row"><span>Prazo</span><span>8 meses</span></div>
+            </div>
+          </div>
+          <div class="sub-label">O que mais influencia a decisão</div>
+          <div style="margin-bottom:12px;">
+            <div class="f-row"><span class="f-name">Score de crédito</span><div class="f-t"><div class="f-f" style="width:70.6%"></div></div><span class="f-pct">35.3%</span></div>
+            <div class="f-row"><span class="f-name">Comprometimento de renda</span><div class="f-t"><div class="f-f" style="width:45.6%"></div></div><span class="f-pct">22.8%</span></div>
+            <div class="f-row"><span class="f-name">Tipo de emprego</span><div class="f-t"><div class="f-f" style="width:41.2%"></div></div><span class="f-pct">20.6%</span></div>
+            <div class="f-row"><span class="f-name">Salário</span><div class="f-t"><div class="f-f" style="width:21.4%"></div></div><span class="f-pct">10.7%</span></div>
+            <div class="f-row"><span class="f-name">Idade</span><div class="f-t"><div class="f-f" style="width:21.2%"></div></div><span class="f-pct">10.6%</span></div>
+          </div>
+          <div class="denial-b"><div class="denial-b-t">Por que foi negado?</div><p>Alto comprometimento de renda (60%) somado à presença de dívida ativa ultrapassou o limiar de risco aprendido pelo modelo.</p></div>
+          <div class="approve-b">
+            <div class="approve-b-t">Taxa calculada pelo modelo para o caso aprovado</div>
+            <div class="approve-vals">
+              <div class="a-val"><div class="n">11,02%</div><div class="l">Taxa total</div></div>
+              <div class="a-val"><div class="n">1,38%</div><div class="l">Taxa mensal</div></div>
+              <div class="a-val"><div class="n">R$ 1.387,75</div><div class="l">Parcela/mês</div></div>
+            </div>
+            <div style="text-align:center;margin-top:10px;font-size:11.5px;color:var(--text3);">Total: <strong style="color:var(--green)">R$ 11.102,00</strong> em 8 parcelas</div>
+          </div>
         </div>
-        <div class="arrow-btn">→</div>
       </div>
 
-      <div class="project-card" onclick="showDetail('churn')" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.15);">
-        <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.18);border-radius:6px;padding:3px 9px;font-size:10px;font-weight:500;color:rgba(255,255,255,0.55);letter-spacing:0.5px;margin-bottom:10px;">✦ Em aprimoramento</div>
-        <div class="project-icon" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);">📉</div>
-        <div class="project-name" style="color:rgba(255,255,255,0.82);">Classificador de Churn Bancário</div>
-        <div class="project-desc">Predição de cancelamento com MLflow tracking e SMOTE</div>
-        <div class="tags-wrap">
-          <span class="tag" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.45);">Sklearn</span>
-          <span class="tag" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.45);">MLflow</span>
-          <span class="tag" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.45);">SMOTE</span>
-          <span class="tag" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.45);">GradientBoosting</span>
+      <div class="expand-panel" id="expand-credit-info">
+        <div class="expand-inner">
+          <div class="info-block">
+            <div class="info-title">Onde isso é útil na prática</div>
+            <ul class="app-list">
+              <li><strong>Bancos e fintechs:</strong> automatizar análises que hoje dependem de analistas humanos, reduzindo tempo e viés nas decisões.</li>
+              <li><strong>Cooperativas de crédito:</strong> oferecer taxas personalizadas e justas para cada perfil, ao invés de cobrar a mesma taxa de todos.</li>
+              <li><strong>Empresas de empréstimo:</strong> escalar operações sem aumentar equipe, com decisões consistentes e auditáveis.</li>
+              <li><strong>Gestão de risco:</strong> identificar quais variáveis mais impactam inadimplência e ajustar políticas de crédito continuamente.</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Como foi feito</div>
+            <p>O projeto usa dois modelos juntos. O primeiro é um <strong style="color:var(--text)">classificador</strong> (modelo de decisão binária — aprova ou nega) que analisa o perfil do cliente: score de crédito, renda comprometida e dívidas ativas. O segundo é um modelo de <strong style="color:var(--text)">regressão</strong> (previsão numérica) que calcula a taxa de juros adequada ao risco de cada perfil aprovado.</p>
+            <p>Antes de treinar, os dados passaram por limpeza e <strong style="color:var(--text)">engenharia de variáveis</strong> (criação de indicadores novos, como o percentual da renda comprometida) que o modelo aprende a usar como sinal de risco.</p>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Ferramentas utilizadas</div>
+            <div class="tool-list">
+              <div class="tool-item"><div class="tool-name">Scikit-learn</div><div class="tool-desc">Biblioteca principal de Machine Learning em Python — usada para treinar, avaliar e comparar os modelos de classificação e regressão.</div></div>
+              <div class="tool-item"><div class="tool-name">Random Forest</div><div class="tool-desc">Algoritmo baseado em múltiplas <strong style="color:var(--text)">árvores de decisão</strong> (regras do tipo "se renda > X e dívida = 0, então aprovar"). Combinar várias árvores aumenta a precisão e reduz erros.</div></div>
+              <div class="tool-item"><div class="tool-name">Pandas</div><div class="tool-desc">Ferramenta para manipulação e limpeza de dados em tabelas — equivalente a um Excel programável e muito mais poderoso.</div></div>
+              <div class="tool-item"><div class="tool-name">Matplotlib</div><div class="tool-desc">Biblioteca de visualização — usada para gerar gráficos de análise e interpretação dos resultados do modelo.</div></div>
+            </div>
+          </div>
         </div>
-        <div class="arrow-btn" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.4);">→</div>
+      </div>
+    </div>
+
+
+    <!-- ══ CARD 3: NLP ══ -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="card-icon">🛒</div>
+        <span class="status-badge badge-live">● Live</span>
+      </div>
+      <div class="project-name">Análise de Reviews com NLP + LLM</div>
+      <div class="project-desc">Transforma milhares de avaliações de clientes em inteligência de produto automaticamente. Analisa sentimento, extrai palavras-chave e gera resumos executivos por produto usando NLP clássico e modelos de linguagem.</div>
+      <div class="result-box">
+        <div class="result-box-label">📌 Resultado prático</div>
+        <p>Elimina análise manual de reviews. Entrega sentimento, tendências e recomendações prontas para decisão — escala para qualquer volume de avaliações.</p>
+      </div>
+      <div class="tags-wrap">
+        <span class="tag">spaCy</span><span class="tag">TF-IDF</span><span class="tag">Word2Vec</span><span class="tag">Qwen 0.5B</span><span class="tag">Prompt Eng.</span><span class="tag">Python</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-test" href="https://huggingface.co/spaces/LucasDS9/nlp-product-review-analysis" target="_blank">🚀 Testar o modelo</a>
+        <button class="btn-ghost" onclick="toggleExpand('nlp-ex',this)">Ver exemplo ↓</button>
+        <button class="btn-ghost" onclick="toggleExpand('nlp-info',this)">Saiba mais ↓</button>
       </div>
 
-      <div class="wip-card">
-        <div class="wip-badge">⚙ Em construção</div>
-        <div class="wip-icon">🤖</div>
-        <div class="wip-name">Agentes de IA com MCP e PostgreSQL</div>
-        <div class="wip-desc">Sistema de agentes autônomos integrando MCP para orquestração e PostgreSQL como camada de persistência.</div>
-        <div class="tags-wrap" style="margin-top:10px;">
-          <span class="wip-tag">Agentes de IA</span>
-          <span class="wip-tag">MCP</span>
-          <span class="wip-tag">PostgreSQL</span>
-          <span class="wip-tag">Python</span>
+      <div class="expand-panel" id="expand-nlp-ex">
+        <div class="expand-inner">
+          <div class="sub-label">Output gerado automaticamente pelo sistema</div>
+          <div class="nlp-grid">
+            <div class="nlp-c">
+              <div class="nlp-c-t">🇧🇷 Português</div>
+              <div class="m-row"><span>Sentimento geral</span><span style="color:var(--text2)">Neutro</span></div>
+              <div class="m-row"><span>Reviews negativas</span><span style="color:var(--red)">19,5%</span></div>
+              <div class="m-row"><span>Reviews neutras</span><span style="color:var(--text2)">47,2%</span></div>
+              <div class="m-row"><span>Reviews positivas</span><span class="vg">33,3%</span></div>
+              <div class="m-row"><span>Score médio</span><span class="v">3,69 / 5</span></div>
+              <div style="margin-top:9px;font-size:11.5px;">Top palavras: <strong style="color:var(--accent)">chocolate, amêndoa, cacau, sabor, nozes</strong></div>
+              <div style="margin-top:7px;font-size:11px;color:var(--text3);font-style:italic;line-height:1.55;">Qualidade satisfatória, margem de melhoria em consistência de sabor.</div>
+            </div>
+            <div class="nlp-c">
+              <div class="nlp-c-t">🇺🇸 English</div>
+              <div class="m-row"><span>Overall sentiment</span><span style="color:var(--text2)">Neutral</span></div>
+              <div class="m-row"><span>Negative reviews</span><span style="color:var(--red)">19.5%</span></div>
+              <div class="m-row"><span>Neutral reviews</span><span style="color:var(--text2)">47.2%</span></div>
+              <div class="m-row"><span>Positive reviews</span><span class="vg">33.3%</span></div>
+              <div class="m-row"><span>Average score</span><span class="v">3.69 / 5</span></div>
+              <div style="margin-top:9px;font-size:11.5px;">Top keywords: <strong style="color:var(--accent)">chocolate, almond, cocoa, taste, nut</strong></div>
+              <div style="margin-top:7px;font-size:11px;color:var(--text3);font-style:italic;line-height:1.55;">Decent quality, room for improvement in taste consistency.</div>
+            </div>
+          </div>
         </div>
-        <div class="wip-progress"><div class="wip-progress-fill"></div></div>
-        <div class="wip-progress-label">Em desenvolvimento</div>
       </div>
 
+      <div class="expand-panel" id="expand-nlp-info">
+        <div class="expand-inner">
+          <div class="info-block">
+            <div class="info-title">Onde isso é útil na prática</div>
+            <ul class="app-list">
+              <li><strong>E-commerce e marketplaces:</strong> monitorar reputação de produtos em tempo real e detectar problemas antes que virem crises.</li>
+              <li><strong>Times de produto:</strong> entender o que os clientes valorizam e o que mais gera reclamação, sem ler review por review.</li>
+              <li><strong>Gestão de fornecedores:</strong> comparar automaticamente o desempenho de múltiplos fornecedores pela percepção dos clientes.</li>
+              <li><strong>Marketing:</strong> identificar atributos mais associados a avaliações positivas para usar em campanhas.</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Como foi feito</div>
+            <p>O pipeline começa com limpeza dos textos — remoção de pontuações e palavras sem significado (como "de", "o", "a"). Em seguida aplica-se <strong style="color:var(--text)">análise de sentimento</strong> (classificação automática do tom de cada avaliação: positivo, neutro ou negativo).</p>
+            <p>Para identificar os temas relevantes usa-se <strong style="color:var(--text)">TF-IDF</strong> (pontuação que destaca palavras importantes dentro de um conjunto de textos) e <strong style="color:var(--text)">Word2Vec</strong> (modelo que aprende o significado de palavras pelo contexto em que aparecem). Por fim, um modelo de linguagem gera resumos executivos prontos para leitura.</p>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Ferramentas utilizadas</div>
+            <div class="tool-list">
+              <div class="tool-item"><div class="tool-name">spaCy</div><div class="tool-desc">Biblioteca de processamento de linguagem natural — usada para limpeza, <strong style="color:var(--text)">tokenização</strong> (divisão do texto em palavras) e extração de entidades relevantes.</div></div>
+              <div class="tool-item"><div class="tool-name">TF-IDF</div><div class="tool-desc">Técnica que mede a importância de uma palavra dentro de um documento comparado ao conjunto inteiro — identifica o que é realmente relevante em cada avaliação.</div></div>
+              <div class="tool-item"><div class="tool-name">Word2Vec</div><div class="tool-desc">Modelo que aprende associações entre palavras — permite entender que "gostoso" e "saboroso" têm significados parecidos sem ser programado para isso.</div></div>
+              <div class="tool-item"><div class="tool-name">Qwen 0.5B + Prompt Engineering</div><div class="tool-desc">Modelo de linguagem para gerar os resumos executivos. O <strong style="color:var(--text)">prompt engineering</strong> (escrita de instruções precisas para o modelo) garante que a saída seja estruturada e relevante para negócios.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+
+    <!-- ══ CARD 4: CHURN (WIP) ══ -->
+    <div class="project-card wip">
+      <div class="card-top">
+        <div class="card-icon">📉</div>
+        <span class="status-badge badge-wip">✦ Em aprimoramento</span>
+      </div>
+      <div class="project-name">Predição de Churn Bancário</div>
+      <div class="project-desc">Identifica clientes com alta probabilidade de cancelamento antes que saiam, permitindo ação proativa de retenção. Avalia e compara três modelos com rastreamento automático via MLflow.</div>
+      <div class="tags-wrap">
+        <span class="tag">Sklearn</span><span class="tag">MLflow</span><span class="tag">SMOTE</span><span class="tag">GradientBoosting</span><span class="tag">RandomForest</span><span class="tag">Seaborn</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-test" href="https://customer-churn-project-d7xs.onrender.com/app/" target="_blank">🚀 Testar o modelo</a>
+        <a class="btn-ghost" href="https://github.com/LucasDS9/Customer-churn-project-/blob/main/notebook/Customer_churn.ipynb" target="_blank">📓 Notebook</a>
+        <button class="btn-ghost" onclick="toggleExpand('churn-info',this)">Saiba mais ↓</button>
+      </div>
+      <div class="wip-progress">
+        <div class="wip-progress-track"><div class="wip-progress-fill"></div></div>
+        <div class="wip-progress-label">Em refinamento — deploy e interface em breve</div>
+      </div>
+
+      <div class="expand-panel" id="expand-churn-info">
+        <div class="expand-inner">
+          <div class="info-block">
+            <div class="info-title">Onde isso é útil na prática</div>
+            <ul class="app-list">
+              <li><strong>Bancos e fintechs:</strong> identificar clientes prestes a cancelar contas ou cartões e acionar equipes de retenção antes da saída.</li>
+              <li><strong>Assinaturas e serviços recorrentes:</strong> reduzir cancelamentos com ofertas personalizadas para os perfis de maior risco.</li>
+              <li><strong>Gestão de carteira:</strong> priorizar quais clientes merecem atenção imediata da equipe comercial, otimizando o esforço humano.</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Como foi feito</div>
+            <p>O desafio principal é o desequilíbrio nos dados — clientes que cancelam são sempre minoria. Para resolver isso, foi usado <strong style="color:var(--text)">SMOTE</strong> (técnica que cria exemplos sintéticos da classe minoritária, equilibrando o aprendizado do modelo). Três algoritmos foram treinados e comparados com rastreamento automático via <strong style="color:var(--text)">MLflow</strong> (plataforma que registra os experimentos de ML como um diário de treinos).</p>
+            <p>O modelo final foi escolhido com base no <strong style="color:var(--text)">recall</strong> (capacidade de não deixar escapar nenhum cliente em risco real) — a métrica mais importante para um problema de retenção.</p>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Ferramentas utilizadas</div>
+            <div class="tool-list">
+              <div class="tool-item"><div class="tool-name">Scikit-learn</div><div class="tool-desc">Biblioteca principal para treinar e avaliar os modelos de classificação — Gradient Boosting e Random Forest.</div></div>
+              <div class="tool-item"><div class="tool-name">SMOTE</div><div class="tool-desc">Técnica de balanceamento de dados — gera exemplos sintéticos (artificiais) da classe minoritária para o modelo aprender a identificar cancelamentos com mais precisão.</div></div>
+              <div class="tool-item"><div class="tool-name">MLflow</div><div class="tool-desc">Plataforma de rastreamento de experimentos — registra automaticamente métricas, parâmetros e resultados de cada treino, facilitando comparações entre modelos.</div></div>
+              <div class="tool-item"><div class="tool-name">Seaborn</div><div class="tool-desc">Biblioteca de visualização de dados — usada na análise exploratória para entender o perfil dos clientes que cancelam.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-
-  <!-- DETAIL RAG -->
-  <div class="section" id="sec-rag">
-    <button class="back-btn" onclick="showSection('projects')">← Voltar aos projetos</button>
-    <div class="detail-header">
-      <div class="detail-icon">📄</div>
-      <div>
-        <div class="detail-title">Sistema RAG Q&amp;A (PT)</div>
-        <div class="detail-subtitle">Mini RAG PRO – Perguntas e Respostas com RAG em português</div>
-      </div>
-    </div>
-    <div class="tags-wrap" style="margin-bottom:1.4rem;">
-      <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">ChromaDB</span><span class="tag">LangChain</span><span class="tag">Qwen2.5-1.5B</span><span class="tag">Gradio</span>
-    </div>
-    <div class="detail-body">
-      <p>Sistema completo de <strong>Retrieval-Augmented Generation (RAG)</strong> desenvolvido em Python que permite realizar perguntas sobre documentos PDF utilizando embeddings semânticos, banco vetorial persistente, re-ranking neural e LLMs para geração de respostas contextualizadas em português.</p>
-      <p>O projeto implementa uma arquitetura moderna de IA generativa semelhante às utilizadas em aplicações reais como <strong>assistentes corporativos, sistemas jurídicos e chatbots especializados</strong>. Cobre todo o ciclo de vida RAG: ingestão de documentos, chunking adaptativo, geração de embeddings, indexação vetorial, recuperação semântica, re-ranking e avaliação quantitativa.</p>
-      <p>A arquitetura integra <strong>ChromaDB</strong> como banco vetorial persistente, <strong>LangChain Text Splitters</strong> para chunking adaptativo, e <strong>Transformers</strong> para execução do modelo generativo Qwen2.5-1.5B. O sistema inclui um módulo de <strong>avaliação automática LLM-as-Judge</strong> com métricas de relevância, coerência, correção e completude, complementado por BLEU, ROUGE e métricas de Information Retrieval.</p>
-    </div>
-    <div class="section-label">Exemplo de avaliação — evaluation.ipynb</div>
-    <div class="rag-grid">
-      <div class="rag-card">
-        <div class="rag-card-title">Métricas de Retrieval (IR) — Qwen 0.5B</div>
-        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">Mean F1@3</span><span style="font-size:12px;color:var(--accent);font-weight:500;">0.5111</span></div>
-        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">Mean MRR</span><span style="font-size:12px;color:#1D9E75;font-weight:500;">1.0000</span></div>
-        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">Mean nDCG@3</span><span style="font-size:12px;color:var(--accent);font-weight:500;">0.6941</span></div>
-        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">Latência média</span><span style="font-size:12px;color:var(--text2);font-weight:500;">4.33s</span></div>
-        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">BLEU médio</span><span style="font-size:12px;color:var(--text2);font-weight:500;">0.2255</span></div>
-        <div class="metric-row"><span style="font-size:11.5px;color:var(--text2);">ROUGE-L médio</span><span style="font-size:12px;color:var(--accent);font-weight:500;">0.5270</span></div>
-        <div style="margin-top:8px;font-size:10.5px;color:var(--text3);line-height:1.5;">Queries: "Explique como a IA usa matemática…" · "Como redes neurais se inspiram no cérebro?" · "Quais tarefas as máquinas realizam melhor?"</div>
-      </div>
-      <div class="rag-card">
-        <div class="rag-card-title">LLM-as-Judge — "3 diferenças entre cérebro humano e máquinas"</div>
-        <div class="judge-row"><span class="judge-label">Relevância</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="judge-score">8.0</span></div>
-        <div class="judge-row"><span class="judge-label">Fidelidade</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="judge-score">8.0</span></div>
-        <div class="judge-row"><span class="judge-label">Correção</span><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="judge-score">9.0</span></div>
-        <div class="judge-row"><span class="judge-label">Completude</span><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div><span class="judge-score">8.5</span></div>
-        <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(123,111,232,0.1);font-size:10.5px;color:var(--text3);line-height:1.5;">BLEU/ROUGE calculados com TinyLlama-1.1B · Queries: "Diferencie como humanos e máquinas processam informação" e "A máquina tem metacognição?"</div>
-        <div style="margin-top:6px;font-size:10.5px;color:var(--text3);">⚠ Avaliador: Qwen 0.5B — modelo mais robusto produziria scores mais altos.</div>
-      </div>
-    </div>
-    <div class="rag-note">
-      Notebook <strong style="color:var(--accent);">evaluation.ipynb</strong> — pipeline completo: chunking strategies, embeddings, ChromaDB, retrieval, reranking MMR, prompt engineering e métricas BLEU/ROUGE/IR.
-    </div>
-    <div class="section-label">Testar o modelo</div>
-    <div class="detail-actions">
-      <a class="btn-primary" href="https://huggingface.co/spaces/LucasDS9/MiniRAG-PT" target="_blank">🚀 Abrir no Hugging Face</a>
-      <a class="btn-outline" href="https://github.com/LucasDS9/MiniRAG-PT/blob/main/evaluation.ipynb" target="_blank">📓 Notebook de avaliação</a>
-    </div>
-  </div>
-
-  <!-- DETAIL CREDIT -->
-  <div class="section" id="sec-credit">
-    <button class="back-btn" onclick="showSection('projects')">← Voltar aos projetos</button>
-    <div class="detail-header">
-      <div class="detail-icon">💳</div>
-      <div>
-        <div class="detail-title">Sistema de Aprovação de Crédito</div>
-        <div class="detail-subtitle">ML end-to-end para decisões bancárias de empréstimo</div>
-      </div>
-    </div>
-    <div class="tags-wrap" style="margin-bottom:1.4rem;">
-      <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Regressão Linear</span><span class="tag">Pandas</span><span class="tag">Numpy</span><span class="tag">Matplotlib</span>
-    </div>
-    <div class="detail-body">
-      <p>Projeto completo de <strong>Machine Learning</strong> focado em prever aprovação de empréstimos bancários. Além da <strong>classificação binária</strong>, o projeto realiza regressão para estimar a taxa de juros ideal para cada cliente aprovado — uma solução end-to-end para decisões de crédito.</p>
-      <p>Combina <strong>EDA aprofundada com insights estratégicos</strong>, regras de negócio customizadas, <strong>RandomForestClassifier</strong> para aprovação e regressão linear para precificação de taxas. O notebook inclui análise detalhada dos fatores que mais impactam a concessão de crédito.</p>
-      <p>A solução auxilia instituições financeiras a <strong>reduzir riscos, automatizar processos e otimizar taxas oferecidas</strong>, sendo facilmente expansível para cenários reais de produção.</p>
-    </div>
-    <div class="section-label">Simulação de casos reais</div>
-    <div class="cases-grid">
-      <div class="case-card denied">
-        <div class="case-badge denied">✕ Negado</div>
-        <div class="case-info-row"><span>Idade</span><span>30 anos</span></div>
-        <div class="case-info-row"><span>Emprego</span><span>Autônomo</span></div>
-        <div class="case-info-row"><span>Salário</span><span>R$ 3.000</span></div>
-        <div class="case-info-row"><span>Gastos mensais</span><span>R$ 1.800</span></div>
-        <div class="case-info-row"><span>Empréstimos ativos</span><span>1</span></div>
-        <div class="case-info-row"><span>Score de crédito</span><span>650</span></div>
-        <div class="case-info-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
-        <div class="case-info-row"><span>Prazo</span><span>8 meses</span></div>
-      </div>
-      <div class="case-card approved">
-        <div class="case-badge approved">✓ Aprovado</div>
-        <div class="case-info-row"><span>Idade</span><span>30 anos</span></div>
-        <div class="case-info-row"><span>Emprego</span><span>Autônomo</span></div>
-        <div class="case-info-row"><span>Salário</span><span>R$ 4.000</span></div>
-        <div class="case-info-row"><span>Gastos mensais</span><span>R$ 2.200</span></div>
-        <div class="case-info-row"><span>Empréstimos ativos</span><span>0</span></div>
-        <div class="case-info-row"><span>Score de crédito</span><span>650</span></div>
-        <div class="case-info-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
-        <div class="case-info-row"><span>Prazo</span><span>8 meses</span></div>
-      </div>
-    </div>
-    <div class="section-label" style="margin-top:0;">Feature importance — aprovação</div>
-    <div style="max-width:500px;margin-bottom:14px;">
-      <div class="feat-row"><span class="feat-name">credit_score</span><div class="feat-track"><div class="feat-fill" style="width:70.6%"></div></div><span class="feat-pct">35.3%</span></div>
-      <div class="feat-row"><span class="feat-name">debt_to_income</span><div class="feat-track"><div class="feat-fill" style="width:45.6%"></div></div><span class="feat-pct">22.8%</span></div>
-      <div class="feat-row"><span class="feat-name">employment_status</span><div class="feat-track"><div class="feat-fill" style="width:41.2%"></div></div><span class="feat-pct">20.6%</span></div>
-      <div class="feat-row"><span class="feat-name">salary</span><div class="feat-track"><div class="feat-fill" style="width:21.4%"></div></div><span class="feat-pct">10.7%</span></div>
-      <div class="feat-row"><span class="feat-name">age</span><div class="feat-track"><div class="feat-fill" style="width:21.2%"></div></div><span class="feat-pct">10.6%</span></div>
-    </div>
-    <div class="denial-box">
-      <div class="denial-box-title">Por que foi negado?</div>
-      <p>O principal fator foi o <strong style="color:var(--red);">debt-to-income elevado</strong> — R$ 1.800 de gastos sobre R$ 3.000 de renda representa 60% de comprometimento, acima do limite de risco. Somado a isso, a presença de <strong style="color:var(--red);">delinquências anteriores</strong> (correlação −0.330 com aprovação) combinada com score 650 aciona o padrão de risco aprendido pelo modelo — o efeito combinado dos dois fatores é forte mesmo sem causalidade direta.</p>
-    </div>
-    <div class="approval-box">
-      <div class="approval-box-title">Resultado do caso aprovado — taxa prevista pelo modelo</div>
-      <div class="approval-values">
-        <div class="approval-val"><div class="val">11,02%</div><div class="lbl">Taxa total</div></div>
-        <div class="approval-val"><div class="val">1,38%</div><div class="lbl">Taxa mensal</div></div>
-        <div class="approval-val"><div class="val">R$ 1.387,75</div><div class="lbl">Parcela / mês</div></div>
-      </div>
-      <div style="text-align:center;margin-top:10px;font-size:11.5px;color:var(--text3);">Total a pagar: <strong style="color:var(--green);">R$ 11.102,00</strong> em 8 parcelas</div>
-    </div>
-    <div class="section-label">Testar &amp; Explorar</div>
-    <div class="detail-actions">
-      <a class="btn-primary" href="https://loan-approval-project-yyfi.onrender.com" target="_blank">🚀 Testar o modelo</a>
-      <a class="btn-outline" href="https://github.com/LucasDS9/Loan_approval-project/blob/main/notebooks/loan_full_project.ipynb" target="_blank">📓 Notebook (EDA + implementação)</a>
-    </div>
-  </div>
-
-  <!-- DETAIL NLP -->
-  <div class="section" id="sec-nlp">
-    <button class="back-btn" onclick="showSection('projects')">← Voltar aos projetos</button>
-    <div class="detail-header">
-      <div class="detail-icon">🛒</div>
-      <div>
-        <div class="detail-title">Análise de Produtos Amazon (NLP)</div>
-        <div class="detail-subtitle">Pipeline NLP + LLM sobre o dataset Amazon Fine Foods</div>
-      </div>
-    </div>
-    <div class="tags-wrap" style="margin-bottom:1.4rem;">
-      <span class="tag">spaCy</span><span class="tag">TF-IDF</span><span class="tag">Word2Vec</span><span class="tag">Qwen 0.5B</span><span class="tag">Prompt Engineering</span><span class="tag">Python</span>
-    </div>
-    <div class="detail-body">
-      <p>Pipeline completo de <strong>Processamento de Linguagem Natural (NLP)</strong> voltado à extração de insights estruturados a partir de avaliações textuais do <strong>Amazon Fine Foods dataset</strong>. O objetivo é transformar reviews não estruturadas em informações estratégicas por produto, combinando técnicas clássicas de NLP com análise via LLMs.</p>
-      <p>O pipeline cobre todas as etapas: ingestão dos dados, limpeza textual e feature engineering, <strong>vetorização via TF-IDF e Word2Vec</strong>, agregação de sentimento por produto e geração de métricas estruturadas. O modelo <strong>Qwen 0.5B</strong> é utilizado com prompt engineering para gerar insights executivos, analisar críticas e recomendar melhorias por produto.</p>
-      <p>Em ambiente corporativo, pode ser aplicado para <strong>monitoramento de produtos, análise da experiência do cliente, apoio à tomada de decisão e escalabilidade analítica</strong> — substituindo análises manuais por um pipeline automatizado de NLP + LLM.</p>
-    </div>
-    <div class="section-label">Exemplo de output do modelo</div>
-    <div class="two-col">
-      <div class="example-box">
-        <div class="ex-title">🇧🇷 Português</div>
-        <div class="metric-row"><span>Sentimento geral</span><span>Neutro</span></div>
-        <div class="metric-row"><span>Reviews negativas</span><span>19,5%</span></div>
-        <div class="metric-row"><span>Reviews neutras</span><span>47,2%</span></div>
-        <div class="metric-row"><span>Reviews positivas</span><span>33,3%</span></div>
-        <div class="metric-row"><span>Score médio</span><span>3,69 / 5</span></div>
-        <div style="margin-top:9px;font-size:11.5px;">Palavras-chave TF-IDF: <strong style="color:var(--accent);">chocolate, amêndoa, cacau, sabor, nozes</strong></div>
-        <div style="margin-top:7px;font-size:11.5px;color:var(--text3);font-style:italic;">Produto com qualidade satisfatória, com margem de melhoria em consistência de sabor e ingredientes.</div>
-      </div>
-      <div class="example-box">
-        <div class="ex-title">🇺🇸 English</div>
-        <div class="metric-row"><span>Overall sentiment</span><span>Neutral</span></div>
-        <div class="metric-row"><span>Negative reviews</span><span>19.5%</span></div>
-        <div class="metric-row"><span>Neutral reviews</span><span>47.2%</span></div>
-        <div class="metric-row"><span>Positive reviews</span><span>33.3%</span></div>
-        <div class="metric-row"><span>Average score</span><span>3.69 / 5</span></div>
-        <div style="margin-top:9px;font-size:11.5px;">TF-IDF keywords: <strong style="color:var(--accent);">chocolate, almond, cocoa, taste, nut</strong></div>
-        <div style="margin-top:7px;font-size:11.5px;color:var(--text3);font-style:italic;">Decent overall quality, room for improvement in taste consistency and ingredient standards.</div>
-      </div>
-    </div>
-    <div class="section-label">Testar o modelo</div>
-    <div class="detail-actions">
-      <a class="btn-primary" href="https://huggingface.co/spaces/LucasDS9/nlp-product-review-analysis" target="_blank">🚀 Abrir no Hugging Face</a>
-    </div>
-  </div>
-
-  <!-- DETAIL CHURN -->
-  <div class="section" id="sec-churn">
-    <button class="back-btn" onclick="showSection('projects')">← Voltar aos projetos</button>
-    <div class="detail-header">
-      <div class="detail-icon">📉</div>
-      <div>
-        <div class="detail-title">Classificador de Churn Bancário</div>
-        <div class="detail-subtitle">Predição de cancelamento com MLflow tracking e SMOTE</div>
-      </div>
-    </div>
-    <div class="tags-wrap" style="margin-bottom:1.4rem;">
-      <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">MLflow</span><span class="tag">SMOTE</span><span class="tag">GradientBoosting</span><span class="tag">RandomForest</span><span class="tag">Pandas</span><span class="tag">Seaborn</span>
-    </div>
-    <div class="detail-body">
-      <p>Projeto completo de <strong>Machine Learning</strong> focado em prever quais clientes bancários têm maior probabilidade de cancelar seus serviços (churn). Além da predição binária, o projeto identifica os <strong>principais fatores que influenciam o cancelamento</strong>, entregando insights estratégicos para retenção de clientes.</p>
-      <p>O pipeline utiliza <strong>SMOTE para balanceamento de classes</strong>, encapsulado em um pipeline scikit-learn com pré-processamento via ColumnTransformer e OrdinalEncoder. Três modelos foram avaliados — <strong>Logistic Regression, Random Forest e Gradient Boosting</strong> — todos rastreados com <strong>MLflow autolog</strong>, incluindo métricas ROC-AUC, relatórios de classificação e confusion matrix. O modelo campeão é registrado no MLflow Model Registry com alias <em>champion</em>.</p>
-      <p>O <strong>notebook inclui EDA completa, insights sobre perfil de churn e implementação detalhada</strong> de todas as etapas do pipeline. Um threshold customizado de 0.35 foi definido para maximizar recall, priorizando a identificação correta de clientes em risco.</p>
-    </div>
-    <div class="section-label">Testar &amp; Explorar</div>
-    <div class="detail-actions">
-      <a class="btn-primary" href="https://customer-churn-project-d7xs.onrender.com/app/" target="_blank">🚀 Testar o modelo</a>
-      <a class="btn-outline" href="https://github.com/LucasDS9/Customer-churn-project-/blob/main/notebook/Customer_churn.ipynb" target="_blank">📓 Notebook (EDA + implementação)</a>
-    </div>
-  </div>
-
 </main>
 
 <script>
-  window.showSection = function(name) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    if (name === 'about') {
-      document.getElementById('sec-about').classList.add('active');
-      document.querySelectorAll('.nav-btn')[0].classList.add('active');
-    } else if (name === 'projects') {
-      document.getElementById('sec-projects').classList.add('active');
-      document.querySelectorAll('.nav-btn')[1].classList.add('active');
+  function toggleExpand(id, btn) {
+    const panel = document.getElementById('expand-' + id);
+    const isOpen = panel.classList.contains('open');
+    const card = btn.closest('.project-card');
+    card.querySelectorAll('.expand-panel').forEach(p => p.classList.remove('open'));
+    card.querySelectorAll('.btn-ghost[onclick]').forEach(b => {
+      b.classList.remove('active');
+      b.textContent = b.textContent.replace('↑','↓');
+    });
+    if (!isOpen) {
+      panel.classList.add('open');
+      btn.classList.add('active');
+      btn.textContent = btn.textContent.replace('↓','↑');
     }
-  };
-  window.showDetail = function(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById('sec-' + id).classList.add('active');
-    window.scrollTo(0, 0);
-  };
+  }
 </script>
 </body>
 </html>
