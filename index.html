@@ -134,6 +134,15 @@
     .nlp-c{background:var(--bg4);border:1px solid var(--border);border-radius:10px;padding:12px;}
     .nlp-c-t{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:10px;}
 
+    /* rag example flow */
+    .rag-example-flow{display:flex;flex-direction:column;gap:0;}
+    .rag-step{display:flex;flex-direction:column;gap:6px;}
+    .rag-step-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.3px;color:var(--text3);font-weight:500;}
+    .rag-step-content{border-radius:9px;padding:10px 14px;font-size:12.5px;line-height:1.75;}
+    .rag-question{background:rgba(123,111,232,0.07);border:1px solid rgba(123,111,232,0.2);color:var(--accent);font-weight:500;}
+    .rag-answer{background:var(--bg4);border:1px solid var(--border);color:var(--text2);}
+    .rag-arrow{text-align:center;color:var(--text3);font-size:16px;padding:4px 0;line-height:1;}
+
     /* saiba mais */
     .info-block{margin-bottom:16px;}
     .info-title{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
@@ -176,7 +185,7 @@
   <div class="contact-list">
     <div class="contact-item">
       <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-      <a href="javascript:void(0)" onclick="window.location='mai'+'lto:lucasvinids@gmail.com'">lucasvinids@gmail.com</a>
+      <a href="javascript:void(0)" onclick="window.location='mai'+'lto:lucasvinids@gmail.com'"><span class="__cf_email__" data-cfemail="107c6573716366797e79746350777d71797c3e737f7d">[email&#160;protected]</span></a>
     </div>
     <div class="contact-item">
       <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.6-4.04-1.6-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.47.99.1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
@@ -204,84 +213,7 @@
 
   <div class="projects-grid">
 
-    <!-- ══ CARD 1: RAG ══ -->
-    <div class="project-card">
-      <div class="card-top">
-        <div class="card-icon">📄</div>
-        <span class="status-badge badge-live">● Live</span>
-      </div>
-      <div class="project-name">Assistente RAG sobre Documentos</div>
-      <div class="project-desc">Faz perguntas em linguagem natural sobre qualquer PDF e obtém respostas precisas e contextualizadas em português. Usa busca semântica para encontrar os trechos mais relevantes antes de gerar a resposta.</div>
-      <div class="result-box">
-        <div class="result-box-label">📌 Resultado prático</div>
-        <p>Substitui a leitura manual de documentos longos. Encontra a informação certa em segundos — aplicável a contextos jurídicos, corporativos e educacionais.</p>
-      </div>
-      <div class="tags-wrap">
-        <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">ChromaDB</span><span class="tag">LangChain</span><span class="tag">Qwen2.5-1.5B</span><span class="tag">Gradio</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-test" href="https://huggingface.co/spaces/LucasDS9/MiniRAG-PT" target="_blank">🚀 Testar o modelo</a>
-        <a class="btn-ghost" href="https://github.com/LucasDS9/MiniRAG-PT/blob/main/evaluation.ipynb" target="_blank">📓 Notebook</a>
-        <button class="btn-ghost" onclick="toggleExpand('rag-ex',this)">Ver exemplo ↓</button>
-        <button class="btn-ghost" onclick="toggleExpand('rag-info',this)">Saiba mais ↓</button>
-      </div>
-
-      <div class="expand-panel" id="expand-rag-ex">
-        <div class="expand-inner">
-          <div class="sub-label">Métricas de avaliação automática</div>
-          <div class="metric-grid">
-            <div class="m-card">
-              <div class="m-card-title">Qualidade da recuperação</div>
-              <div class="m-row"><span>Precisão média (F1@3)</span><span class="v">0.5111</span></div>
-              <div class="m-row"><span>Acerto no topo (MRR)</span><span class="vg">1.0000</span></div>
-              <div class="m-row"><span>Ranking médio (nDCG@3)</span><span class="v">0.6941</span></div>
-              <div class="m-row"><span>Tempo de resposta</span><span style="color:var(--text2)">4.33s</span></div>
-              <div class="m-row"><span>Similaridade (BLEU)</span><span style="color:var(--text2)">0.2255</span></div>
-              <div class="m-row"><span>Cobertura (ROUGE-L)</span><span class="v">0.5270</span></div>
-            </div>
-            <div class="m-card">
-              <div class="m-card-title">Avaliação da resposta — juiz automático</div>
-              <div class="j-row"><span class="j-lbl">Relevância</span><div class="bar-t"><div class="bar-f" style="width:80%"></div></div><span class="j-sc">8.0</span></div>
-              <div class="j-row"><span class="j-lbl">Fidelidade</span><div class="bar-t"><div class="bar-f" style="width:80%"></div></div><span class="j-sc">8.0</span></div>
-              <div class="j-row"><span class="j-lbl">Correção</span><div class="bar-t"><div class="bar-f" style="width:90%"></div></div><span class="j-sc">9.0</span></div>
-              <div class="j-row"><span class="j-lbl">Completude</span><div class="bar-t"><div class="bar-f" style="width:85%"></div></div><span class="j-sc">8.5</span></div>
-              <div style="margin-top:10px;font-size:10.5px;color:var(--text3);line-height:1.5;">Pergunta: "3 diferenças entre cérebro humano e máquinas" · Avaliador: Qwen 0.5B</div>
-            </div>
-          </div>
-          <div class="expand-note">Notebook <strong style="color:var(--accent)">evaluation.ipynb</strong> — análise completa de como o conteúdo foi dividido, buscado e avaliado.</div>
-        </div>
-      </div>
-
-      <div class="expand-panel" id="expand-rag-info">
-        <div class="expand-inner">
-          <div class="info-block">
-            <div class="info-title">Onde isso é útil na prática</div>
-            <ul class="app-list">
-              <li><strong>Escritórios de advocacia:</strong> buscar cláusulas e precedentes em contratos sem ler centenas de páginas.</li>
-              <li><strong>Empresas e RH:</strong> consultar políticas internas, manuais e documentos institucionais instantaneamente.</li>
-              <li><strong>Educação:</strong> estudantes e professores extraem informações de apostilas e artigos com perguntas diretas.</li>
-              <li><strong>Saúde:</strong> profissionais consultam protocolos clínicos, bulas e laudos de forma rápida e precisa.</li>
-            </ul>
-          </div>
-          <div class="info-block">
-            <div class="info-title">Como foi feito</div>
-            <p>O sistema lê o PDF e o divide em pedaços menores — isso se chama <strong style="color:var(--text)">chunking</strong> (fragmentação de texto). Cada fragmento é transformado em um número que representa seu significado — chamado de <strong style="color:var(--text)">embedding</strong> (representação vetorial). Quando o usuário faz uma pergunta, ela também vira um número e o sistema encontra os fragmentos com significado mais parecido — isso é a <strong style="color:var(--text)">busca semântica</strong> (busca por sentido, não por palavra exata). Por fim, um modelo de linguagem recebe esses fragmentos e gera uma resposta fluente e contextualizada.</p>
-          </div>
-          <div class="info-block">
-            <div class="info-title">Ferramentas utilizadas</div>
-            <div class="tool-list">
-              <div class="tool-item"><div class="tool-name">LangChain</div><div class="tool-desc">Biblioteca que orquestra todo o fluxo — conecta a leitura do PDF, a busca e o modelo de linguagem num único pipeline (cadeia de etapas automatizadas).</div></div>
-              <div class="tool-item"><div class="tool-name">ChromaDB</div><div class="tool-desc">Banco de dados vetorial — armazena as representações numéricas dos textos e permite buscas por similaridade de significado.</div></div>
-              <div class="tool-item"><div class="tool-name">Qwen2.5-1.5B</div><div class="tool-desc">Modelo de linguagem responsável por gerar as respostas finais. Leve o suficiente para rodar sem GPU dedicada.</div></div>
-              <div class="tool-item"><div class="tool-name">Gradio</div><div class="tool-desc">Framework para criação da interface web interativa onde o usuário faz perguntas e visualiza as respostas em tempo real.</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ══ CARD 2: CRÉDITO ══ -->
+    <!-- ══ CARD 1: CRÉDITO ══ -->
     <div class="project-card">
       <div class="card-top">
         <div class="card-icon">💳</div>
@@ -370,6 +302,99 @@
               <div class="tool-item"><div class="tool-name">Random Forest</div><div class="tool-desc">Algoritmo baseado em múltiplas <strong style="color:var(--text)">árvores de decisão</strong> (regras do tipo "se renda > X e dívida = 0, então aprovar"). Combinar várias árvores aumenta a precisão e reduz erros.</div></div>
               <div class="tool-item"><div class="tool-name">Pandas</div><div class="tool-desc">Ferramenta para manipulação e limpeza de dados em tabelas — equivalente a um Excel programável e muito mais poderoso.</div></div>
               <div class="tool-item"><div class="tool-name">Matplotlib</div><div class="tool-desc">Biblioteca de visualização — usada para gerar gráficos de análise e interpretação dos resultados do modelo.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══ CARD 2: RAG ══ -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="card-icon">📄</div>
+        <span class="status-badge badge-live">● Live</span>
+      </div>
+      <div class="project-name">Assistente RAG sobre Documentos</div>
+      <div class="project-desc">Faz perguntas em linguagem natural sobre qualquer PDF e obtém respostas precisas e contextualizadas em português. Usa busca semântica para encontrar os trechos mais relevantes antes de gerar a resposta.</div>
+      <div class="result-box">
+        <div class="result-box-label">📌 Resultado prático</div>
+        <p>Substitui a leitura manual de documentos longos. Encontra a informação certa em segundos — aplicável a contextos jurídicos, corporativos e educacionais.</p>
+      </div>
+      <div class="tags-wrap">
+        <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">ChromaDB</span><span class="tag">LangChain</span><span class="tag">Qwen2.5-1.5B</span><span class="tag">Gradio</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-test" href="https://huggingface.co/spaces/LucasDS9/MiniRAG-PT" target="_blank">🚀 Testar o modelo</a>
+        <a class="btn-ghost" href="https://github.com/LucasDS9/MiniRAG-PT/blob/main/evaluation.ipynb" target="_blank">📓 Notebook (avaliação)</a>
+        <button class="btn-ghost" onclick="toggleExpand('rag-ex',this)">Ver exemplo ↓</button>
+        <button class="btn-ghost" onclick="toggleExpand('rag-info',this)">Saiba mais ↓</button>
+      </div>
+
+      <div class="expand-panel" id="expand-rag-ex">
+        <div class="expand-inner">
+          <!-- EXEMPLO REAL: pergunta + resposta -->
+          <div class="sub-label">Exemplo real — PDF sobre diferenças entre humanos e máquinas</div>
+          <div class="rag-example-flow">
+            <div class="rag-step">
+              <div class="rag-step-label">📥 Pergunta enviada</div>
+              <div class="rag-step-content rag-question">Explique redes neurais</div>
+            </div>
+            <div class="rag-arrow">↓</div>
+            <div class="rag-step">
+              <div class="rag-step-label">📤 Resposta gerada pelo modelo</div>
+              <div class="rag-step-content rag-answer">Redes neurais artificiais são modelos matemáticos simplificados projetados para realizar tarefas específicas, como processamento de informações e aprendizado. Elas são compostas por unidades interconectadas que transmitem sinais, similarmente às estruturas neuronais do cérebro humano. No entanto, embora compartilhem algumas características com o cérebro, elas são muito diferentes em termos de complexidade e funcionalidade...</div>
+            </div>
+          </div>
+
+          <!-- AVALIAÇÃO -->
+          <div class="sub-label" style="margin-top:18px;">Avaliação da resposta</div>
+          <div class="metric-grid">
+            <div class="m-card">
+              <div class="m-card-title">LLM-as-Judge (Qwen2.5-1.5B) — escala 0–10</div>
+              <div class="j-row"><span class="j-lbl">Relevância</span><div class="bar-t"><div class="bar-f" style="width:70%"></div></div><span class="j-sc">7</span></div>
+              <div class="j-row"><span class="j-lbl">Coerência</span><div class="bar-t"><div class="bar-f" style="width:90%"></div></div><span class="j-sc">9</span></div>
+              <div class="j-row"><span class="j-lbl">Correção</span><div class="bar-t"><div class="bar-f" style="width:80%"></div></div><span class="j-sc">8</span></div>
+              <div class="j-row"><span class="j-lbl">Completude</span><div class="bar-t"><div class="bar-f" style="width:80%"></div></div><span class="j-sc">8</span></div>
+              <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:11.5px;">
+                <span style="color:var(--text2)">Média geral</span><span class="vg" style="font-weight:600">8.0 / 10</span>
+              </div>
+            </div>
+            <div class="m-card">
+              <div class="m-card-title">Score por Similaridade de Embeddings (0.0–1.0)</div>
+              <div class="j-row" style="margin-bottom:10px;"><span class="j-lbl">Fidelidade</span><div class="bar-t"><div class="bar-f" style="width:90.6%"></div></div><span class="j-sc">0.906</span></div>
+              <div class="j-row"><span class="j-lbl">Concisão</span><div class="bar-t"><div class="bar-f" style="width:97.7%"></div></div><span class="j-sc">0.977</span></div>
+              <div style="margin-top:12px;font-size:10.5px;color:var(--text3);line-height:1.55;">
+                Gerador &amp; Juiz: <strong style="color:var(--text2)">Qwen/Qwen2.5-1.5B-Instruct</strong><br>
+                Embeddings: <strong style="color:var(--text2)">all-MiniLM-L6-v2</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expand-panel" id="expand-rag-info">
+        <div class="expand-inner">
+          <div class="info-block">
+            <div class="info-title">Onde isso é útil na prática</div>
+            <ul class="app-list">
+              <li><strong>Escritórios de advocacia:</strong> buscar cláusulas e precedentes em contratos sem ler centenas de páginas.</li>
+              <li><strong>Empresas e RH:</strong> consultar políticas internas, manuais e documentos institucionais instantaneamente.</li>
+              <li><strong>Educação:</strong> estudantes e professores extraem informações de apostilas e artigos com perguntas diretas.</li>
+              <li><strong>Saúde:</strong> profissionais consultam protocolos clínicos, bulas e laudos de forma rápida e precisa.</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Como foi feito</div>
+            <p>O sistema lê o PDF e o divide em pedaços menores — isso se chama <strong style="color:var(--text)">chunking</strong> (fragmentação de texto). Cada fragmento é transformado em um número que representa seu significado — chamado de <strong style="color:var(--text)">embedding</strong> (representação vetorial). Quando o usuário faz uma pergunta, ela também vira um número e o sistema encontra os fragmentos com significado mais parecido — isso é a <strong style="color:var(--text)">busca semântica</strong> (busca por sentido, não por palavra exata). Por fim, um modelo de linguagem recebe esses fragmentos e gera uma resposta fluente e contextualizada.</p>
+          </div>
+          <div class="info-block">
+            <div class="info-title">Ferramentas utilizadas</div>
+            <div class="tool-list">
+              <div class="tool-item"><div class="tool-name">LangChain</div><div class="tool-desc">Biblioteca que orquestra todo o fluxo — conecta a leitura do PDF, a busca e o modelo de linguagem num único pipeline (cadeia de etapas automatizadas).</div></div>
+              <div class="tool-item"><div class="tool-name">ChromaDB</div><div class="tool-desc">Banco de dados vetorial — armazena as representações numéricas dos textos e permite buscas por similaridade de significado.</div></div>
+              <div class="tool-item"><div class="tool-name">Qwen2.5-1.5B</div><div class="tool-desc">Modelo de linguagem responsável por gerar as respostas finais. Leve o suficiente para rodar sem GPU dedicada.</div></div>
+              <div class="tool-item"><div class="tool-name">Gradio</div><div class="tool-desc">Framework para criação da interface web interativa onde o usuário faz perguntas e visualiza as respostas em tempo real.</div></div>
             </div>
           </div>
         </div>
@@ -516,12 +541,12 @@
     card.querySelectorAll('.expand-panel').forEach(p => p.classList.remove('open'));
     card.querySelectorAll('.btn-ghost[onclick]').forEach(b => {
       b.classList.remove('active');
-      b.textContent = b.textContent.replace('↑','↓');
+      b.textContent = b.textContent.replace('↑', '↓');
     });
     if (!isOpen) {
       panel.classList.add('open');
       btn.classList.add('active');
-      btn.textContent = btn.textContent.replace('↓','↑');
+      btn.textContent = btn.textContent.replace('↓', '↑');
     }
   }
 </script>
