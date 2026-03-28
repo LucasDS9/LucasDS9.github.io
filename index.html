@@ -10,24 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
-    html,body{height:100%;font-family:'Geist',sans-serif;background:#fff;color:#111;}
+    html,body{height:100%;font-family:'Geist',sans-serif;background:#0d0d0d;color:#f0f0f0;}
     body{display:flex;min-height:100vh;}
 
     /* ── SIDEBAR ── */
-    .sidebar{width:230px;min-width:230px;background:#fafafa;border-right:1px solid #ebebeb;display:flex;flex-direction:column;align-items:center;padding:2rem 1.2rem;gap:1.1rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
-    .avatar{width:76px;height:76px;border-radius:14px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-family:'Geist',sans-serif;font-size:26px;font-weight:500;color:#333;border:1px solid #e0e0e0;}
-    .name{font-family:'Geist',sans-serif;font-size:14px;font-weight:500;text-align:center;color:#111;line-height:1.4;}
-    .role-badge{background:#f0f0f0;border:1px solid #e0e0e0;border-radius:20px;padding:4px 14px;font-size:11px;color:#444;text-align:center;letter-spacing:0.4px;}
-    .divider{width:100%;height:1px;background:#ebebeb;}
-    .skills-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;color:#999;font-weight:500;margin-bottom:8px;width:100%;}
+    .sidebar{width:230px;min-width:230px;background:#111;border-right:1px solid #222;display:flex;flex-direction:column;align-items:center;padding:2rem 1.2rem;gap:1.1rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
+    .avatar{width:76px;height:76px;border-radius:14px;background:#1e1e1e;display:flex;align-items:center;justify-content:center;font-family:'Geist',sans-serif;font-size:26px;font-weight:500;color:#e0e0e0;border:1px solid #2a2a2a;}
+    .name{font-family:'Geist',sans-serif;font-size:14px;font-weight:500;text-align:center;color:#f0f0f0;line-height:1.4;}
+    .role-badge{background:#1e1e1e;border:1px solid #2e2e2e;border-radius:20px;padding:4px 14px;font-size:11px;color:#aaa;text-align:center;letter-spacing:0.4px;}
+    .divider{width:100%;height:1px;background:#222;}
+    .skills-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;color:#555;font-weight:500;margin-bottom:8px;width:100%;}
     .skills-wrap{display:flex;flex-wrap:wrap;gap:5px;width:100%;}
-    .skill-tag{background:#f5f5f5;border:1px solid #e8e8e8;border-radius:5px;padding:3px 9px;font-size:11px;color:#555;}
+    .skill-tag{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:5px;padding:3px 9px;font-size:11px;color:#aaa;}
     .contact-list{width:100%;display:flex;flex-direction:column;gap:9px;}
-    .contact-item{display:flex;align-items:center;gap:9px;font-size:11px;color:#555;}
-    .contact-icon{width:26px;height:26px;border-radius:6px;background:#f0f0f0;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-    .contact-icon svg{width:12px;height:12px;fill:#444;}
-    .contact-item a{color:#555;text-decoration:none;transition:color 0.2s;word-break:break-all;}
-    .contact-item a:hover{color:#111;}
+    .contact-item{display:flex;align-items:center;gap:9px;font-size:11px;color:#888;}
+    .contact-icon{width:26px;height:26px;border-radius:6px;background:#1a1a1a;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .contact-icon svg{width:12px;height:12px;fill:#888;}
+    .contact-item a{color:#888;text-decoration:none;transition:color 0.2s;word-break:break-all;}
+    .contact-item a:hover{color:#f0f0f0;}
 
     /* ── MAIN ── */
     .main{flex:1;overflow-y:auto;position:relative;}
@@ -35,147 +35,153 @@
     /* ── LIST VIEW ── */
     .list-view{padding:2.5rem 2.5rem;transition:opacity 0.2s;}
     .hero{margin-bottom:2.8rem;}
-    .hero-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#999;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-    .hero-eyebrow::after{content:'';flex:1;height:1px;background:#ebebeb;}
-    .hero-headline{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;font-style:italic;color:#111;line-height:1.38;margin-bottom:14px;}
-    .hero-sub{font-size:14px;color:#444;line-height:1.85;max-width:580px;border-left:2px solid #ddd;padding-left:14px;}
+    .hero-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#555;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .hero-eyebrow::after{content:'';flex:1;height:1px;background:#222;}
+    .hero-headline{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;font-style:italic;color:#f0f0f0;line-height:1.38;margin-bottom:14px;}
+    .hero-sub{font-size:14px;color:#888;line-height:1.85;max-width:580px;border-left:2px solid #333;padding-left:14px;}
 
     .section-header{display:flex;align-items:center;gap:12px;margin-bottom:1.4rem;}
-    .section-header h2{font-family:'Geist',sans-serif;font-size:11px;font-weight:500;color:#999;text-transform:uppercase;letter-spacing:2px;}
-    .section-header-line{flex:1;height:1px;background:#ebebeb;}
+    .section-header h2{font-family:'Geist',sans-serif;font-size:11px;font-weight:500;color:#555;text-transform:uppercase;letter-spacing:2px;}
+    .section-header-line{flex:1;height:1px;background:#222;}
 
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;}
 
     /* ── PROJECT CARD ── */
-    .project-card{background:#fff;border:1px solid #e8e8e8;border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;transition:all 0.2s;cursor:pointer;position:relative;}
-    .project-card:hover{border-color:#bbb;box-shadow:0 4px 20px rgba(0,0,0,0.08);transform:translateY(-2px);}
+    .project-card{background:#111;border:1px solid #222;border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;transition:all 0.2s;cursor:pointer;position:relative;}
+    .project-card:hover{border-color:#444;box-shadow:0 4px 24px rgba(0,0,0,0.5);transform:translateY(-2px);}
     .card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;}
-    .card-icon{width:44px;height:44px;border-radius:11px;background:#f5f5f5;border:1px solid #ebebeb;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-    .status-badge{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:3px 10px;font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;background:#e8f5ef;color:#1a7a50;border:1px solid #b6dfc9;}
-    .project-name{font-family:'Instrument Serif',serif;font-size:16px;font-weight:400;color:#111;margin-bottom:7px;line-height:1.3;}
-    .project-desc{font-size:12.5px;color:#555;line-height:1.75;margin-bottom:12px;}
-    .result-box{background:#f8f8f8;border:1px solid #ebebeb;border-left:2px solid #bbb;border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:14px;}
-    .result-box-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;color:#999;font-weight:500;margin-bottom:4px;}
-    .result-box p{font-size:12px;color:#555;line-height:1.65;}
+    .card-icon{width:44px;height:44px;border-radius:11px;background:#1a1a1a;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+    .status-badge{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:3px 10px;font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;background:#0d2318;color:#3ecf8e;border:1px solid #1a4d32;}
+    .project-name{font-family:'Instrument Serif',serif;font-size:16px;font-weight:400;color:#f0f0f0;margin-bottom:7px;line-height:1.3;}
+    .project-desc{font-size:12.5px;color:#888;line-height:1.75;margin-bottom:12px;}
+    .result-box{background:#161616;border:1px solid #252525;border-left:2px solid #444;border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:14px;}
+    .result-box-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;color:#555;font-weight:500;margin-bottom:4px;}
+    .result-box p{font-size:12px;color:#888;line-height:1.65;}
     .tags-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
-    .tag{background:#f5f5f5;border:1px solid #e8e8e8;border-radius:4px;padding:3px 9px;font-size:10.5px;color:#666;}
-    .card-arrow{position:absolute;bottom:12px;right:14px;font-size:12px;color:#bbb;transition:color 0.2s;}
-    .project-card:hover .card-arrow{color:#666;}
+    .tag{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:4px;padding:3px 9px;font-size:10.5px;color:#777;}
+    .card-arrow{position:absolute;bottom:12px;right:14px;font-size:12px;color:#444;transition:color 0.2s;}
+    .project-card:hover .card-arrow{color:#aaa;}
 
     /* ── PROJECT VIEW ── */
-    .project-view{position:fixed;top:0;left:230px;right:0;bottom:0;background:#fff;overflow-y:auto;transform:translateX(100%);transition:transform 0.38s cubic-bezier(0.4,0,0.2,1);z-index:100;}
+    .project-view{position:fixed;top:0;left:230px;right:0;bottom:0;background:#0d0d0d;overflow-y:auto;transform:translateX(100%);transition:transform 0.38s cubic-bezier(0.4,0,0.2,1);z-index:100;}
     .project-view.open{transform:translateX(0);}
 
     /* sticky topbar */
-    .pv-topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #ebebeb;display:flex;align-items:center;gap:10px;padding:0.75rem 1.8rem;backdrop-filter:blur(8px);}
-    .pv-back{background:#fff;border:1px solid #ccc;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:500;color:#111;cursor:pointer;font-family:'Geist',sans-serif;display:flex;align-items:center;gap:6px;transition:all 0.15s;}
-    .pv-back:hover{background:#f5f5f5;border-color:#aaa;}
-    .pv-topbar-title{font-size:13px;color:#555;flex:1;font-family:'Geist',sans-serif;}
-    .pv-notebook-btn{background:#fff;border:1px solid #ccc;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:500;color:#111;font-family:'Geist',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
-    .pv-notebook-btn:hover{background:#f5f5f5;border-color:#aaa;}
-    .pv-test-btn{background:#111;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:500;font-family:'Geist',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all 0.15s;text-decoration:none;white-space:nowrap;}
-    .pv-test-btn:hover{background:#333;}
+    .pv-topbar{position:sticky;top:0;z-index:20;background:#0d0d0d;border-bottom:1px solid #1e1e1e;display:flex;align-items:center;gap:10px;padding:0.75rem 1.8rem;backdrop-filter:blur(8px);}
+    .pv-back{background:#1a1a1a;border:1px solid #2e2e2e;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:500;color:#f0f0f0;cursor:pointer;font-family:'Geist',sans-serif;display:flex;align-items:center;gap:6px;transition:all 0.15s;}
+    .pv-back:hover{background:#252525;border-color:#444;}
+    .pv-topbar-title{font-size:13px;color:#888;flex:1;font-family:'Geist',sans-serif;}
 
     /* project content */
     .pv-content{padding:2.5rem 2.5rem 4rem;max-width:800px;}
-    .pv-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:#999;margin-bottom:10px;}
-    .pv-h1{font-family:'Instrument Serif',serif;font-size:28px;font-weight:400;color:#111;margin-bottom:14px;line-height:1.3;}
+    .pv-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:#555;margin-bottom:10px;}
+    .pv-h1{font-family:'Instrument Serif',serif;font-size:28px;font-weight:400;color:#f0f0f0;margin-bottom:14px;line-height:1.3;}
+
+    /* ── BUTTONS BELOW TITLE ── */
+    .pv-action-btns{display:flex;gap:10px;align-items:center;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;}
+    .pv-notebook-btn{background:#1a1a1a;border:1px solid #333;border-radius:8px;padding:9px 18px;font-size:12px;font-weight:500;color:#f0f0f0;font-family:'Geist',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
+    .pv-notebook-btn:hover{background:#252525;border-color:#555;}
+    .pv-test-btn{background:#f0f0f0;color:#0d0d0d;border:none;border-radius:8px;padding:10px 20px;font-size:12px;font-weight:500;font-family:'Geist',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all 0.15s;text-decoration:none;white-space:nowrap;}
+    .pv-test-btn:hover{background:#ddd;}
+
     .pv-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:2rem;}
-    .pv-tag{font-size:10.5px;color:#666;border:1px solid #e8e8e8;border-radius:4px;padding:3px 9px;background:#f9f9f9;}
+    .pv-tag{font-size:10.5px;color:#777;border:1px solid #2a2a2a;border-radius:4px;padding:3px 9px;background:#161616;}
 
     .pv-section{margin-bottom:2.2rem;}
-    .pv-section-label{font-size:9.5px;text-transform:uppercase;letter-spacing:2.5px;color:#999;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-    .pv-section-label::after{content:'';flex:1;height:0.5px;background:#ebebeb;}
-    .pv-p{font-size:14px;color:#333;line-height:1.9;margin-bottom:10px;}
-    .pv-result{background:#f8f8f8;border-left:2px solid #111;border-radius:0 10px 10px 0;padding:14px 18px;}
-    .pv-result-lbl{font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;color:#999;margin-bottom:6px;}
-    .pv-result p{font-size:13px;color:#333;line-height:1.85;}
+    .pv-section-label{font-size:9.5px;text-transform:uppercase;letter-spacing:2.5px;color:#555;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+    .pv-section-label::after{content:'';flex:1;height:0.5px;background:#222;}
+    .pv-p{font-size:14px;color:#bbb;line-height:1.9;margin-bottom:10px;}
+    .pv-result{background:#161616;border-left:2px solid #f0f0f0;border-radius:0 10px 10px 0;padding:14px 18px;}
+    .pv-result-lbl{font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;color:#555;margin-bottom:6px;}
+    .pv-result p{font-size:13px;color:#bbb;line-height:1.85;}
 
     /* apps list */
     .app-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:4px;}
-    .app-list li{font-size:13px;color:#333;line-height:1.75;padding-left:18px;position:relative;}
-    .app-list li::before{content:'→';position:absolute;left:0;color:#999;font-size:12px;}
+    .app-list li{font-size:13px;color:#bbb;line-height:1.75;padding-left:18px;position:relative;}
+    .app-list li::before{content:'→';position:absolute;left:0;color:#555;font-size:12px;}
 
     /* tools */
     .pv-tools{display:flex;flex-direction:column;gap:8px;}
-    .pv-tool{display:flex;gap:16px;padding:12px 14px;background:#fafafa;border:1px solid #ebebeb;border-radius:8px;align-items:flex-start;}
-    .pv-tool-name{font-size:12px;font-weight:500;color:#111;white-space:nowrap;min-width:140px;padding-top:1px;}
-    .pv-tool-desc{font-size:12px;color:#555;line-height:1.7;}
+    .pv-tool{display:flex;gap:16px;padding:12px 14px;background:#141414;border:1px solid #222;border-radius:8px;align-items:flex-start;}
+    .pv-tool-name{font-size:12px;font-weight:500;color:#f0f0f0;white-space:nowrap;min-width:140px;padding-top:1px;}
+    .pv-tool-desc{font-size:12px;color:#888;line-height:1.7;}
 
     /* ── EXAMPLES ── */
     .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
-    .m-card{background:#fafafa;border:1px solid #ebebeb;border-radius:10px;padding:13px;}
-    .m-card-title{font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;color:#999;margin-bottom:10px;}
-    .m-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f0f0f0;font-size:11.5px;}
+    .m-card{background:#141414;border:1px solid #222;border-radius:10px;padding:13px;}
+    .m-card-title{font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;color:#555;margin-bottom:10px;}
+    .m-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #1e1e1e;font-size:11.5px;}
     .m-row:last-child{border-bottom:none;}
-    .m-row .v{color:#111;font-weight:500;}
-    .m-row .vg{color:#1a7a50;font-weight:500;}
+    .m-row .v{color:#f0f0f0;font-weight:500;}
+    .m-row .vg{color:#3ecf8e;font-weight:500;}
 
     /* feature importance bars */
     .feat-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-    .feat-lbl{font-size:12px;color:#444;width:200px;flex-shrink:0;}
-    .feat-track{flex:1;height:4px;background:#f0f0f0;border-radius:2px;overflow:hidden;}
-    .feat-fill{height:100%;border-radius:2px;background:#111;}
-    .feat-pct{font-size:11px;color:#888;width:36px;text-align:right;}
+    .feat-lbl{font-size:12px;color:#aaa;width:200px;flex-shrink:0;}
+    .feat-track{flex:1;height:4px;background:#1e1e1e;border-radius:2px;overflow:hidden;}
+    .feat-fill{height:100%;border-radius:2px;background:#f0f0f0;}
+    .feat-pct{font-size:11px;color:#666;width:36px;text-align:right;}
 
     /* credit cases */
     .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
-    .c-card{background:#fafafa;border-radius:10px;padding:13px;border:1px solid #e8e8e8;}
-    .c-card.denied{border-color:#f5c4c4;}
-    .c-card.approved{border-color:#b6dfc9;}
+    .c-card{background:#141414;border-radius:10px;padding:13px;border:1px solid #222;}
+    .c-card.denied{border-color:#4d1a1a;}
+    .c-card.approved{border-color:#1a4d32;}
     .c-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:3px 10px;border-radius:5px;margin-bottom:10px;}
-    .c-badge.denied{background:#fdeaea;color:#c0392b;border:1px solid #f5c4c4;}
-    .c-badge.approved{background:#e8f5ef;color:#1a7a50;border:1px solid #b6dfc9;}
-    .c-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f0f0f0;font-size:12px;}
+    .c-badge.denied{background:#2d0f0f;color:#e74c3c;border:1px solid #4d1a1a;}
+    .c-badge.approved{background:#0d2318;color:#3ecf8e;border:1px solid #1a4d32;}
+    .c-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #1e1e1e;font-size:12px;}
     .c-row:last-child{border-bottom:none;}
-    .c-row span:first-child{color:#999;}
-    .c-row span:last-child{color:#333;font-weight:500;}
-    .denial-b{background:#fdeaea;border:1px solid #f5c4c4;border-radius:8px;padding:11px 14px;margin-bottom:10px;}
-    .denial-b-t{font-size:11px;font-weight:500;color:#c0392b;margin-bottom:4px;}
-    .denial-b p{font-size:12px;color:#555;line-height:1.7;}
-    .approve-b{background:#e8f5ef;border:1px solid #b6dfc9;border-radius:8px;padding:13px 14px;}
-    .approve-b-t{font-size:11px;font-weight:500;color:#1a7a50;margin-bottom:10px;}
+    .c-row span:first-child{color:#666;}
+    .c-row span:last-child{color:#ddd;font-weight:500;}
+    .denial-b{background:#1a0a0a;border:1px solid #4d1a1a;border-radius:8px;padding:11px 14px;margin-bottom:10px;}
+    .denial-b-t{font-size:11px;font-weight:500;color:#e74c3c;margin-bottom:4px;}
+    .denial-b p{font-size:12px;color:#999;line-height:1.7;}
+    .approve-b{background:#0a1a12;border:1px solid #1a4d32;border-radius:8px;padding:13px 14px;}
+    .approve-b-t{font-size:11px;font-weight:500;color:#3ecf8e;margin-bottom:10px;}
     .approve-vals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-    .a-val .n{font-family:'Instrument Serif',serif;font-size:18px;color:#1a7a50;}
-    .a-val .l{font-size:10px;color:#777;margin-top:2px;}
+    .a-val .n{font-family:'Instrument Serif',serif;font-size:18px;color:#3ecf8e;}
+    .a-val .l{font-size:10px;color:#666;margin-top:2px;}
+
+    /* agent summary box */
+    .agent-summary{background:#111;border:1px solid #252525;border-left:2px solid #888;border-radius:0 10px 10px 0;padding:13px 16px;margin-top:12px;}
+    .agent-summary-label{font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#555;margin-bottom:7px;font-weight:500;}
+    .agent-summary p{font-size:12.5px;color:#bbb;line-height:1.75;}
 
     /* churn */
-    .churn-profile{background:#fafafa;border:1px solid #ebebeb;border-radius:10px;padding:14px;margin-bottom:12px;}
+    .churn-profile{background:#141414;border:1px solid #222;border-radius:10px;padding:14px;margin-bottom:12px;}
     .churn-risk-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-    .churn-risk-pct{font-family:'Instrument Serif',serif;font-size:28px;color:#c0392b;}
-    .churn-risk-badge{background:#fff8e8;border:1px solid #f5d98a;border-radius:6px;padding:4px 12px;font-size:11px;color:#b8860b;}
+    .churn-risk-pct{font-family:'Instrument Serif',serif;font-size:28px;color:#e74c3c;}
+    .churn-risk-badge{background:#1e1500;border:1px solid #4d3800;border-radius:6px;padding:4px 12px;font-size:11px;color:#f5a623;}
     .churn-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;margin-bottom:12px;}
-    .churn-item{font-size:12px;color:#333;display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f0f0f0;}
-    .churn-item span:first-child{color:#999;}
-    .churn-actions-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;color:#999;font-weight:500;margin-bottom:10px;}
-    .churn-action{display:flex;gap:9px;margin-bottom:8px;align-items:flex-start;font-size:13px;color:#333;line-height:1.7;}
-    .churn-action-num{width:20px;height:20px;border-radius:50%;background:#f0f0f0;color:#555;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+    .churn-item{font-size:12px;color:#ddd;display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #1e1e1e;}
+    .churn-item span:first-child{color:#666;}
+    .churn-actions-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;color:#555;font-weight:500;margin-bottom:10px;}
+    .churn-action{display:flex;gap:9px;margin-bottom:8px;align-items:flex-start;font-size:13px;color:#bbb;line-height:1.7;}
+    .churn-action-num{width:20px;height:20px;border-radius:50%;background:#1e1e1e;color:#888;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
 
     /* NLP */
-    .nlp-c{background:#fafafa;border:1px solid #ebebeb;border-radius:10px;padding:13px;}
-    .nlp-c-t{font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;color:#999;margin-bottom:10px;}
+    .nlp-c{background:#141414;border:1px solid #222;border-radius:10px;padding:13px;}
+    .nlp-c-t{font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;color:#555;margin-bottom:10px;}
 
     /* Power BI */
-    .pbi-preview{background:#fafafa;border:1px solid #ebebeb;border-radius:10px;overflow:hidden;margin-bottom:12px;}
-    .pbi-header{background:#f2f2f2;padding:9px 14px;font-size:11px;color:#888;display:flex;align-items:center;gap:7px;border-bottom:1px solid #ebebeb;}
+    .pbi-preview{background:#141414;border:1px solid #222;border-radius:10px;overflow:hidden;margin-bottom:12px;}
+    .pbi-header{background:#1a1a1a;padding:9px 14px;font-size:11px;color:#666;display:flex;align-items:center;gap:7px;border-bottom:1px solid #222;}
     .pbi-kpis{display:grid;grid-template-columns:repeat(3,1fr);}
-    .pbi-kpi{padding:12px 14px;border-right:1px solid #ebebeb;}
+    .pbi-kpi{padding:12px 14px;border-right:1px solid #222;}
     .pbi-kpi:last-child{border-right:none;}
-    .pbi-kpi-label{font-size:9.5px;color:#999;margin-bottom:4px;}
-    .pbi-kpi-val{font-family:'Instrument Serif',serif;font-size:17px;color:#111;}
-    .pbi-kpi-val.green{color:#1a7a50;}
-    .pbi-charts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #ebebeb;}
-    .pbi-chart{padding:12px 14px;border-right:1px solid #ebebeb;}
+    .pbi-kpi-label{font-size:9.5px;color:#555;margin-bottom:4px;}
+    .pbi-kpi-val{font-family:'Instrument Serif',serif;font-size:17px;color:#f0f0f0;}
+    .pbi-kpi-val.green{color:#3ecf8e;}
+    .pbi-charts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #222;}
+    .pbi-chart{padding:12px 14px;border-right:1px solid #222;}
     .pbi-chart:last-child{border-right:none;}
-    .pbi-chart-title{font-size:9.5px;color:#999;margin-bottom:8px;}
+    .pbi-chart-title{font-size:9.5px;color:#555;margin-bottom:8px;}
     .mini-bar{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
-    .mini-bar-label{font-size:11px;color:#555;width:70px;flex-shrink:0;}
-    .mini-bar-track{flex:1;height:5px;background:#ebebeb;border-radius:3px;overflow:hidden;}
-    .mini-bar-fill{height:100%;border-radius:3px;background:#333;}
-    .mini-bar-val{font-size:11px;color:#888;width:44px;text-align:right;}
-
-    /* expand note */
-    .expand-note{font-size:12.5px;color:#666;line-height:1.65;padding:10px 14px;background:#fafafa;border-radius:8px;border-left:2px solid #ddd;}
+    .mini-bar-label{font-size:11px;color:#888;width:70px;flex-shrink:0;}
+    .mini-bar-track{flex:1;height:5px;background:#1e1e1e;border-radius:3px;overflow:hidden;}
+    .mini-bar-fill{height:100%;border-radius:3px;background:#f0f0f0;}
+    .mini-bar-val{font-size:11px;color:#666;width:44px;text-align:right;}
 
     @media(max-width:900px){
       body{flex-direction:column;}
@@ -235,30 +241,12 @@
     <div class="section-header">
       <h2>Projetos</h2>
       <div class="section-header-line"></div>
-      <span style="font-size:11px;color:#999;">4 ativos</span>
+      <span style="font-size:11px;color:#555;">4 ativos</span>
     </div>
 
     <div class="projects-grid">
 
-      <!-- CARD 1: CRÉDITO -->
-      <div class="project-card" onclick="openProject('credit')">
-        <div class="card-top">
-          <div class="card-icon">💳</div>
-          <span class="status-badge">● Live</span>
-        </div>
-        <div class="project-name">Aprovação de Crédito com ML</div>
-        <div class="project-desc">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</div>
-        <div class="result-box">
-          <div class="result-box-label">📌 Resultado prático</div>
-          <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão.</p>
-        </div>
-        <div class="tags-wrap">
-          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Regressão Linear</span><span class="tag">Pandas</span>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
-
-      <!-- CARD 2: CHURN -->
+      <!-- CARD 1: CHURN -->
       <div class="project-card" onclick="openProject('churn')">
         <div class="card-top">
           <div class="card-icon">📉</div>
@@ -276,7 +264,7 @@
         <div class="card-arrow">→</div>
       </div>
 
-      <!-- CARD 3: NLP -->
+      <!-- CARD 2: NLP -->
       <div class="project-card" onclick="openProject('nlp')">
         <div class="card-top">
           <div class="card-icon">🛒</div>
@@ -294,7 +282,7 @@
         <div class="card-arrow">→</div>
       </div>
 
-      <!-- CARD 4: POWER BI -->
+      <!-- CARD 3: POWER BI -->
       <div class="project-card" onclick="openProject('pbi')">
         <div class="card-top">
           <div class="card-icon">📊</div>
@@ -312,98 +300,26 @@
         <div class="card-arrow">→</div>
       </div>
 
+      <!-- CARD 4: CRÉDITO -->
+      <div class="project-card" onclick="openProject('credit')">
+        <div class="card-top">
+          <div class="card-icon">💳</div>
+          <span class="status-badge">● Live</span>
+        </div>
+        <div class="project-name">Aprovação de Crédito com ML</div>
+        <div class="project-desc">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</div>
+        <div class="result-box">
+          <div class="result-box-label">📌 Resultado prático</div>
+          <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão.</p>
+        </div>
+        <div class="tags-wrap">
+          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Regressão Linear</span><span class="tag">Pandas</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
     </div>
   </div><!-- /list-view -->
-
-
-  <!-- ══ PROJECT VIEW: CRÉDITO ══ -->
-  <div class="project-view" id="proj-credit">
-    <div class="pv-topbar">
-      <button class="pv-back" onclick="closeProject()">← Voltar</button>
-      <span class="pv-topbar-title">Aprovação de Crédito com ML</span>
-      <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Loan_approval-project/blob/main/notebooks/loan_full_project.ipynb" target="_blank">📓 Notebook</a>
-      <a class="pv-test-btn" href="https://loan-approval-project-yyfi.onrender.com" target="_blank">🚀 Testar o modelo</a>
-    </div>
-    <div class="pv-content">
-      <div class="pv-eyebrow">Machine Learning · Classificação + Regressão</div>
-      <div class="pv-h1">Aprovação de Crédito com ML</div>
-      <div class="pv-tags">
-        <span class="pv-tag">Python</span><span class="pv-tag">Scikit-learn</span><span class="pv-tag">RandomForest</span><span class="pv-tag">Regressão Linear</span><span class="pv-tag">Pandas</span><span class="pv-tag">Matplotlib</span>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Sobre o projeto</div>
-        <p class="pv-p">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</p>
-        <p class="pv-p">Decisões de crédito mal calibradas custam bilhões anualmente em inadimplência ou em clientes bons que são negados injustamente. Este projeto substitui intuição por predição quantitativa — dois modelos em pipeline: um classificador para aprovar ou negar, e um regressor para calcular a taxa proporcional ao risco real de cada perfil.</p>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Resultado prático</div>
-        <div class="pv-result">
-          <div class="pv-result-lbl">📌 Impacto</div>
-          <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão. Bancos e fintechs automatizam análises que dependem de analistas humanos. Cooperativas oferecem taxas personalizadas e justas por perfil. Empresas de empréstimo escalam operações com decisões consistentes e auditáveis.</p>
-        </div>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Como foi feito</div>
-        <div class="pv-tools">
-          <div class="pv-tool"><div class="pv-tool-name">Python + Scikit-learn</div><div class="pv-tool-desc">Biblioteca principal de Machine Learning — usada para treinar, avaliar e comparar os modelos de classificação e regressão.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Random Forest</div><div class="pv-tool-desc">Algoritmo baseado em múltiplas árvores de decisão (regras do tipo "se renda > X e dívida = 0, então aprovar"). Combinar várias árvores aumenta a precisão e reduz erros de generalização.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">FastAPI</div><div class="pv-tool-desc">API REST para servir o modelo em produção — recebe os dados do cliente e retorna a decisão de aprovação + taxa calculada em tempo real.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Pandas</div><div class="pv-tool-desc">Manipulação e limpeza de dados em tabelas — equivalente a um Excel programável e muito mais poderoso.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Matplotlib</div><div class="pv-tool-desc">Biblioteca de visualização — usada para gerar gráficos de análise e interpretação dos resultados do modelo.</div></div>
-        </div>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Simulação de casos reais</div>
-        <div class="cases-grid">
-          <div class="c-card denied">
-            <div class="c-badge denied">✕ Negado</div>
-            <div class="c-row"><span>Salário</span><span>R$ 3.000</span></div>
-            <div class="c-row"><span>Gastos mensais</span><span>R$ 1.800 (60%)</span></div>
-            <div class="c-row"><span>Empréstimos ativos</span><span>1</span></div>
-            <div class="c-row"><span>Score de crédito</span><span>650</span></div>
-            <div class="c-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
-            <div class="c-row"><span>Prazo</span><span>8 meses</span></div>
-          </div>
-          <div class="c-card approved">
-            <div class="c-badge approved">✓ Aprovado</div>
-            <div class="c-row"><span>Salário</span><span>R$ 4.000</span></div>
-            <div class="c-row"><span>Gastos mensais</span><span>R$ 2.200 (55%)</span></div>
-            <div class="c-row"><span>Empréstimos ativos</span><span>0</span></div>
-            <div class="c-row"><span>Score de crédito</span><span>650</span></div>
-            <div class="c-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
-            <div class="c-row"><span>Prazo</span><span>8 meses</span></div>
-          </div>
-        </div>
-
-        <div class="pv-section-label" style="margin-bottom:10px;">O que mais influencia a decisão</div>
-        <div style="margin-bottom:14px;">
-          <div class="feat-row"><span class="feat-lbl">Score de crédito</span><div class="feat-track"><div class="feat-fill" style="width:70.6%"></div></div><span class="feat-pct">35.3%</span></div>
-          <div class="feat-row"><span class="feat-lbl">Comprometimento de renda</span><div class="feat-track"><div class="feat-fill" style="width:45.6%"></div></div><span class="feat-pct">22.8%</span></div>
-          <div class="feat-row"><span class="feat-lbl">Tipo de emprego</span><div class="feat-track"><div class="feat-fill" style="width:41.2%"></div></div><span class="feat-pct">20.6%</span></div>
-          <div class="feat-row"><span class="feat-lbl">Salário</span><div class="feat-track"><div class="feat-fill" style="width:21.4%"></div></div><span class="feat-pct">10.7%</span></div>
-          <div class="feat-row"><span class="feat-lbl">Idade</span><div class="feat-track"><div class="feat-fill" style="width:21.2%"></div></div><span class="feat-pct">10.6%</span></div>
-        </div>
-
-        <div class="denial-b">
-          <div class="denial-b-t">Por que foi negado?</div>
-          <p>Alto comprometimento de renda (60%) somado à presença de dívida ativa ultrapassou o limiar de risco aprendido pelo modelo.</p>
-        </div>
-        <div class="approve-b">
-          <div class="approve-b-t">Taxa calculada pelo modelo para o caso aprovado</div>
-          <div class="approve-vals">
-            <div class="a-val"><div class="n">11,02%</div><div class="l">Taxa total</div></div>
-            <div class="a-val"><div class="n">1,38%</div><div class="l">Taxa mensal</div></div>
-            <div class="a-val"><div class="n">R$ 1.387,75</div><div class="l">Parcela/mês</div></div>
-          </div>
-          <div style="text-align:center;margin-top:10px;font-size:12px;color:#777;">Total: <strong style="color:#1a7a50">R$ 11.102,00</strong> em 8 parcelas</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   <!-- ══ PROJECT VIEW: CHURN ══ -->
@@ -411,12 +327,17 @@
     <div class="pv-topbar">
       <button class="pv-back" onclick="closeProject()">← Voltar</button>
       <span class="pv-topbar-title">Predição de Churn Bancário</span>
-      <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Customer-churn-project-/blob/main/notebook/Customer_churn.ipynb" target="_blank">📓 Notebook</a>
-      <a class="pv-test-btn" href="https://customer-churn-project-d7xs.onrender.com/app/" target="_blank">🚀 Testar o modelo</a>
     </div>
     <div class="pv-content">
       <div class="pv-eyebrow">Machine Learning · Classificação</div>
       <div class="pv-h1">Predição de Churn Bancário</div>
+
+      <!-- BUTTONS BELOW TITLE -->
+      <div class="pv-action-btns">
+        <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Customer-churn-project-/blob/main/notebook/Customer_churn.ipynb" target="_blank">📓 Notebook</a>
+        <a class="pv-test-btn" href="https://customer-churn-project-d7xs.onrender.com/app/" target="_blank">🚀 Testar o modelo</a>
+      </div>
+
       <div class="pv-tags">
         <span class="pv-tag">Sklearn</span><span class="pv-tag">MLflow</span><span class="pv-tag">SMOTE</span><span class="pv-tag">GradientBoosting</span><span class="pv-tag">RandomForest</span><span class="pv-tag">Seaborn</span>
       </div>
@@ -451,26 +372,36 @@
         <div class="churn-profile">
           <div class="churn-risk-header">
             <div>
-              <div style="font-size:9.5px;color:#999;margin-bottom:3px;">Probabilidade de Churn</div>
-              <div class="churn-risk-pct">42,1%</div>
+              <div style="font-size:9.5px;color:#555;margin-bottom:3px;">Probabilidade de Churn</div>
+              <div class="churn-risk-pct">71,14%</div>
             </div>
-            <div class="churn-risk-badge">⚠ Risco Médio</div>
+            <div class="churn-risk-badge">⚠ Risco Alto</div>
           </div>
           <div class="churn-grid">
-            <div class="churn-item"><span>Idade</span><span>36 anos</span></div>
-            <div class="churn-item"><span>Tempo de banco</span><span>3 anos</span></div>
-            <div class="churn-item"><span>Membro ativo</span><span style="color:#1a7a50">Sim</span></div>
-            <div class="churn-item"><span>Salário estimado</span><span>R$ 3.700</span></div>
-            <div class="churn-item"><span>Reclamação</span><span style="color:#c0392b">Sim</span></div>
-            <div class="churn-item"><span>Satisfação</span><span>3 / 5</span></div>
+            <div class="churn-item"><span>Sexo</span><span>Masculino</span></div>
+            <div class="churn-item"><span>Idade</span><span>37 anos</span></div>
+            <div class="churn-item"><span>Tempo de banco</span><span>2 anos</span></div>
+            <div class="churn-item"><span>Score de crédito</span><span>680</span></div>
+            <div class="churn-item"><span>Membro ativo</span><span style="color:#3ecf8e">Sim</span></div>
+            <div class="churn-item"><span>Reclamação</span><span style="color:#e74c3c">Sim</span></div>
+            <div class="churn-item"><span>Satisfação</span><span style="color:#e74c3c">2 / 5</span></div>
+            <div class="churn-item"><span>Threshold</span><span>0,60 (conservador)</span></div>
           </div>
         </div>
-        <div class="churn-actions-label">Ações de retenção sugeridas pelo modelo</div>
-        <div class="churn-action"><span class="churn-action-num">1</span><span><strong>Resolver a reclamação</strong> — atendimento prioritário e transparente para reduzir o principal fator de risco identificado.</span></div>
-        <div class="churn-action"><span class="churn-action-num">2</span><span><strong>Aumentar a satisfação</strong> — serviços personalizados e comunicação proativa para melhorar a experiência e a lealdade.</span></div>
-        <div class="churn-action"><span class="churn-action-num">3</span><span><strong>Oferta personalizada</strong> — promoções e benefícios baseados no perfil e comportamento do cliente.</span></div>
-        <div class="churn-action"><span class="churn-action-num">4</span><span><strong>Comunicação regular</strong> — manter contato ativo para entender necessidades e fornecer suporte antes que a insatisfação avance.</span></div>
-        <div class="churn-action"><span class="churn-action-num">5</span><span><strong>Cross-selling e up-selling</strong> — identificar oportunidades que atendam as necessidades financeiras do cliente e ampliem o vínculo com o banco.</span></div>
+
+        <div class="agent-summary">
+          <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
+          <p>Cliente com <strong style="color:#e74c3c">alto risco de churn (71,1%)</strong>. Principais fatores: satisfação crítica (2/5), reclamação registrada não resolvida e apenas 2 anos no banco. Risco composto elevado mesmo sendo membro ativo. <strong style="color:#ddd">Ações prioritárias:</strong> contato pessoal imediato para resolver a reclamação, oferta personalizada de retenção, programa de fidelidade e acompanhamento regular. Ignorar esse perfil tende a resultar em cancelamento a curto prazo.</p>
+        </div>
+
+        <div style="margin-top:14px;">
+          <div class="churn-actions-label">Ações de retenção sugeridas pelo modelo</div>
+          <div class="churn-action"><span class="churn-action-num">1</span><span><strong style="color:#f0f0f0">Resolver a reclamação</strong> — atendimento prioritário e transparente para reduzir o principal fator de risco identificado.</span></div>
+          <div class="churn-action"><span class="churn-action-num">2</span><span><strong style="color:#f0f0f0">Contato pessoal imediato</strong> — entender as razões da insatisfação e mostrar que o banco se importa com o cliente.</span></div>
+          <div class="churn-action"><span class="churn-action-num">3</span><span><strong style="color:#f0f0f0">Oferta personalizada</strong> — promoções e benefícios exclusivos baseados no perfil do cliente para aumentar o vínculo.</span></div>
+          <div class="churn-action"><span class="churn-action-num">4</span><span><strong style="color:#f0f0f0">Programa de fidelidade</strong> — recompensar a lealdade e incentivar a continuidade com o banco.</span></div>
+          <div class="churn-action"><span class="churn-action-num">5</span><span><strong style="color:#f0f0f0">Acompanhamento regular</strong> — monitorar a satisfação periodicamente para evitar que a insatisfação avance.</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -481,11 +412,16 @@
     <div class="pv-topbar">
       <button class="pv-back" onclick="closeProject()">← Voltar</button>
       <span class="pv-topbar-title">Análise de Reviews com NLP + LLM</span>
-      <a class="pv-test-btn" href="https://huggingface.co/spaces/LucasDS9/nlp-product-review-analysis" target="_blank">🚀 Testar no HuggingFace</a>
     </div>
     <div class="pv-content">
       <div class="pv-eyebrow">NLP · LLM · Análise de Sentimento</div>
       <div class="pv-h1">Análise de Reviews com NLP + LLM</div>
+
+      <!-- BUTTONS BELOW TITLE -->
+      <div class="pv-action-btns">
+        <a class="pv-test-btn" href="https://huggingface.co/spaces/LucasDS9/nlp-product-review-analysis" target="_blank">🚀 Testar no HuggingFace</a>
+      </div>
+
       <div class="pv-tags">
         <span class="pv-tag">spaCy</span><span class="pv-tag">TF-IDF</span><span class="pv-tag">Word2Vec</span><span class="pv-tag">Qwen 0.5B</span><span class="pv-tag">Prompt Eng.</span><span class="pv-tag">Python</span>
       </div>
@@ -507,7 +443,7 @@
       <div class="pv-section">
         <div class="pv-section-label">Como foi feito</div>
         <div class="pv-tools">
-          <div class="pv-tool"><div class="pv-tool-name">spaCy</div><div class="pv-tool-desc">Biblioteca de processamento de linguagem natural — usada para limpeza, tokenização (divisão do texto em palavras) e extração de entidades relevantes.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">spaCy</div><div class="pv-tool-desc">Biblioteca de processamento de linguagem natural — usada para limpeza, tokenização e extração de entidades relevantes.</div></div>
           <div class="pv-tool"><div class="pv-tool-name">TF-IDF</div><div class="pv-tool-desc">Técnica que mede a importância de uma palavra dentro de um documento comparado ao conjunto inteiro — identifica o que é realmente relevante em cada avaliação.</div></div>
           <div class="pv-tool"><div class="pv-tool-name">Word2Vec</div><div class="pv-tool-desc">Modelo que aprende associações entre palavras — permite entender que "gostoso" e "saboroso" têm significados parecidos sem ser programado para isso.</div></div>
           <div class="pv-tool"><div class="pv-tool-name">Qwen 0.5B + Prompt Eng.</div><div class="pv-tool-desc">Modelo de linguagem para gerar os resumos executivos. O prompt engineering garante que a saída seja estruturada e relevante para negócios.</div></div>
@@ -515,16 +451,20 @@
       </div>
 
       <div class="pv-section">
-        <div class="pv-section-label">Output gerado automaticamente pelo sistema</div>
+        <div class="pv-section-label">Output gerado automaticamente — Produto B0013NUGDE</div>
         <div class="nlp-c">
-          <div class="nlp-c-t">🇧🇷 Resultado — Produto de chocolate</div>
-          <div class="m-row"><span>Sentimento geral</span><span class="v">Neutro</span></div>
-          <div class="m-row"><span>Reviews negativas</span><span style="color:#c0392b;font-weight:500;">19,5%</span></div>
-          <div class="m-row"><span>Reviews neutras</span><span class="v">47,2%</span></div>
-          <div class="m-row"><span>Reviews positivas</span><span class="vg">33,3%</span></div>
-          <div class="m-row"><span>Score médio</span><span class="v">3,69 / 5</span></div>
-          <div style="margin-top:10px;font-size:12.5px;">Top palavras: <strong>chocolate, amêndoa, cacau, sabor, nozes</strong></div>
-          <div style="margin-top:7px;font-size:12px;color:#777;font-style:italic;line-height:1.6;">Qualidade satisfatória, com margem de melhoria em consistência de sabor.</div>
+          <div class="nlp-c-t">🇺🇸 Resultado — Snack de Batata · B0013NUGDE</div>
+          <div class="m-row"><span>Score médio</span><span class="v">3,96 / 5</span></div>
+          <div class="m-row"><span>Sentimento positivo</span><span class="vg">71,43%</span></div>
+          <div class="m-row"><span>Sentimento neutro</span><span class="v">9,09%</span></div>
+          <div class="m-row"><span>Sentimento negativo</span><span style="color:#e74c3c;font-weight:500;">19,48%</span></div>
+          <div style="margin-top:10px;font-size:12.5px;color:#bbb;">Top palavras: <strong style="color:#f0f0f0">chip, sabor, gosto, saco, batata, amor, bom, crocante</strong></div>
+          <div style="margin-top:7px;font-size:12px;color:#888;font-style:italic;line-height:1.6;">Produto bem aceito pelo mercado, com destaque para sabor e textura. Variações de qualidade entre lotes são o principal ponto de atenção.</div>
+        </div>
+
+        <div class="agent-summary" style="margin-top:12px;">
+          <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
+          <p>Snack de batata com <strong style="color:#f0f0f0">nota média 3,96/5</strong> e 71,4% de avaliações positivas. Pontos fortes: sabor variado (BBQ, sal e vinagre), textura crocante e apelo saudável frente a chips fritos. <strong style="color:#ddd">Principais riscos:</strong> alto teor de sódio, variação de qualidade entre lotes e sabor polarizador — alguns consumidores amam os mesmos sabores que outros rejeitam. Recomendação: priorizar consistência de qualidade, investir em pesquisa de preferências e fortalecer estratégias de marketing para manter competitividade no mercado de snacks.</p>
         </div>
       </div>
     </div>
@@ -536,11 +476,16 @@
     <div class="pv-topbar">
       <button class="pv-back" onclick="closeProject()">← Voltar</button>
       <span class="pv-topbar-title">Dashboard de Vendas — Power BI</span>
-      <a class="pv-test-btn" href="https://app.powerbi.com/view?r=eyJrIjoiMzg5MGM2OGMtY2NhMy00MWFhLWE4YzctMGJkNTdjZTVhNDk0IiwidCI6ImUyZjc3ZDAwLTAxNjMtNGNmNi05MmIwLTQ4NGJhZmY5ZGY3ZCJ9" target="_blank">🚀 Ver dashboard</a>
     </div>
     <div class="pv-content">
       <div class="pv-eyebrow">Business Intelligence · Data Visualization</div>
       <div class="pv-h1">Dashboard de Vendas — Power BI</div>
+
+      <!-- BUTTONS BELOW TITLE -->
+      <div class="pv-action-btns">
+        <a class="pv-test-btn" href="https://app.powerbi.com/view?r=eyJrIjoiMzg5MGM2OGMtY2NhMy00MWFhLWE4YzctMGJkNTdjZTVhNDk0IiwidCI6ImUyZjc3ZDAwLTAxNjMtNGNmNi05MmIwLTQ4NGJhZmY5ZGY3ZCJ9" target="_blank">🚀 Ver dashboard</a>
+      </div>
+
       <div class="pv-tags">
         <span class="pv-tag">Power BI</span><span class="pv-tag">DAX</span><span class="pv-tag">Power Query</span><span class="pv-tag">Excel</span><span class="pv-tag">Data Viz</span>
       </div>
@@ -573,12 +518,12 @@
         <div class="pv-section-label">Visão geral do dashboard — dados reais</div>
         <div class="pbi-preview">
           <div class="pbi-header">📊 Visão geral de vendas · 2022–2025</div>
-          <div class="pbi-kpis" style="border-bottom:1px solid #ebebeb;">
+          <div class="pbi-kpis" style="border-bottom:1px solid #222;">
             <div class="pbi-kpi"><div class="pbi-kpi-label">Qtd. vendida</div><div class="pbi-kpi-val">247.355</div></div>
             <div class="pbi-kpi"><div class="pbi-kpi-label">Faturamento</div><div class="pbi-kpi-val">R$ 97,8 Mi</div></div>
             <div class="pbi-kpi"><div class="pbi-kpi-label">Lucro %</div><div class="pbi-kpi-val green">32,68%</div></div>
           </div>
-          <div class="pbi-kpis" style="border-bottom:1px solid #ebebeb;">
+          <div class="pbi-kpis" style="border-bottom:1px solid #222;">
             <div class="pbi-kpi"><div class="pbi-kpi-label">Receita total</div><div class="pbi-kpi-val">R$ 299 Mi</div></div>
             <div class="pbi-kpi"><div class="pbi-kpi-label">Gastos</div><div class="pbi-kpi-val">R$ 201 Mi</div></div>
             <div class="pbi-kpi"><div class="pbi-kpi-label">Ticket médio</div><div class="pbi-kpi-val">R$ 19.560</div></div>
@@ -601,6 +546,98 @@
               <div class="mini-bar"><span class="mini-bar-label">marca_2</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:69%"></div></div><span class="mini-bar-val">25 Mil</span></div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ PROJECT VIEW: CRÉDITO ══ -->
+  <div class="project-view" id="proj-credit">
+    <div class="pv-topbar">
+      <button class="pv-back" onclick="closeProject()">← Voltar</button>
+      <span class="pv-topbar-title">Aprovação de Crédito com ML</span>
+    </div>
+    <div class="pv-content">
+      <div class="pv-eyebrow">Machine Learning · Classificação + Regressão</div>
+      <div class="pv-h1">Aprovação de Crédito com ML</div>
+
+      <!-- BUTTONS BELOW TITLE -->
+      <div class="pv-action-btns">
+        <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Loan_approval-project/blob/main/notebooks/loan_full_project.ipynb" target="_blank">📓 Notebook</a>
+        <a class="pv-test-btn" href="https://loan-approval-project-yyfi.onrender.com" target="_blank">🚀 Testar o modelo</a>
+      </div>
+
+      <div class="pv-tags">
+        <span class="pv-tag">Python</span><span class="pv-tag">Scikit-learn</span><span class="pv-tag">RandomForest</span><span class="pv-tag">Regressão Linear</span><span class="pv-tag">Pandas</span><span class="pv-tag">Matplotlib</span>
+      </div>
+
+      <div class="pv-section">
+        <div class="pv-section-label">Sobre o projeto</div>
+        <p class="pv-p">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</p>
+        <p class="pv-p">Decisões de crédito mal calibradas custam bilhões anualmente em inadimplência ou em clientes bons que são negados injustamente. Este projeto substitui intuição por predição quantitativa — dois modelos em pipeline: um classificador para aprovar ou negar, e um regressor para calcular a taxa proporcional ao risco real de cada perfil.</p>
+      </div>
+
+      <div class="pv-section">
+        <div class="pv-section-label">Resultado prático</div>
+        <div class="pv-result">
+          <div class="pv-result-lbl">📌 Impacto</div>
+          <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão. Bancos e fintechs automatizam análises que dependem de analistas humanos. Cooperativas oferecem taxas personalizadas e justas por perfil. Empresas de empréstimo escalam operações com decisões consistentes e auditáveis.</p>
+        </div>
+      </div>
+
+      <div class="pv-section">
+        <div class="pv-section-label">Como foi feito</div>
+        <div class="pv-tools">
+          <div class="pv-tool"><div class="pv-tool-name">Python + Scikit-learn</div><div class="pv-tool-desc">Biblioteca principal de Machine Learning — usada para treinar, avaliar e comparar os modelos de classificação e regressão.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">Random Forest</div><div class="pv-tool-desc">Algoritmo baseado em múltiplas árvores de decisão. Combinar várias árvores aumenta a precisão e reduz erros de generalização.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">FastAPI</div><div class="pv-tool-desc">API REST para servir o modelo em produção — recebe os dados do cliente e retorna a decisão de aprovação + taxa calculada em tempo real.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">Pandas</div><div class="pv-tool-desc">Manipulação e limpeza de dados em tabelas — equivalente a um Excel programável e muito mais poderoso.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">Matplotlib</div><div class="pv-tool-desc">Biblioteca de visualização — usada para gerar gráficos de análise e interpretação dos resultados do modelo.</div></div>
+        </div>
+      </div>
+
+      <div class="pv-section">
+        <div class="pv-section-label">Simulação de caso real — perfil analisado</div>
+
+        <div class="cases-grid" style="margin-bottom:14px;">
+          <div class="c-card approved">
+            <div class="c-badge approved">✓ Aprovado</div>
+            <div class="c-row"><span>Perfil</span><span>Mulher, 25 anos</span></div>
+            <div class="c-row"><span>Ocupação</span><span>Autônoma</span></div>
+            <div class="c-row"><span>Salário</span><span>R$ 5.000</span></div>
+            <div class="c-row"><span>Gastos mensais</span><span>R$ 1.400 (28%)</span></div>
+            <div class="c-row"><span>Score de crédito</span><span>700</span></div>
+            <div class="c-row"><span>Inadimplências</span><span style="color:#3ecf8e">Nenhuma</span></div>
+            <div class="c-row"><span>Empréstimos ativos</span><span>1</span></div>
+            <div class="c-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
+            <div class="c-row"><span>Prazo</span><span>36 meses</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="approve-b" style="flex:1;">
+              <div class="approve-b-t">Taxa calculada pelo modelo</div>
+              <div class="approve-vals">
+                <div class="a-val"><div class="n">15,23%</div><div class="l">Taxa total</div></div>
+                <div class="a-val"><div class="n">R$ 320,09</div><div class="l">Parcela/mês</div></div>
+                <div class="a-val"><div class="n">28,0%</div><div class="l">Comprometimento</div></div>
+              </div>
+              <div style="text-align:center;margin-top:10px;font-size:12px;color:#888;">Total em 36 meses: <strong style="color:#3ecf8e">R$ 11.523,24</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-summary">
+          <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
+          <p><strong style="color:#3ecf8e">Crédito aprovado.</strong> Perfil de baixo risco: score 700, sem inadimplências anteriores e comprometimento de renda controlado (28%). Taxa total de 15,23% sobre 36 meses, com parcela mensal de R$ 320,09 e total pago de R$ 11.523,24. Para reduzir a taxa, é possível oferecer garantia ou avalista. Recomenda-se comparar ofertas de diferentes instituições — a taxa oferecida é competitiva para o perfil.</p>
+        </div>
+
+        <div style="margin-top:16px;">
+          <div class="pv-section-label" style="margin-bottom:10px;">O que mais influencia a decisão</div>
+          <div class="feat-row"><span class="feat-lbl">Score de crédito</span><div class="feat-track"><div class="feat-fill" style="width:70.6%"></div></div><span class="feat-pct">35.3%</span></div>
+          <div class="feat-row"><span class="feat-lbl">Comprometimento de renda</span><div class="feat-track"><div class="feat-fill" style="width:45.6%"></div></div><span class="feat-pct">22.8%</span></div>
+          <div class="feat-row"><span class="feat-lbl">Tipo de emprego</span><div class="feat-track"><div class="feat-fill" style="width:41.2%"></div></div><span class="feat-pct">20.6%</span></div>
+          <div class="feat-row"><span class="feat-lbl">Salário</span><div class="feat-track"><div class="feat-fill" style="width:21.4%"></div></div><span class="feat-pct">10.7%</span></div>
+          <div class="feat-row"><span class="feat-lbl">Idade</span><div class="feat-track"><div class="feat-fill" style="width:21.2%"></div></div><span class="feat-pct">10.6%</span></div>
         </div>
       </div>
     </div>
