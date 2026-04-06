@@ -246,20 +246,20 @@
 
     <div class="projects-grid">
 
-      <!-- CARD 1: CHURN -->
-      <div class="project-card" onclick="openProject('churn')">
+      <!-- CARD 1: CRÉDITO -->
+      <div class="project-card" onclick="openProject('credit')">
         <div class="card-top">
-          <div class="card-icon">📉</div>
+          <div class="card-icon">💳</div>
           <span class="status-badge">● Live</span>
         </div>
-        <div class="project-name">Predição de Churn Bancário</div>
-        <div class="project-desc">Identifica clientes com alta probabilidade de cancelamento antes que saiam, permitindo ação proativa de retenção. Avalia e compara três modelos com rastreamento automático via MLflow.</div>
+        <div class="project-name">Aprovação de Crédito com ML</div>
+        <div class="project-desc">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</div>
         <div class="result-box">
           <div class="result-box-label">📌 Resultado prático</div>
-          <p>Ação preventiva antes da saída do cliente — prioriza esforços de retenção nos perfis de maior risco com decisões consistentes e auditáveis.</p>
+          <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão.</p>
         </div>
         <div class="tags-wrap">
-          <span class="tag">Sklearn</span><span class="tag">MLflow</span><span class="tag">SMOTE</span><span class="tag">GradientBoosting</span><span class="tag">RandomForest</span>
+          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Regressão Linear</span><span class="tag">Pandas</span>
         </div>
         <div class="card-arrow">→</div>
       </div>
@@ -282,7 +282,25 @@
         <div class="card-arrow">→</div>
       </div>
 
-      <!-- CARD 3: POWER BI -->
+      <!-- CARD 3: CHURN -->
+      <div class="project-card" onclick="openProject('churn')">
+        <div class="card-top">
+          <div class="card-icon">📉</div>
+          <span class="status-badge">● Live</span>
+        </div>
+        <div class="project-name">Análise de Churn Bancário</div>
+        <div class="project-desc">Identifica clientes com alta probabilidade de cancelamento antes que saiam, permitindo ação proativa de retenção. Conta com dashboard interativo em React para visualização dos resultados, com rastreamento automático via MLflow.</div>
+        <div class="result-box">
+          <div class="result-box-label">📌 Resultado prático</div>
+          <p>Ação preventiva antes da saída do cliente — prioriza esforços de retenção nos perfis de maior risco com decisões consistentes e auditáveis.</p>
+        </div>
+        <div class="tags-wrap">
+          <span class="tag">Sklearn</span><span class="tag">MLflow</span><span class="tag">SMOTE</span><span class="tag">XGBoost</span><span class="tag">React</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <!-- CARD 4: POWER BI -->
       <div class="project-card" onclick="openProject('pbi')">
         <div class="card-top">
           <div class="card-icon">📊</div>
@@ -300,24 +318,6 @@
         <div class="card-arrow">→</div>
       </div>
 
-      <!-- CARD 4: CRÉDITO -->
-      <div class="project-card" onclick="openProject('credit')">
-        <div class="card-top">
-          <div class="card-icon">💳</div>
-          <span class="status-badge">● Live</span>
-        </div>
-        <div class="project-name">Aprovação de Crédito com ML</div>
-        <div class="project-desc">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</div>
-        <div class="result-box">
-          <div class="result-box-label">📌 Resultado prático</div>
-          <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão.</p>
-        </div>
-        <div class="tags-wrap">
-          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Regressão Linear</span><span class="tag">Pandas</span>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
-
     </div>
   </div><!-- /list-view -->
 
@@ -326,26 +326,26 @@
   <div class="project-view" id="proj-churn">
     <div class="pv-topbar">
       <button class="pv-back" onclick="closeProject()">← Voltar</button>
-      <span class="pv-topbar-title">Predição de Churn Bancário</span>
+      <span class="pv-topbar-title">Análise de Churn Bancário</span>
     </div>
     <div class="pv-content">
       <div class="pv-eyebrow">Machine Learning · Classificação</div>
-      <div class="pv-h1">Predição de Churn Bancário</div>
+      <div class="pv-h1">Análise de Churn Bancário</div>
 
       <!-- BUTTONS BELOW TITLE -->
       <div class="pv-action-btns">
         <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Customer-churn-project-/blob/main/notebook/Customer_churn.ipynb" target="_blank">📓 Notebook</a>
-        <a class="pv-test-btn" href="https://customer-churn-project-d7xs.onrender.com/app/" target="_blank">🚀 Testar o modelo</a>
+        <a class="pv-test-btn" href="https://customer-churn-project-kk14.vercel.app" target="_blank">📊 Ver dashboard</a>
       </div>
 
       <div class="pv-tags">
-        <span class="pv-tag">Sklearn</span><span class="pv-tag">MLflow</span><span class="pv-tag">SMOTE</span><span class="pv-tag">GradientBoosting</span><span class="pv-tag">RandomForest</span><span class="pv-tag">Seaborn</span>
+        <span class="pv-tag">Sklearn</span><span class="pv-tag">MLflow</span><span class="pv-tag">SMOTE</span><span class="pv-tag">XGBoost</span><span class="pv-tag">React</span><span class="pv-tag">Seaborn</span>
       </div>
 
       <div class="pv-section">
         <div class="pv-section-label">Sobre o projeto</div>
-        <p class="pv-p">Identifica clientes com alta probabilidade de cancelamento antes que saiam, permitindo ação proativa de retenção. Avalia e compara três modelos com rastreamento automático via MLflow.</p>
-        <p class="pv-p">Adquirir um novo cliente custa 5–7× mais do que reter um existente. Este modelo detecta sinais de saída antes do cancelamento — probabilidade de churn calculada por perfil, com recomendações de ação para cada nível de risco. O desafio principal é o desequilíbrio nos dados — clientes que cancelam são sempre minoria. Para resolver isso, foi usado SMOTE combinado com rastreamento de experimentos via MLflow.</p>
+        <p class="pv-p">Identifica clientes com alta probabilidade de cancelamento antes que saiam, permitindo ação proativa de retenção. Conta com dashboard interativo em React para visualização dos resultados, com rastreamento automático via MLflow.</p>
+        <p class="pv-p">Adquirir um novo cliente custa 5–7× mais do que reter um existente. Este projeto detecta sinais de saída antes do cancelamento — probabilidade de churn calculada por perfil, com recomendações de ação para cada nível de risco, tudo acessível via dashboard em React. O desafio principal é o desequilíbrio nos dados — clientes que cancelam são sempre minoria. Para resolver isso, foi usado SMOTE combinado com rastreamento de experimentos via MLflow.</p>
       </div>
 
       <div class="pv-section">
@@ -359,11 +359,12 @@
       <div class="pv-section">
         <div class="pv-section-label">Como foi feito</div>
         <div class="pv-tools">
-          <div class="pv-tool"><div class="pv-tool-name">Python + Scikit-learn</div><div class="pv-tool-desc">Gradient Boosting e Random Forest treinados e comparados na mesma pipeline de avaliação.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">MLflow</div><div class="pv-tool-desc">Plataforma de rastreamento de experimentos — registra automaticamente métricas, parâmetros e resultados de cada treino, facilitando comparações entre modelos.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">Python + Scikit-learn</div><div class="pv-tool-desc">Pipeline de modelagem com XGBoost treinado e avaliado com métricas de classificação robustas.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">XGBoost</div><div class="pv-tool-desc">Algoritmo de gradient boosting otimizado — alta precisão na detecção de churn com dados desbalanceados, superando modelos tradicionais em recall e F1-score.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">MLflow</div><div class="pv-tool-desc">Plataforma de rastreamento de experimentos — registra automaticamente métricas, parâmetros e resultados de cada treino, facilitando comparações entre execuções.</div></div>
           <div class="pv-tool"><div class="pv-tool-name">SMOTE</div><div class="pv-tool-desc">Técnica de balanceamento de dados — gera exemplos sintéticos da classe minoritária para o modelo aprender a identificar cancelamentos com mais precisão.</div></div>
+          <div class="pv-tool"><div class="pv-tool-name">React</div><div class="pv-tool-desc">Dashboard interativo em React com deploy no Vercel — visualização dos resultados do modelo com interface dinâmica e responsiva.</div></div>
           <div class="pv-tool"><div class="pv-tool-name">Seaborn</div><div class="pv-tool-desc">Biblioteca de visualização de dados — usada na análise exploratória para entender o perfil dos clientes que cancelam.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">FastAPI + Render</div><div class="pv-tool-desc">Deploy do modelo como API REST, servindo previsões em tempo real com interface interativa.</div></div>
         </div>
       </div>
 
