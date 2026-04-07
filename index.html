@@ -72,8 +72,11 @@
     .pv-back:hover{background:#252525;border-color:#444;}
     .pv-topbar-title{font-size:13px;color:#888;flex:1;font-family:'Geist',sans-serif;}
 
-    /* project content */
-    .pv-content{padding:2.5rem 2.5rem 4rem;max-width:800px;}
+    /* ── PROJECT LAYOUT: two-column ── */
+    .pv-body{display:grid;grid-template-columns:1fr 300px;gap:0;min-height:calc(100vh - 49px);}
+    .pv-content{padding:2.5rem 2.5rem 4rem;}
+    .pv-sidebar{padding:2.5rem 2rem 4rem;border-left:1px solid #1a1a1a;background:#0a0a0a;display:flex;flex-direction:column;gap:1.6rem;}
+
     .pv-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:#555;margin-bottom:10px;}
     .pv-h1{font-family:'Instrument Serif',serif;font-size:28px;font-weight:400;color:#f0f0f0;margin-bottom:14px;line-height:1.3;}
 
@@ -83,6 +86,20 @@
     .pv-notebook-btn:hover{background:#252525;border-color:#555;}
     .pv-test-btn{background:#f0f0f0;color:#0d0d0d;border:none;border-radius:8px;padding:10px 20px;font-size:12px;font-weight:500;font-family:'Geist',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all 0.15s;text-decoration:none;white-space:nowrap;}
     .pv-test-btn:hover{background:#ddd;}
+
+    /* ── SIDEBAR WIDGETS ── */
+    .pvs-block{display:flex;flex-direction:column;gap:10px;}
+    .pvs-label{font-size:9.5px;text-transform:uppercase;letter-spacing:2px;color:#555;font-weight:500;margin-bottom:4px;}
+    .pvs-tags{display:flex;flex-wrap:wrap;gap:5px;}
+    .pvs-tag{font-size:10.5px;color:#777;border:1px solid #2a2a2a;border-radius:4px;padding:3px 9px;background:#161616;}
+    .pvs-stat{background:#141414;border:1px solid #222;border-radius:8px;padding:10px 12px;}
+    .pvs-stat-val{font-family:'Instrument Serif',serif;font-size:20px;color:#f0f0f0;line-height:1.1;}
+    .pvs-stat-val.green{color:#3ecf8e;}
+    .pvs-stat-lbl{font-size:10px;color:#555;margin-top:3px;}
+    .pvs-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .pvs-tool{background:#141414;border:1px solid #1e1e1e;border-radius:7px;padding:9px 11px;}
+    .pvs-tool-name{font-size:11.5px;font-weight:500;color:#e0e0e0;margin-bottom:3px;}
+    .pvs-tool-desc{font-size:11px;color:#666;line-height:1.6;}
 
     .pv-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:2rem;}
     .pv-tag{font-size:10.5px;color:#777;border:1px solid #2a2a2a;border-radius:4px;padding:3px 9px;background:#161616;}
@@ -100,10 +117,10 @@
     .app-list li{font-size:13px;color:#bbb;line-height:1.75;padding-left:18px;position:relative;}
     .app-list li::before{content:'→';position:absolute;left:0;color:#555;font-size:12px;}
 
-    /* tools */
-    .pv-tools{display:flex;flex-direction:column;gap:8px;}
-    .pv-tool{display:flex;gap:16px;padding:12px 14px;background:#141414;border:1px solid #222;border-radius:8px;align-items:flex-start;}
-    .pv-tool-name{font-size:12px;font-weight:500;color:#f0f0f0;white-space:nowrap;min-width:140px;padding-top:1px;}
+    /* tools (main content area) */
+    .pv-tools{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .pv-tool{display:flex;flex-direction:column;gap:5px;padding:12px 14px;background:#141414;border:1px solid #222;border-radius:8px;}
+    .pv-tool-name{font-size:12px;font-weight:500;color:#f0f0f0;}
     .pv-tool-desc{font-size:12px;color:#888;line-height:1.7;}
 
     /* ── EXAMPLES ── */
@@ -139,9 +156,15 @@
     .denial-b p{font-size:12px;color:#999;line-height:1.7;}
     .approve-b{background:#0a1a12;border:1px solid #1a4d32;border-radius:8px;padding:13px 14px;}
     .approve-b-t{font-size:11px;font-weight:500;color:#3ecf8e;margin-bottom:10px;}
-    .approve-vals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .approve-vals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;}
     .a-val .n{font-family:'Instrument Serif',serif;font-size:18px;color:#3ecf8e;}
     .a-val .l{font-size:10px;color:#666;margin-top:2px;}
+    .approve-divider{height:1px;background:#1a4d32;margin:10px 0;}
+    .approve-schedule{display:flex;flex-direction:column;gap:5px;}
+    .approve-schedule-row{display:flex;justify-content:space-between;font-size:11.5px;padding:3px 0;border-bottom:1px solid #0d2318;}
+    .approve-schedule-row:last-child{border-bottom:none;}
+    .approve-schedule-row span:first-child{color:#5a8a6a;}
+    .approve-schedule-row span:last-child{color:#c0e8d0;font-weight:500;}
 
     /* agent summary box */
     .agent-summary{background:#111;border:1px solid #252525;border-left:2px solid #888;border-radius:0 10px 10px 0;padding:13px 16px;margin-top:12px;}
@@ -183,6 +206,20 @@
     .mini-bar-fill{height:100%;border-radius:3px;background:#f0f0f0;}
     .mini-bar-val{font-size:11px;color:#666;width:44px;text-align:right;}
 
+    /* SQL analysis preview */
+    .sql-preview{background:#141414;border:1px solid #222;border-radius:10px;overflow:hidden;margin-top:12px;}
+    .sql-header{background:#1a1a1a;padding:9px 14px;font-size:11px;color:#666;display:flex;align-items:center;gap:7px;border-bottom:1px solid #222;}
+    .sql-block{padding:11px 14px;border-bottom:1px solid #1a1a1a;}
+    .sql-block:last-child{border-bottom:none;}
+    .sql-block-label{font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;color:#555;margin-bottom:6px;}
+    .sql-code{font-family:monospace;font-size:11px;color:#7ec8a4;background:#0d1a12;border:1px solid #1a3326;border-radius:5px;padding:8px 10px;line-height:1.6;margin-bottom:6px;white-space:pre-wrap;}
+    .sql-result-note{font-size:11.5px;color:#888;line-height:1.6;}
+
+    @media(max-width:1100px){
+      .pv-body{grid-template-columns:1fr;}
+      .pv-sidebar{border-left:none;border-top:1px solid #1a1a1a;}
+      .pv-tools{grid-template-columns:1fr;}
+    }
     @media(max-width:900px){
       body{flex-direction:column;}
       .sidebar{width:100%;height:auto;position:relative;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:1.2rem;gap:0.8rem;}
@@ -194,6 +231,7 @@
       .approve-vals{grid-template-columns:1fr 1fr;}
       .pbi-kpis{grid-template-columns:1fr 1fr;}
       .pbi-charts{grid-template-columns:1fr;}
+      .pv-tools{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -300,20 +338,20 @@
         <div class="card-arrow">→</div>
       </div>
 
-      <!-- CARD 4: POWER BI -->
+      <!-- CARD 4: VENDAS (Power BI + SQL) -->
       <div class="project-card" onclick="openProject('pbi')">
         <div class="card-top">
           <div class="card-icon">📊</div>
           <span class="status-badge">● Live</span>
         </div>
-        <div class="project-name">Dashboard de Vendas — Power BI</div>
-        <div class="project-desc">Dashboard interativo de vendas com visão geral por produto, região e marca. Consolida dados de 247 mil transações com análise de faturamento, receita, gastos e lucro em painel dinâmico e filtrado por período.</div>
+        <div class="project-name">Análise de Vendas — Dashboard &amp; SQL</div>
+        <div class="project-desc">Dashboard interativo em Power BI combinado com análise SQL em Python via SQLAlchemy e Pandas. Consolida 247 mil transações com queries analíticas, gráficos gerados diretamente do banco e painel dinâmico por período, região e marca.</div>
         <div class="result-box">
           <div class="result-box-label">📌 Resultado prático</div>
-          <p>Visão executiva em tempo real — decisões de produto, região e mix de marcas com base em dados, sem depender de relatórios manuais.</p>
+          <p>Visão executiva em tempo real e análises SQL reproduzíveis — decisões de produto, região e mix de marcas com base em dados, sem depender de relatórios manuais.</p>
         </div>
         <div class="tags-wrap">
-          <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Excel</span>
+          <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">SQLAlchemy</span><span class="tag">Pandas</span><span class="tag">Power Query</span>
         </div>
         <div class="card-arrow">→</div>
       </div>
@@ -328,80 +366,92 @@
       <button class="pv-back" onclick="closeProject()">← Voltar</button>
       <span class="pv-topbar-title">Análise de Churn Bancário</span>
     </div>
-    <div class="pv-content">
-      <div class="pv-eyebrow">Machine Learning · Classificação</div>
-      <div class="pv-h1">Análise de Churn Bancário</div>
+    <div class="pv-body">
+      <div class="pv-content">
+        <div class="pv-eyebrow">Machine Learning · Classificação</div>
+        <div class="pv-h1">Análise de Churn Bancário</div>
 
-      <!-- BUTTONS BELOW TITLE -->
-      <div class="pv-action-btns">
-        <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Customer-churn-project-/blob/main/notebook/Customer_churn.ipynb" target="_blank">📓 Notebook</a>
-        <a class="pv-test-btn" href="https://customer-churn-project-kk14.vercel.app" target="_blank">📊 Ver dashboard</a>
-      </div>
-
-      <div class="pv-tags">
-        <span class="pv-tag">Sklearn</span><span class="pv-tag">MLflow</span><span class="pv-tag">SMOTE</span><span class="pv-tag">XGBoost</span><span class="pv-tag">React</span><span class="pv-tag">Seaborn</span>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Sobre o projeto</div>
-        <p class="pv-p">Identifica clientes com alta probabilidade de cancelamento antes que saiam, permitindo ação proativa de retenção. Conta com dashboard interativo em React para visualização dos resultados, com rastreamento automático via MLflow.</p>
-        <p class="pv-p">Adquirir um novo cliente custa 5–7× mais do que reter um existente. Este projeto detecta sinais de saída antes do cancelamento — probabilidade de churn calculada por perfil, com recomendações de ação para cada nível de risco, tudo acessível via dashboard em React. O desafio principal é o desequilíbrio nos dados — clientes que cancelam são sempre minoria. Para resolver isso, foi usado SMOTE combinado com rastreamento de experimentos via MLflow.</p>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Resultado prático</div>
-        <div class="pv-result">
-          <div class="pv-result-lbl">📌 Impacto</div>
-          <p>Ação preventiva antes da saída do cliente. Prioriza esforços de retenção nos perfis de maior risco, com decisões consistentes e auditáveis. Bancos e fintechs acionam equipes de retenção antes do cancelamento. Serviços de assinatura reduzem cancelamentos com ofertas personalizadas. Times comerciais otimizam seu esforço focando nos perfis de maior risco.</p>
+        <div class="pv-action-btns">
+          <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Customer-churn-project-/blob/main/notebook/Customer_churn.ipynb" target="_blank">📓 Notebook</a>
+          <a class="pv-test-btn" href="https://customer-churn-project-kk14.vercel.app" target="_blank">📊 Ver dashboard</a>
         </div>
-      </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Como foi feito</div>
-        <div class="pv-tools">
-          <div class="pv-tool"><div class="pv-tool-name">Python + Scikit-learn</div><div class="pv-tool-desc">Pipeline de modelagem com XGBoost treinado e avaliado com métricas de classificação robustas.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">XGBoost</div><div class="pv-tool-desc">Algoritmo de gradient boosting otimizado — alta precisão na detecção de churn com dados desbalanceados, superando modelos tradicionais em recall e F1-score.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">MLflow</div><div class="pv-tool-desc">Plataforma de rastreamento de experimentos — registra automaticamente métricas, parâmetros e resultados de cada treino, facilitando comparações entre execuções.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">SMOTE</div><div class="pv-tool-desc">Técnica de balanceamento de dados — gera exemplos sintéticos da classe minoritária para o modelo aprender a identificar cancelamentos com mais precisão.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">React</div><div class="pv-tool-desc">Dashboard interativo em React com deploy no Vercel — visualização dos resultados do modelo com interface dinâmica e responsiva.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Seaborn</div><div class="pv-tool-desc">Biblioteca de visualização de dados — usada na análise exploratória para entender o perfil dos clientes que cancelam.</div></div>
+        <div class="pv-section">
+          <div class="pv-section-label">Sobre o projeto</div>
+          <p class="pv-p">Identifica clientes com alta probabilidade de cancelamento antes que saiam, permitindo ação proativa de retenção. Conta com dashboard interativo em React para visualização dos resultados, com rastreamento automático via MLflow.</p>
+          <p class="pv-p">Adquirir um novo cliente custa 5–7× mais do que reter um existente. Este projeto detecta sinais de saída antes do cancelamento — probabilidade de churn calculada por perfil, com recomendações de ação para cada nível de risco, tudo acessível via dashboard em React. O desafio principal é o desequilíbrio nos dados — clientes que cancelam são sempre minoria. Para resolver isso, foi usado SMOTE combinado com rastreamento de experimentos via MLflow.</p>
         </div>
-      </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Output real do modelo — perfil analisado</div>
-        <div class="churn-profile">
-          <div class="churn-risk-header">
-            <div>
-              <div style="font-size:9.5px;color:#555;margin-bottom:3px;">Probabilidade de Churn</div>
-              <div class="churn-risk-pct">71,14%</div>
+        <div class="pv-section">
+          <div class="pv-section-label">Resultado prático</div>
+          <div class="pv-result">
+            <div class="pv-result-lbl">📌 Impacto</div>
+            <p>Ação preventiva antes da saída do cliente. Prioriza esforços de retenção nos perfis de maior risco, com decisões consistentes e auditáveis. Bancos e fintechs acionam equipes de retenção antes do cancelamento. Serviços de assinatura reduzem cancelamentos com ofertas personalizadas. Times comerciais otimizam seu esforço focando nos perfis de maior risco.</p>
+          </div>
+        </div>
+
+        <div class="pv-section">
+          <div class="pv-section-label">Output real do modelo — perfil analisado</div>
+          <div class="churn-profile">
+            <div class="churn-risk-header">
+              <div>
+                <div style="font-size:9.5px;color:#555;margin-bottom:3px;">Probabilidade de Churn</div>
+                <div class="churn-risk-pct">71,14%</div>
+              </div>
+              <div class="churn-risk-badge">⚠ Risco Alto</div>
             </div>
-            <div class="churn-risk-badge">⚠ Risco Alto</div>
+            <div class="churn-grid">
+              <div class="churn-item"><span>Sexo</span><span>Masculino</span></div>
+              <div class="churn-item"><span>Idade</span><span>37 anos</span></div>
+              <div class="churn-item"><span>Tempo de banco</span><span>2 anos</span></div>
+              <div class="churn-item"><span>Score de crédito</span><span>680</span></div>
+              <div class="churn-item"><span>Membro ativo</span><span style="color:#3ecf8e">Sim</span></div>
+              <div class="churn-item"><span>Reclamação</span><span style="color:#e74c3c">Sim</span></div>
+              <div class="churn-item"><span>Satisfação</span><span style="color:#e74c3c">2 / 5</span></div>
+              <div class="churn-item"><span>Threshold</span><span>0,60 (conservador)</span></div>
+            </div>
           </div>
-          <div class="churn-grid">
-            <div class="churn-item"><span>Sexo</span><span>Masculino</span></div>
-            <div class="churn-item"><span>Idade</span><span>37 anos</span></div>
-            <div class="churn-item"><span>Tempo de banco</span><span>2 anos</span></div>
-            <div class="churn-item"><span>Score de crédito</span><span>680</span></div>
-            <div class="churn-item"><span>Membro ativo</span><span style="color:#3ecf8e">Sim</span></div>
-            <div class="churn-item"><span>Reclamação</span><span style="color:#e74c3c">Sim</span></div>
-            <div class="churn-item"><span>Satisfação</span><span style="color:#e74c3c">2 / 5</span></div>
-            <div class="churn-item"><span>Threshold</span><span>0,60 (conservador)</span></div>
+
+          <div class="agent-summary">
+            <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
+            <p>Cliente com <strong style="color:#e74c3c">alto risco de churn (71,1%)</strong>. Principais fatores: satisfação crítica (2/5), reclamação registrada não resolvida e apenas 2 anos no banco. Risco composto elevado mesmo sendo membro ativo. <strong style="color:#ddd">Ações prioritárias:</strong> contato pessoal imediato para resolver a reclamação, oferta personalizada de retenção, programa de fidelidade e acompanhamento regular. Ignorar esse perfil tende a resultar em cancelamento a curto prazo.</p>
+          </div>
+
+          <div style="margin-top:14px;">
+            <div class="churn-actions-label">Ações de retenção sugeridas pelo modelo</div>
+            <div class="churn-action"><span class="churn-action-num">1</span><span><strong style="color:#f0f0f0">Resolver a reclamação</strong> — atendimento prioritário e transparente para reduzir o principal fator de risco identificado.</span></div>
+            <div class="churn-action"><span class="churn-action-num">2</span><span><strong style="color:#f0f0f0">Contato pessoal imediato</strong> — entender as razões da insatisfação e mostrar que o banco se importa com o cliente.</span></div>
+            <div class="churn-action"><span class="churn-action-num">3</span><span><strong style="color:#f0f0f0">Oferta personalizada</strong> — promoções e benefícios exclusivos baseados no perfil do cliente para aumentar o vínculo.</span></div>
+            <div class="churn-action"><span class="churn-action-num">4</span><span><strong style="color:#f0f0f0">Programa de fidelidade</strong> — recompensar a lealdade e incentivar a continuidade com o banco.</span></div>
+            <div class="churn-action"><span class="churn-action-num">5</span><span><strong style="color:#f0f0f0">Acompanhamento regular</strong> — monitorar a satisfação periodicamente para evitar que a insatisfação avance.</span></div>
           </div>
         </div>
+      </div>
 
-        <div class="agent-summary">
-          <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
-          <p>Cliente com <strong style="color:#e74c3c">alto risco de churn (71,1%)</strong>. Principais fatores: satisfação crítica (2/5), reclamação registrada não resolvida e apenas 2 anos no banco. Risco composto elevado mesmo sendo membro ativo. <strong style="color:#ddd">Ações prioritárias:</strong> contato pessoal imediato para resolver a reclamação, oferta personalizada de retenção, programa de fidelidade e acompanhamento regular. Ignorar esse perfil tende a resultar em cancelamento a curto prazo.</p>
+      <!-- RIGHT SIDEBAR -->
+      <div class="pv-sidebar">
+        <div class="pvs-block">
+          <div class="pvs-label">Stack utilizada</div>
+          <div class="pvs-tags">
+            <span class="pvs-tag">Sklearn</span><span class="pvs-tag">MLflow</span><span class="pvs-tag">SMOTE</span><span class="pvs-tag">XGBoost</span><span class="pvs-tag">React</span><span class="pvs-tag">Seaborn</span><span class="pvs-tag">Python</span>
+          </div>
         </div>
-
-        <div style="margin-top:14px;">
-          <div class="churn-actions-label">Ações de retenção sugeridas pelo modelo</div>
-          <div class="churn-action"><span class="churn-action-num">1</span><span><strong style="color:#f0f0f0">Resolver a reclamação</strong> — atendimento prioritário e transparente para reduzir o principal fator de risco identificado.</span></div>
-          <div class="churn-action"><span class="churn-action-num">2</span><span><strong style="color:#f0f0f0">Contato pessoal imediato</strong> — entender as razões da insatisfação e mostrar que o banco se importa com o cliente.</span></div>
-          <div class="churn-action"><span class="churn-action-num">3</span><span><strong style="color:#f0f0f0">Oferta personalizada</strong> — promoções e benefícios exclusivos baseados no perfil do cliente para aumentar o vínculo.</span></div>
-          <div class="churn-action"><span class="churn-action-num">4</span><span><strong style="color:#f0f0f0">Programa de fidelidade</strong> — recompensar a lealdade e incentivar a continuidade com o banco.</span></div>
-          <div class="churn-action"><span class="churn-action-num">5</span><span><strong style="color:#f0f0f0">Acompanhamento regular</strong> — monitorar a satisfação periodicamente para evitar que a insatisfação avance.</span></div>
+        <div class="pvs-block">
+          <div class="pvs-label">Métricas do modelo</div>
+          <div class="pvs-stats-grid">
+            <div class="pvs-stat"><div class="pvs-stat-val green">86%</div><div class="pvs-stat-lbl">Recall</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val green">83%</div><div class="pvs-stat-lbl">F1-Score</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">10.000</div><div class="pvs-stat-lbl">Registros</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">20,4%</div><div class="pvs-stat-lbl">Taxa churn</div></div>
+          </div>
+        </div>
+        <div class="pvs-block">
+          <div class="pvs-label">Como foi feito</div>
+          <div class="pvs-tool"><div class="pvs-tool-name">XGBoost</div><div class="pvs-tool-desc">Gradient boosting otimizado — alta precisão com dados desbalanceados, superando modelos tradicionais em recall e F1.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">MLflow</div><div class="pvs-tool-desc">Rastreamento de experimentos — registra métricas, parâmetros e resultados de cada treino automaticamente.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">SMOTE</div><div class="pvs-tool-desc">Balanceamento de dados — gera exemplos sintéticos da classe minoritária para melhor detecção de cancelamentos.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">React + Vercel</div><div class="pvs-tool-desc">Dashboard interativo com deploy em produção — interface dinâmica e responsiva para visualização dos resultados.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Seaborn</div><div class="pvs-tool-desc">Análise exploratória visual — entender o perfil dos clientes que cancelam antes de modelar.</div></div>
         </div>
       </div>
     </div>
@@ -414,139 +464,199 @@
       <button class="pv-back" onclick="closeProject()">← Voltar</button>
       <span class="pv-topbar-title">Análise de Reviews com NLP + LLM</span>
     </div>
-    <div class="pv-content">
-      <div class="pv-eyebrow">NLP · LLM · Análise de Sentimento</div>
-      <div class="pv-h1">Análise de Reviews com NLP + LLM</div>
+    <div class="pv-body">
+      <div class="pv-content">
+        <div class="pv-eyebrow">NLP · LLM · Análise de Sentimento</div>
+        <div class="pv-h1">Análise de Reviews com NLP + LLM</div>
 
-      <!-- BUTTONS BELOW TITLE -->
-      <div class="pv-action-btns">
-        <a class="pv-test-btn" href="https://huggingface.co/spaces/LucasDS9/nlp-product-review-analysis" target="_blank">🚀 Testar no HuggingFace</a>
-      </div>
+        <div class="pv-action-btns">
+          <a class="pv-test-btn" href="https://huggingface.co/spaces/LucasDS9/nlp-product-review-analysis" target="_blank">🚀 Testar no HuggingFace</a>
+        </div>
 
-      <div class="pv-tags">
-        <span class="pv-tag">spaCy</span><span class="pv-tag">TF-IDF</span><span class="pv-tag">Word2Vec</span><span class="pv-tag">Qwen 0.5B</span><span class="pv-tag">Prompt Eng.</span><span class="pv-tag">Python</span>
-      </div>
+        <div class="pv-section">
+          <div class="pv-section-label">Sobre o projeto</div>
+          <p class="pv-p">Transforma milhares de avaliações de clientes em inteligência de produto automaticamente. Analisa sentimento, extrai palavras-chave e gera resumos executivos por produto usando NLP clássico e modelos de linguagem.</p>
+          <p class="pv-p">Empresas com catálogos de centenas de produtos recebem milhares de reviews diariamente — ler manualmente é inviável. Este pipeline transforma texto bruto em inteligência estruturada: sentimento por produto, tendências emergentes e resumos executivos gerados por LLM, prontos para decisão sem intervenção humana.</p>
+        </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Sobre o projeto</div>
-        <p class="pv-p">Transforma milhares de avaliações de clientes em inteligência de produto automaticamente. Analisa sentimento, extrai palavras-chave e gera resumos executivos por produto usando NLP clássico e modelos de linguagem.</p>
-        <p class="pv-p">Empresas com catálogos de centenas de produtos recebem milhares de reviews diariamente — ler manualmente é inviável. Este pipeline transforma texto bruto em inteligência estruturada: sentimento por produto, tendências emergentes e resumos executivos gerados por LLM, prontos para decisão sem intervenção humana.</p>
-      </div>
+        <div class="pv-section">
+          <div class="pv-section-label">Resultado prático</div>
+          <div class="pv-result">
+            <div class="pv-result-lbl">📌 Impacto</div>
+            <p>Elimina análise manual de reviews. Entrega sentimento, tendências e recomendações prontas para decisão. E-commerce monitora reputação de produtos em tempo real. Times de produto identificam o que clientes valorizam e o que gera reclamação. Marketing extrai atributos associados a avaliações positivas para usar em campanhas.</p>
+          </div>
+        </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Resultado prático</div>
-        <div class="pv-result">
-          <div class="pv-result-lbl">📌 Impacto</div>
-          <p>Elimina análise manual de reviews. Entrega sentimento, tendências e recomendações prontas para decisão. E-commerce monitora reputação de produtos em tempo real. Times de produto identificam o que clientes valorizam e o que gera reclamação. Marketing extrai atributos associados a avaliações positivas para usar em campanhas.</p>
+        <div class="pv-section">
+          <div class="pv-section-label">Output gerado automaticamente — Produto B0013NUGDE</div>
+          <div class="nlp-c">
+            <div class="nlp-c-t">🇺🇸 Resultado — Snack de Batata · B0013NUGDE</div>
+            <div class="m-row"><span>Score médio</span><span class="v">3,96 / 5</span></div>
+            <div class="m-row"><span>Sentimento positivo</span><span class="vg">71,43%</span></div>
+            <div class="m-row"><span>Sentimento neutro</span><span class="v">9,09%</span></div>
+            <div class="m-row"><span>Sentimento negativo</span><span style="color:#e74c3c;font-weight:500;">19,48%</span></div>
+            <div style="margin-top:10px;font-size:12.5px;color:#bbb;">Top palavras: <strong style="color:#f0f0f0">chip, sabor, gosto, saco, batata, amor, bom, crocante</strong></div>
+            <div style="margin-top:7px;font-size:12px;color:#888;font-style:italic;line-height:1.6;">Produto bem aceito pelo mercado, com destaque para sabor e textura. Variações de qualidade entre lotes são o principal ponto de atenção.</div>
+          </div>
+
+          <div class="agent-summary" style="margin-top:12px;">
+            <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
+            <p>Snack de batata com <strong style="color:#f0f0f0">nota média 3,96/5</strong> e 71,4% de avaliações positivas. Pontos fortes: sabor variado (BBQ, sal e vinagre), textura crocante e apelo saudável frente a chips fritos. <strong style="color:#ddd">Principais riscos:</strong> alto teor de sódio, variação de qualidade entre lotes e sabor polarizador — alguns consumidores amam os mesmos sabores que outros rejeitam. Recomendação: priorizar consistência de qualidade, investir em pesquisa de preferências e fortalecer estratégias de marketing para manter competitividade no mercado de snacks.</p>
+          </div>
         </div>
       </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Como foi feito</div>
-        <div class="pv-tools">
-          <div class="pv-tool"><div class="pv-tool-name">spaCy</div><div class="pv-tool-desc">Biblioteca de processamento de linguagem natural — usada para limpeza, tokenização e extração de entidades relevantes.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">TF-IDF</div><div class="pv-tool-desc">Técnica que mede a importância de uma palavra dentro de um documento comparado ao conjunto inteiro — identifica o que é realmente relevante em cada avaliação.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Word2Vec</div><div class="pv-tool-desc">Modelo que aprende associações entre palavras — permite entender que "gostoso" e "saboroso" têm significados parecidos sem ser programado para isso.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Qwen 0.5B + Prompt Eng.</div><div class="pv-tool-desc">Modelo de linguagem para gerar os resumos executivos. O prompt engineering garante que a saída seja estruturada e relevante para negócios.</div></div>
+      <!-- RIGHT SIDEBAR -->
+      <div class="pv-sidebar">
+        <div class="pvs-block">
+          <div class="pvs-label">Stack utilizada</div>
+          <div class="pvs-tags">
+            <span class="pvs-tag">spaCy</span><span class="pvs-tag">TF-IDF</span><span class="pvs-tag">Word2Vec</span><span class="pvs-tag">Qwen 0.5B</span><span class="pvs-tag">Prompt Eng.</span><span class="pvs-tag">Python</span>
+          </div>
         </div>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Output gerado automaticamente — Produto B0013NUGDE</div>
-        <div class="nlp-c">
-          <div class="nlp-c-t">🇺🇸 Resultado — Snack de Batata · B0013NUGDE</div>
-          <div class="m-row"><span>Score médio</span><span class="v">3,96 / 5</span></div>
-          <div class="m-row"><span>Sentimento positivo</span><span class="vg">71,43%</span></div>
-          <div class="m-row"><span>Sentimento neutro</span><span class="v">9,09%</span></div>
-          <div class="m-row"><span>Sentimento negativo</span><span style="color:#e74c3c;font-weight:500;">19,48%</span></div>
-          <div style="margin-top:10px;font-size:12.5px;color:#bbb;">Top palavras: <strong style="color:#f0f0f0">chip, sabor, gosto, saco, batata, amor, bom, crocante</strong></div>
-          <div style="margin-top:7px;font-size:12px;color:#888;font-style:italic;line-height:1.6;">Produto bem aceito pelo mercado, com destaque para sabor e textura. Variações de qualidade entre lotes são o principal ponto de atenção.</div>
+        <div class="pvs-block">
+          <div class="pvs-label">Escala do projeto</div>
+          <div class="pvs-stats-grid">
+            <div class="pvs-stat"><div class="pvs-stat-val green">71,4%</div><div class="pvs-stat-lbl">Sentimento +</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">3,96</div><div class="pvs-stat-lbl">Score médio</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">∞</div><div class="pvs-stat-lbl">Reviews/run</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">0</div><div class="pvs-stat-lbl">Leituras manuais</div></div>
+          </div>
         </div>
-
-        <div class="agent-summary" style="margin-top:12px;">
-          <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
-          <p>Snack de batata com <strong style="color:#f0f0f0">nota média 3,96/5</strong> e 71,4% de avaliações positivas. Pontos fortes: sabor variado (BBQ, sal e vinagre), textura crocante e apelo saudável frente a chips fritos. <strong style="color:#ddd">Principais riscos:</strong> alto teor de sódio, variação de qualidade entre lotes e sabor polarizador — alguns consumidores amam os mesmos sabores que outros rejeitam. Recomendação: priorizar consistência de qualidade, investir em pesquisa de preferências e fortalecer estratégias de marketing para manter competitividade no mercado de snacks.</p>
+        <div class="pvs-block">
+          <div class="pvs-label">Como foi feito</div>
+          <div class="pvs-tool"><div class="pvs-tool-name">spaCy</div><div class="pvs-tool-desc">Limpeza, tokenização e extração de entidades relevantes do texto bruto.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">TF-IDF</div><div class="pvs-tool-desc">Identifica o peso real de cada palavra dentro do conjunto de avaliações.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Word2Vec</div><div class="pvs-tool-desc">Aprende associações semânticas entre palavras sem programação explícita.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Qwen 0.5B</div><div class="pvs-tool-desc">LLM local para geração de resumos executivos estruturados via prompt engineering.</div></div>
         </div>
       </div>
     </div>
   </div>
 
 
-  <!-- ══ PROJECT VIEW: POWER BI ══ -->
+  <!-- ══ PROJECT VIEW: POWER BI + SQL ══ -->
   <div class="project-view" id="proj-pbi">
     <div class="pv-topbar">
       <button class="pv-back" onclick="closeProject()">← Voltar</button>
-      <span class="pv-topbar-title">Dashboard de Vendas — Power BI</span>
+      <span class="pv-topbar-title">Análise de Vendas — Dashboard &amp; SQL</span>
     </div>
-    <div class="pv-content">
-      <div class="pv-eyebrow">Business Intelligence · Data Visualization</div>
-      <div class="pv-h1">Dashboard de Vendas — Power BI</div>
+    <div class="pv-body">
+      <div class="pv-content">
+        <div class="pv-eyebrow">Business Intelligence · SQL Analysis · Data Visualization</div>
+        <div class="pv-h1">Análise de Vendas — Dashboard &amp; SQL</div>
 
-      <!-- BUTTONS BELOW TITLE -->
-      <div class="pv-action-btns">
-        <a class="pv-test-btn" href="https://app.powerbi.com/view?r=eyJrIjoiMzg5MGM2OGMtY2NhMy00MWFhLWE4YzctMGJkNTdjZTVhNDk0IiwidCI6ImUyZjc3ZDAwLTAxNjMtNGNmNi05MmIwLTQ4NGJhZmY5ZGY3ZCJ9" target="_blank">🚀 Ver dashboard</a>
-      </div>
+        <div class="pv-action-btns">
+          <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Sales_analysis-powerBI/blob/main/SQL.ipynb" target="_blank">🗄️ SQL Analysis</a>
+          <a class="pv-test-btn" href="https://app.powerbi.com/view?r=eyJrIjoiMzg5MGM2OGMtY2NhMy00MWFhLWE4YzctMGJkNTdjZTVhNDk0IiwidCI6ImUyZjc3ZDAwLTAxNjMtNGNmNi05MmIwLTQ4NGJhZmY5ZGY3ZCJ9" target="_blank">📊 Ver dashboard</a>
+        </div>
 
-      <div class="pv-tags">
-        <span class="pv-tag">Power BI</span><span class="pv-tag">DAX</span><span class="pv-tag">Power Query</span><span class="pv-tag">Excel</span><span class="pv-tag">Data Viz</span>
-      </div>
+        <div class="pv-section">
+          <div class="pv-section-label">Sobre o projeto</div>
+          <p class="pv-p">Projeto dual de análise de vendas: um dashboard executivo interativo no Power BI e uma análise SQL completa em Python via SQLAlchemy e Pandas. Os dois lados se complementam — o dashboard entrega visão rápida para gestores, enquanto a análise SQL aprofunda os dados com queries analíticas e gráficos gerados diretamente do banco.</p>
+          <p class="pv-p">O componente SQL utiliza SQLAlchemy para conectar ao banco de dados e executar queries analíticas diretamente em Python. As análises incluem ranking de produtos e marcas, variação de receita por período, comparativo de faturamento vs. gastos e cálculo de margem — todas com visualizações geradas em Matplotlib e Seaborn, tornando os resultados prontos para apresentação sem depender do Power BI.</p>
+          <p class="pv-p">O dashboard Power BI consolida 247 mil transações em painel dinâmico filtrado por período, região e categoria — qualquer stakeholder extrai respostas sem depender de um analista, enquanto os notebooks SQL permitem análises customizadas e reproduzíveis para times técnicos.</p>
+        </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Sobre o projeto</div>
-        <p class="pv-p">Dashboard interativo de vendas com visão geral por produto, região e marca. Consolida dados de 247 mil transações com análise de faturamento, receita, gastos e lucro em painel dinâmico filtrado por período.</p>
-        <p class="pv-p">Relatórios manuais em Excel são lentos, propensos a erro e não respondem perguntas de negócio em tempo real. Este dashboard transforma 247 mil registros em visão executiva interativa — qualquer stakeholder filtra por período, região ou categoria e obtém a resposta sem depender de um analista.</p>
-      </div>
+        <div class="pv-section">
+          <div class="pv-section-label">Resultado prático</div>
+          <div class="pv-result">
+            <div class="pv-result-lbl">📌 Impacto</div>
+            <p>Visão executiva em tempo real e análises SQL reproduzíveis. Decisões de produto, região e mix de marcas com base em dados. Gestão comercial acompanha faturamento e margem sem relatórios manuais. Times técnicos executam queries customizadas e geram gráficos diretamente do banco. Alta gestão tem painel consolidado para decisões estratégicas com drill-down completo.</p>
+          </div>
+        </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Resultado prático</div>
-        <div class="pv-result">
-          <div class="pv-result-lbl">📌 Impacto</div>
-          <p>Visão executiva em tempo real — decisões de produto, região e mix de marcas com base em dados. Gestão comercial acompanha faturamento e margem por período sem relatórios manuais. Times de produto identificam quais linhas e marcas puxam volume. Alta gestão tem painel consolidado para decisões estratégicas com drill-down completo.</p>
+        <div class="pv-section">
+          <div class="pv-section-label">Visão geral do dashboard — dados reais</div>
+          <div class="pbi-preview">
+            <div class="pbi-header">📊 Visão geral de vendas · 2022–2025</div>
+            <div class="pbi-kpis" style="border-bottom:1px solid #222;">
+              <div class="pbi-kpi"><div class="pbi-kpi-label">Qtd. vendida</div><div class="pbi-kpi-val">247.355</div></div>
+              <div class="pbi-kpi"><div class="pbi-kpi-label">Faturamento</div><div class="pbi-kpi-val">R$ 97,8 Mi</div></div>
+              <div class="pbi-kpi"><div class="pbi-kpi-label">Lucro %</div><div class="pbi-kpi-val green">32,68%</div></div>
+            </div>
+            <div class="pbi-kpis" style="border-bottom:1px solid #222;">
+              <div class="pbi-kpi"><div class="pbi-kpi-label">Receita total</div><div class="pbi-kpi-val">R$ 299 Mi</div></div>
+              <div class="pbi-kpi"><div class="pbi-kpi-label">Gastos</div><div class="pbi-kpi-val">R$ 201 Mi</div></div>
+              <div class="pbi-kpi"><div class="pbi-kpi-label">Ticket médio</div><div class="pbi-kpi-val">R$ 19.560</div></div>
+            </div>
+            <div class="pbi-charts">
+              <div class="pbi-chart">
+                <div class="pbi-chart-title">Produtos mais vendidos</div>
+                <div class="mini-bar"><span class="mini-bar-label">Produto_47</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:100%"></div></div><span class="mini-bar-val">6,8 Mil</span></div>
+                <div class="mini-bar"><span class="mini-bar-label">Produto_28</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:97%"></div></div><span class="mini-bar-val">6,6 Mil</span></div>
+                <div class="mini-bar"><span class="mini-bar-label">Produto_21</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:97%"></div></div><span class="mini-bar-val">6,6 Mil</span></div>
+                <div class="mini-bar"><span class="mini-bar-label">Produto_34</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:93%"></div></div><span class="mini-bar-val">6,3 Mil</span></div>
+                <div class="mini-bar"><span class="mini-bar-label">Produto_25</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:90%"></div></div><span class="mini-bar-val">6,1 Mil</span></div>
+              </div>
+              <div class="pbi-chart">
+                <div class="pbi-chart-title">Marcas mais vendidas</div>
+                <div class="mini-bar"><span class="mini-bar-label">marca_7</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:100%"></div></div><span class="mini-bar-val">36 Mil</span></div>
+                <div class="mini-bar"><span class="mini-bar-label">marca_5</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:88%"></div></div><span class="mini-bar-val">32 Mil</span></div>
+                <div class="mini-bar"><span class="mini-bar-label">marca_8</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:80%"></div></div><span class="mini-bar-val">29 Mil</span></div>
+                <div class="mini-bar"><span class="mini-bar-label">marca_3</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:77%"></div></div><span class="mini-bar-val">28 Mil</span></div>
+                <div class="mini-bar"><span class="mini-bar-label">marca_2</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:69%"></div></div><span class="mini-bar-val">25 Mil</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SQL ANALYSIS PREVIEW -->
+          <div class="sql-preview">
+            <div class="sql-header">🗄️ SQL Analysis em Python — exemplos de queries</div>
+            <div class="sql-block">
+              <div class="sql-block-label">Top 5 produtos por receita</div>
+              <div class="sql-code">SELECT product_id, SUM(revenue) AS total_revenue
+FROM sales
+GROUP BY product_id
+ORDER BY total_revenue DESC
+LIMIT 5;</div>
+              <div class="sql-result-note">→ Gráfico de barras gerado com Matplotlib — ranking visual direto do banco, sem exportar para Excel.</div>
+            </div>
+            <div class="sql-block">
+              <div class="sql-block-label">Margem de lucro por marca</div>
+              <div class="sql-code">SELECT brand,
+  ROUND(AVG((revenue - cost) / revenue * 100), 2) AS margin_pct
+FROM sales
+GROUP BY brand
+ORDER BY margin_pct DESC;</div>
+              <div class="sql-result-note">→ Visualizado com Seaborn — comparativo de margem entre marcas com uma única query.</div>
+            </div>
+            <div class="sql-block">
+              <div class="sql-block-label">Evolução mensal de faturamento</div>
+              <div class="sql-code">SELECT DATE_TRUNC('month', sale_date) AS month,
+  SUM(revenue) AS monthly_revenue
+FROM sales
+GROUP BY month ORDER BY month;</div>
+              <div class="sql-result-note">→ Série temporal plotada com Pandas + Matplotlib — tendência de crescimento ao longo de 2022–2025.</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Como foi feito</div>
-        <div class="pv-tools">
-          <div class="pv-tool"><div class="pv-tool-name">Power BI</div><div class="pv-tool-desc">Plataforma de Business Intelligence para criação de dashboards interativos e visuais dinâmicos conectados aos dados.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">DAX</div><div class="pv-tool-desc">Linguagem de fórmulas do Power BI — usada para criar medidas como lucro %, ticket médio e receita líquida que respondem dinamicamente aos filtros.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Power Query</div><div class="pv-tool-desc">Motor de ETL integrado ao Power BI — automatiza a limpeza, transformação e integração dos dados brutos sem código manual.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Excel</div><div class="pv-tool-desc">Utilizado na etapa inicial de preparação dos dados — limpeza de inconsistências e padronização antes da ingestão no Power BI.</div></div>
+      <!-- RIGHT SIDEBAR -->
+      <div class="pv-sidebar">
+        <div class="pvs-block">
+          <div class="pvs-label">Stack utilizada</div>
+          <div class="pvs-tags">
+            <span class="pvs-tag">Power BI</span><span class="pvs-tag">DAX</span><span class="pvs-tag">Power Query</span><span class="pvs-tag">SQLAlchemy</span><span class="pvs-tag">Pandas</span><span class="pvs-tag">Matplotlib</span><span class="pvs-tag">Seaborn</span><span class="pvs-tag">Excel</span>
+          </div>
         </div>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Visão geral do dashboard — dados reais</div>
-        <div class="pbi-preview">
-          <div class="pbi-header">📊 Visão geral de vendas · 2022–2025</div>
-          <div class="pbi-kpis" style="border-bottom:1px solid #222;">
-            <div class="pbi-kpi"><div class="pbi-kpi-label">Qtd. vendida</div><div class="pbi-kpi-val">247.355</div></div>
-            <div class="pbi-kpi"><div class="pbi-kpi-label">Faturamento</div><div class="pbi-kpi-val">R$ 97,8 Mi</div></div>
-            <div class="pbi-kpi"><div class="pbi-kpi-label">Lucro %</div><div class="pbi-kpi-val green">32,68%</div></div>
+        <div class="pvs-block">
+          <div class="pvs-label">Escala dos dados</div>
+          <div class="pvs-stats-grid">
+            <div class="pvs-stat"><div class="pvs-stat-val">247 Mil</div><div class="pvs-stat-lbl">Transações</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val green">32,7%</div><div class="pvs-stat-lbl">Lucro %</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">R$299Mi</div><div class="pvs-stat-lbl">Receita total</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">4 anos</div><div class="pvs-stat-lbl">Período</div></div>
           </div>
-          <div class="pbi-kpis" style="border-bottom:1px solid #222;">
-            <div class="pbi-kpi"><div class="pbi-kpi-label">Receita total</div><div class="pbi-kpi-val">R$ 299 Mi</div></div>
-            <div class="pbi-kpi"><div class="pbi-kpi-label">Gastos</div><div class="pbi-kpi-val">R$ 201 Mi</div></div>
-            <div class="pbi-kpi"><div class="pbi-kpi-label">Ticket médio</div><div class="pbi-kpi-val">R$ 19.560</div></div>
-          </div>
-          <div class="pbi-charts">
-            <div class="pbi-chart">
-              <div class="pbi-chart-title">Produtos mais vendidos</div>
-              <div class="mini-bar"><span class="mini-bar-label">Produto_47</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:100%"></div></div><span class="mini-bar-val">6,8 Mil</span></div>
-              <div class="mini-bar"><span class="mini-bar-label">Produto_28</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:97%"></div></div><span class="mini-bar-val">6,6 Mil</span></div>
-              <div class="mini-bar"><span class="mini-bar-label">Produto_21</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:97%"></div></div><span class="mini-bar-val">6,6 Mil</span></div>
-              <div class="mini-bar"><span class="mini-bar-label">Produto_34</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:93%"></div></div><span class="mini-bar-val">6,3 Mil</span></div>
-              <div class="mini-bar"><span class="mini-bar-label">Produto_25</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:90%"></div></div><span class="mini-bar-val">6,1 Mil</span></div>
-            </div>
-            <div class="pbi-chart">
-              <div class="pbi-chart-title">Marcas mais vendidas</div>
-              <div class="mini-bar"><span class="mini-bar-label">marca_7</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:100%"></div></div><span class="mini-bar-val">36 Mil</span></div>
-              <div class="mini-bar"><span class="mini-bar-label">marca_5</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:88%"></div></div><span class="mini-bar-val">32 Mil</span></div>
-              <div class="mini-bar"><span class="mini-bar-label">marca_8</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:80%"></div></div><span class="mini-bar-val">29 Mil</span></div>
-              <div class="mini-bar"><span class="mini-bar-label">marca_3</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:77%"></div></div><span class="mini-bar-val">28 Mil</span></div>
-              <div class="mini-bar"><span class="mini-bar-label">marca_2</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:69%"></div></div><span class="mini-bar-val">25 Mil</span></div>
-            </div>
-          </div>
+        </div>
+        <div class="pvs-block">
+          <div class="pvs-label">Como foi feito</div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Power BI + DAX</div><div class="pvs-tool-desc">Dashboard interativo com medidas dinâmicas de lucro, ticket médio e receita líquida respondendo aos filtros.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">SQLAlchemy</div><div class="pvs-tool-desc">Conexão ao banco de dados em Python — executa queries analíticas diretamente sem exportar dados manualmente.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Pandas</div><div class="pvs-tool-desc">Manipulação dos resultados SQL — transforma os retornos das queries em DataFrames prontos para análise e visualização.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Matplotlib + Seaborn</div><div class="pvs-tool-desc">Gráficos gerados diretamente do Python — rankings, séries temporais e comparativos de margem sem depender do BI.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Power Query</div><div class="pvs-tool-desc">ETL integrado ao Power BI — limpeza e transformação automática dos dados brutos antes da ingestão.</div></div>
         </div>
       </div>
     </div>
@@ -559,86 +669,104 @@
       <button class="pv-back" onclick="closeProject()">← Voltar</button>
       <span class="pv-topbar-title">Aprovação de Crédito com ML</span>
     </div>
-    <div class="pv-content">
-      <div class="pv-eyebrow">Machine Learning · Classificação + Regressão</div>
-      <div class="pv-h1">Aprovação de Crédito com ML</div>
+    <div class="pv-body">
+      <div class="pv-content">
+        <div class="pv-eyebrow">Machine Learning · Classificação + Regressão</div>
+        <div class="pv-h1">Aprovação de Crédito com ML</div>
 
-      <!-- BUTTONS BELOW TITLE -->
-      <div class="pv-action-btns">
-        <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Loan_approval-project/blob/main/notebooks/loan_full_project.ipynb" target="_blank">📓 Notebook</a>
-        <a class="pv-test-btn" href="https://loan-approval-project-yyfi.onrender.com" target="_blank">🚀 Testar o modelo</a>
-      </div>
-
-      <div class="pv-tags">
-        <span class="pv-tag">Python</span><span class="pv-tag">Scikit-learn</span><span class="pv-tag">RandomForest</span><span class="pv-tag">Regressão Linear</span><span class="pv-tag">Pandas</span><span class="pv-tag">Matplotlib</span>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Sobre o projeto</div>
-        <p class="pv-p">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</p>
-        <p class="pv-p">Decisões de crédito mal calibradas custam bilhões anualmente em inadimplência ou em clientes bons que são negados injustamente. Este projeto substitui intuição por predição quantitativa — dois modelos em pipeline: um classificador para aprovar ou negar, e um regressor para calcular a taxa proporcional ao risco real de cada perfil.</p>
-      </div>
-
-      <div class="pv-section">
-        <div class="pv-section-label">Resultado prático</div>
-        <div class="pv-result">
-          <div class="pv-result-lbl">📌 Impacto</div>
-          <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão. Bancos e fintechs automatizam análises que dependem de analistas humanos. Cooperativas oferecem taxas personalizadas e justas por perfil. Empresas de empréstimo escalam operações com decisões consistentes e auditáveis.</p>
+        <div class="pv-action-btns">
+          <a class="pv-notebook-btn" href="https://github.com/LucasDS9/Loan_approval-project/blob/main/notebooks/loan_full_project.ipynb" target="_blank">📓 Notebook</a>
+          <a class="pv-test-btn" href="https://loan-approval-project-yyfi.onrender.com" target="_blank">🚀 Testar o modelo</a>
         </div>
-      </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Como foi feito</div>
-        <div class="pv-tools">
-          <div class="pv-tool"><div class="pv-tool-name">Python + Scikit-learn</div><div class="pv-tool-desc">Biblioteca principal de Machine Learning — usada para treinar, avaliar e comparar os modelos de classificação e regressão.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Random Forest</div><div class="pv-tool-desc">Algoritmo baseado em múltiplas árvores de decisão. Combinar várias árvores aumenta a precisão e reduz erros de generalização.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">FastAPI</div><div class="pv-tool-desc">API REST para servir o modelo em produção — recebe os dados do cliente e retorna a decisão de aprovação + taxa calculada em tempo real.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Pandas</div><div class="pv-tool-desc">Manipulação e limpeza de dados em tabelas — equivalente a um Excel programável e muito mais poderoso.</div></div>
-          <div class="pv-tool"><div class="pv-tool-name">Matplotlib</div><div class="pv-tool-desc">Biblioteca de visualização — usada para gerar gráficos de análise e interpretação dos resultados do modelo.</div></div>
+        <div class="pv-section">
+          <div class="pv-section-label">Sobre o projeto</div>
+          <p class="pv-p">Automatiza decisões de concessão de empréstimos bancários e calcula a taxa de juros ideal para cada perfil de cliente. Combina um classificador de aprovação com um modelo de regressão para precificação de risco.</p>
+          <p class="pv-p">Decisões de crédito mal calibradas custam bilhões anualmente em inadimplência ou em clientes bons que são negados injustamente. Este projeto substitui intuição por predição quantitativa — dois modelos em pipeline: um classificador para aprovar ou negar, e um regressor para calcular a taxa proporcional ao risco real de cada perfil.</p>
         </div>
-      </div>
 
-      <div class="pv-section">
-        <div class="pv-section-label">Simulação de caso real — perfil analisado</div>
-
-        <div class="cases-grid" style="margin-bottom:14px;">
-          <div class="c-card approved">
-            <div class="c-badge approved">✓ Aprovado</div>
-            <div class="c-row"><span>Perfil</span><span>Mulher, 25 anos</span></div>
-            <div class="c-row"><span>Ocupação</span><span>Autônoma</span></div>
-            <div class="c-row"><span>Salário</span><span>R$ 5.000</span></div>
-            <div class="c-row"><span>Gastos mensais</span><span>R$ 1.400 (28%)</span></div>
-            <div class="c-row"><span>Score de crédito</span><span>700</span></div>
-            <div class="c-row"><span>Inadimplências</span><span style="color:#3ecf8e">Nenhuma</span></div>
-            <div class="c-row"><span>Empréstimos ativos</span><span>1</span></div>
-            <div class="c-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
-            <div class="c-row"><span>Prazo</span><span>36 meses</span></div>
+        <div class="pv-section">
+          <div class="pv-section-label">Resultado prático</div>
+          <div class="pv-result">
+            <div class="pv-result-lbl">📌 Impacto</div>
+            <p>Reduz risco de inadimplência e acelera aprovações. Substitui intuição por decisão baseada em dados, com transparência total sobre os fatores de cada decisão. Bancos e fintechs automatizam análises que dependem de analistas humanos. Cooperativas oferecem taxas personalizadas e justas por perfil. Empresas de empréstimo escalam operações com decisões consistentes e auditáveis.</p>
           </div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div class="approve-b" style="flex:1;">
+        </div>
+
+        <div class="pv-section">
+          <div class="pv-section-label">Simulação de caso real — perfil analisado</div>
+
+          <div class="cases-grid" style="margin-bottom:14px;">
+            <div class="c-card approved">
+              <div class="c-badge approved">✓ Aprovado</div>
+              <div class="c-row"><span>Perfil</span><span>Mulher, 25 anos</span></div>
+              <div class="c-row"><span>Ocupação</span><span>Autônoma</span></div>
+              <div class="c-row"><span>Salário</span><span>R$ 5.000</span></div>
+              <div class="c-row"><span>Gastos mensais</span><span>R$ 1.400 (28%)</span></div>
+              <div class="c-row"><span>Score de crédito</span><span>700</span></div>
+              <div class="c-row"><span>Inadimplências</span><span style="color:#3ecf8e">Nenhuma</span></div>
+              <div class="c-row"><span>Empréstimos ativos</span><span>1</span></div>
+              <div class="c-row"><span>Valor solicitado</span><span>R$ 10.000</span></div>
+              <div class="c-row"><span>Prazo</span><span>36 meses</span></div>
+            </div>
+            <div class="approve-b">
               <div class="approve-b-t">Taxa calculada pelo modelo</div>
               <div class="approve-vals">
                 <div class="a-val"><div class="n">15,23%</div><div class="l">Taxa total</div></div>
                 <div class="a-val"><div class="n">R$ 320,09</div><div class="l">Parcela/mês</div></div>
                 <div class="a-val"><div class="n">28,0%</div><div class="l">Comprometimento</div></div>
               </div>
-              <div style="text-align:center;margin-top:10px;font-size:12px;color:#888;">Total em 36 meses: <strong style="color:#3ecf8e">R$ 11.523,24</strong></div>
+              <div class="approve-divider"></div>
+              <div class="approve-schedule">
+                <div class="approve-schedule-row"><span>Valor solicitado</span><span>R$ 10.000,00</span></div>
+                <div class="approve-schedule-row"><span>Total de juros</span><span>R$ 1.523,24</span></div>
+                <div class="approve-schedule-row"><span>Total a pagar</span><span>R$ 11.523,24</span></div>
+                <div class="approve-schedule-row"><span>Custo efetivo mensal</span><span>0,42% a.m.</span></div>
+                <div class="approve-schedule-row"><span>Risco estimado</span><span style="color:#3ecf8e">Baixo</span></div>
+                <div class="approve-schedule-row"><span>Nível de confiança</span><span style="color:#3ecf8e">94,1%</span></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="agent-summary">
-          <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
-          <p><strong style="color:#3ecf8e">Crédito aprovado.</strong> Perfil de baixo risco: score 700, sem inadimplências anteriores e comprometimento de renda controlado (28%). Taxa total de 15,23% sobre 36 meses, com parcela mensal de R$ 320,09 e total pago de R$ 11.523,24. Para reduzir a taxa, é possível oferecer garantia ou avalista. Recomenda-se comparar ofertas de diferentes instituições — a taxa oferecida é competitiva para o perfil.</p>
-        </div>
+          <div class="agent-summary">
+            <div class="agent-summary-label">🤖 Análise do agente — resumo</div>
+            <p><strong style="color:#3ecf8e">Crédito aprovado.</strong> Perfil de baixo risco: score 700, sem inadimplências anteriores e comprometimento de renda controlado (28%). Taxa total de 15,23% sobre 36 meses, com parcela mensal de R$ 320,09 e total pago de R$ 11.523,24. Para reduzir a taxa, é possível oferecer garantia ou avalista. Recomenda-se comparar ofertas de diferentes instituições — a taxa oferecida é competitiva para o perfil.</p>
+          </div>
 
-        <div style="margin-top:16px;">
-          <div class="pv-section-label" style="margin-bottom:10px;">O que mais influencia a decisão</div>
-          <div class="feat-row"><span class="feat-lbl">Score de crédito</span><div class="feat-track"><div class="feat-fill" style="width:70.6%"></div></div><span class="feat-pct">35.3%</span></div>
-          <div class="feat-row"><span class="feat-lbl">Comprometimento de renda</span><div class="feat-track"><div class="feat-fill" style="width:45.6%"></div></div><span class="feat-pct">22.8%</span></div>
-          <div class="feat-row"><span class="feat-lbl">Tipo de emprego</span><div class="feat-track"><div class="feat-fill" style="width:41.2%"></div></div><span class="feat-pct">20.6%</span></div>
-          <div class="feat-row"><span class="feat-lbl">Salário</span><div class="feat-track"><div class="feat-fill" style="width:21.4%"></div></div><span class="feat-pct">10.7%</span></div>
-          <div class="feat-row"><span class="feat-lbl">Idade</span><div class="feat-track"><div class="feat-fill" style="width:21.2%"></div></div><span class="feat-pct">10.6%</span></div>
+          <div style="margin-top:16px;">
+            <div class="pv-section-label" style="margin-bottom:10px;">O que mais influencia a decisão</div>
+            <div class="feat-row"><span class="feat-lbl">Score de crédito</span><div class="feat-track"><div class="feat-fill" style="width:70.6%"></div></div><span class="feat-pct">35.3%</span></div>
+            <div class="feat-row"><span class="feat-lbl">Comprometimento de renda</span><div class="feat-track"><div class="feat-fill" style="width:45.6%"></div></div><span class="feat-pct">22.8%</span></div>
+            <div class="feat-row"><span class="feat-lbl">Tipo de emprego</span><div class="feat-track"><div class="feat-fill" style="width:41.2%"></div></div><span class="feat-pct">20.6%</span></div>
+            <div class="feat-row"><span class="feat-lbl">Salário</span><div class="feat-track"><div class="feat-fill" style="width:21.4%"></div></div><span class="feat-pct">10.7%</span></div>
+            <div class="feat-row"><span class="feat-lbl">Idade</span><div class="feat-track"><div class="feat-fill" style="width:21.2%"></div></div><span class="feat-pct">10.6%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <div class="pv-sidebar">
+        <div class="pvs-block">
+          <div class="pvs-label">Stack utilizada</div>
+          <div class="pvs-tags">
+            <span class="pvs-tag">Python</span><span class="pvs-tag">Scikit-learn</span><span class="pvs-tag">RandomForest</span><span class="pvs-tag">Regressão Linear</span><span class="pvs-tag">FastAPI</span><span class="pvs-tag">Pandas</span><span class="pvs-tag">Matplotlib</span>
+          </div>
+        </div>
+        <div class="pvs-block">
+          <div class="pvs-label">Métricas do modelo</div>
+          <div class="pvs-stats-grid">
+            <div class="pvs-stat"><div class="pvs-stat-val green">94%</div><div class="pvs-stat-lbl">Acurácia</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val green">92%</div><div class="pvs-stat-lbl">Precisão</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">2</div><div class="pvs-stat-lbl">Modelos em pipeline</div></div>
+            <div class="pvs-stat"><div class="pvs-stat-val">Live</div><div class="pvs-stat-lbl">Deploy</div></div>
+          </div>
+        </div>
+        <div class="pvs-block">
+          <div class="pvs-label">Como foi feito</div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Random Forest</div><div class="pvs-tool-desc">Ensemble de árvores de decisão — alta precisão na classificação de aprovação/negação de crédito.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Regressão Linear</div><div class="pvs-tool-desc">Calcula a taxa de juros proporcional ao risco real de cada perfil após a aprovação.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">FastAPI</div><div class="pvs-tool-desc">API REST em produção — recebe dados do cliente e retorna decisão + taxa em tempo real.</div></div>
+          <div class="pvs-tool"><div class="pvs-tool-name">Pandas + Matplotlib</div><div class="pvs-tool-desc">Manipulação de dados e visualização dos resultados do modelo durante a análise exploratória.</div></div>
         </div>
       </div>
     </div>
